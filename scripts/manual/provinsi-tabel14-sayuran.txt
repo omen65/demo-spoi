@@ -1,0 +1,42 @@
+# Transkripsi manual SPOI 2023, hlm. 80, Tabel 14 Sayuran Organik (dibaca dari render halaman).
+# Format: Provinsi | 2019 | 2020 | 2021 | 2022. Satu kolom: produksi (ton). "0" = nol. "." = kosong. Koma = desimal.
+# komoditas: sayuran
+# kolom: produksi
+Aceh | 0 | 0 | 100 | 100
+Sumatera Utara | 136,256 | 342,738 | 2500,267 | 548,467
+Sumatera Barat | 1,132 | 2,139 | 3,821 | 3,807
+Riau | 0 | 0 | 0 | 0
+Jambi | 0 | 1 | 1 | 23
+Sumatera Selatan | 0 | 0 | 0 | 0
+Bengkulu | 0 | 0 | 0 | 0
+Lampung | 2,215 | 1,82 | 0,275 | 0,275
+Bangka Belitung | 0 | 0 | 0 | 2
+Kepulauan Riau | 0 | 0 | 0 | 0
+DKI Jakarta | 4,2 | 10,075 | 10,075 | 6,025
+Jawa Barat | 865,257 | 928,397 | 1091,04 | 1142,69
+Jawa Tengah | 955,765 | 507,39 | 203,636 | 225,031
+DI Yogyakarta | 94,48 | 166,1 | 140,942 | 140,942
+Jawa Timur | 1828,439 | 639,362 | 1188,106 | 491,738
+Banten | 4,5 | 4,5 | 2,5 | 0
+Bali | 29,28 | 35,52 | 29,02 | 19,116
+Nusa Tenggara Barat | 0 | 0 | 0 | 0
+Nusa Tenggara Timur | 0 | 0 | 0 | 0
+Kalimantan Barat | 0 | 0 | 0 | 15
+Kalimantan Tengah | 0 | 0 | 0 | 0
+Kalimantan Selatan | 0 | 0 | 0 | 0
+Kalimantan Timur | 0 | 0 | 0 | 0
+Kalimantan Utara | 0 | 0 | 0 | 0
+Sulawesi Utara | 0 | 0 | 16,5 | 268,25
+Sulawesi Tengah | 256,05 | 261,55 | 65,83 | 8,25
+Sulawesi Selatan | 3,576 | 6,624 | 55,71 | 40,71
+Sulawesi Tenggara | 0 | 0 | 0 | 0
+Gorontalo | 0 | 0 | 0 | 6
+Sulawesi Barat | 10,382 | 10,382 | 10,382 | 0
+Maluku | 0 | 0 | 0 | 0
+Maluku Utara | 2,275 | 2,275 | 2,275 | 2,275
+Papua | 0 | 0 | 0 | 0
+Papua Barat | 0 | 0 | 0 | 0
+Papua Selatan | 0 | 0 | 0 | 0
+Papua Tengah | 0 | 0 | 0 | 0
+Papua Pegunungan | 0 | 0 | 0 | 0
+Papua Barat Daya | 0 | 0 | 0 | 0

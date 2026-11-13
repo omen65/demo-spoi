@@ -1,0 +1,61 @@
+{
+  "source": "SPOI 2023, hlm. 63-64 (penjaminan komunitas)",
+  "systems": [
+    {
+      "id": "pamor",
+      "name": "PAMOR",
+      "source": "SPOI 2023, hlm. 63",
+      "figures": [
+        {
+          "key": "unit",
+          "label": "Unit",
+          "value": 17,
+          "unit": "unit"
+        },
+        {
+          "key": "operator",
+          "label": "Operator",
+          "value": 62,
+          "unit": "orang"
+        },
+        {
+          "key": "produsen",
+          "label": "Produsen",
+          "value": 418,
+          "unit": "orang"
+        }
+      ]
+    },
+    {
+      "id": "roles",
+      "name": "ROLEs",
+      "source": "SPOI 2023, hlm. 64",
+      "figures": [
+        {
+          "key": "unit",
+          "label": "Unit",
+          "value": 3,
+          "unit": "unit"
+        },
+        {
+          "key": "petani",
+          "label": "Petani",
+          "value": 201,
+          "unit": "orang"
+        },
+        {
+          "key": "luas",
+          "label": "Luas lahan",
+          "value": 879.7,
+          "unit": "ha"
+        },
+        {
+          "key": "produksi",
+          "label": "Rotan basah",
+          "value": 6222.78,
+          "unit": "ton"
+        }
+      ]
+    }
+  ]
+}

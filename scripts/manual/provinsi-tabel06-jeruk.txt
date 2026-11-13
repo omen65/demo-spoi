@@ -1,0 +1,43 @@
+# Transkripsi manual SPOI 2023, hlm. 72, Tabel 6 Jeruk Organik (dibaca dari render halaman, zoom).
+# Format: Provinsi | 2019 | 2020 | 2021 | 2022. Tiap tahun: luas(ha);produksi(ton);produsen(orang).
+# "0" sendirian = ketiga kolom 0. "." = sel kosong di tabel asli. Koma = desimal.
+# komoditas: jeruk
+# kolom: luas;produksi;produsen
+Aceh | . | . | . | .
+Sumatera Utara | . | . | . | .
+Sumatera Barat | . | . | . | .
+Riau | . | . | . | .
+Jambi | . | . | . | .
+Sumatera Selatan | . | . | . | .
+Bengkulu | . | . | . | .
+Lampung | . | . | . | .
+Bangka Belitung | . | . | . | .
+Kepulauan Riau | . | . | . | .
+DKI Jakarta | . | . | . | .
+Jawa Barat | 1;.;. | 3,2;.;4 | 3,2;.;4 | 2,2;.;4
+Jawa Tengah | . | . | . | .
+DI Yogyakarta | . | . | . | .
+Jawa Timur | . | . | . | .
+Banten | . | . | . | .
+Bali | . | . | . | .
+Nusa Tenggara Barat | . | . | . | .
+Nusa Tenggara Timur | . | . | . | .
+Kalimantan Barat | . | . | . | .
+Kalimantan Tengah | . | . | . | .
+Kalimantan Selatan | . | . | . | .
+Kalimantan Timur | . | . | . | .
+Kalimantan Utara | . | . | . | .
+Sulawesi Utara | . | . | . | .
+Sulawesi Tengah | 14,25;.;18 | 14,15;.;18 | . | .
+Sulawesi Selatan | . | . | . | .
+Sulawesi Tenggara | . | . | . | .
+Gorontalo | . | . | . | 5;25;15
+Sulawesi Barat | . | . | . | .
+Maluku | . | . | . | .
+Maluku Utara | . | . | . | .
+Papua | . | . | . | .
+Papua Barat | . | . | . | .
+Papua Selatan | . | . | . | .
+Papua Tengah | . | . | . | .
+Papua Pegunungan | . | . | . | .
+Papua Barat Daya | . | . | . | .

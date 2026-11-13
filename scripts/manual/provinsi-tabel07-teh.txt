@@ -1,0 +1,43 @@
+# Transkripsi manual SPOI 2023, hlm. 73, Tabel 7 Teh Organik (dibaca dari render halaman, zoom).
+# Format: Provinsi | 2019 | 2020 | 2021 | 2022. Tiap tahun: luas(ha);produksi(ton);produsen(orang).
+# "0" sendirian = ketiga kolom 0. "." = sel kosong di tabel asli. Koma = desimal.
+# komoditas: teh
+# kolom: luas;produksi;produsen
+Aceh | . | . | . | .
+Sumatera Utara | . | . | . | .
+Sumatera Barat | . | . | 1,5;0,113;4 | 1,4;0,205;4
+Riau | . | . | . | .
+Jambi | . | . | . | .
+Sumatera Selatan | . | . | . | .
+Bengkulu | . | . | . | .
+Lampung | . | . | . | .
+Bangka Belitung | . | . | . | .
+Kepulauan Riau | . | . | . | .
+DKI Jakarta | . | . | . | .
+Jawa Barat | . | . | 10;10;15 | 25;25;35
+Jawa Tengah | 21,45;.;30 | 21,45;.;30 | 21,45;.;30 | 21,45;.;30
+DI Yogyakarta | . | . | . | .
+Jawa Timur | . | . | . | .
+Banten | 121;17;. | 121;18;. | 121;50,9;. | 121;71,35;.
+Bali | 20;12;1 | 23;8,618;1 | 23;8,618;37 | 7,06;8,109;1
+Nusa Tenggara Barat | . | . | . | .
+Nusa Tenggara Timur | . | . | . | .
+Kalimantan Barat | . | . | . | .
+Kalimantan Tengah | . | . | . | .
+Kalimantan Selatan | . | . | . | .
+Kalimantan Timur | . | . | . | .
+Kalimantan Utara | . | . | . | .
+Sulawesi Utara | . | . | . | .
+Sulawesi Tengah | . | . | . | .
+Sulawesi Selatan | . | . | . | .
+Sulawesi Tenggara | . | . | . | .
+Gorontalo | . | . | . | .
+Sulawesi Barat | . | . | . | .
+Maluku | . | . | . | .
+Maluku Utara | . | . | . | .
+Papua | . | . | . | .
+Papua Barat | . | . | . | .
+Papua Selatan | . | . | . | .
+Papua Tengah | . | . | . | .
+Papua Pegunungan | . | . | . | .
+Papua Barat Daya | . | . | . | .

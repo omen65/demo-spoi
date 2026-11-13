@@ -1,0 +1,31 @@
+{
+  "_catatan": "Transkripsi manual dari grafik yang berupa gambar di PDF (tidak ada lapisan teks). Label di gambar memakai titik sebagai desimal dan terpotong ke dua baris (mis. '110.' + '682'); dibaca sebagai 110,682. Diperiksa terhadap teks narasi: kacang 2022 '110,6 ton' (hlm. 40), umbi 'sekitar 900 ton' lalu '600-an ton' (hlm. 41), jamur '4 menjadi 1 operator' (hlm. 39).",
+  "jamur": {
+    "operator": {
+      "unit": "operator",
+      "values": {"2019": 4, "2020": 4, "2021": 1, "2022": 1},
+      "source": "SPOI 2023, hlm. 39, Gambar 45 (transkripsi manual dari gambar)"
+    }
+  },
+  "kacang": {
+    "produksi": {
+      "unit": "ton",
+      "values": {"2019": 103.952, "2020": 159.682, "2021": 157.999, "2022": 110.682},
+      "source": "SPOI 2023, hlm. 40, Gambar 46 (transkripsi manual dari gambar)"
+    }
+  },
+  "umbi": {
+    "produksi": {
+      "unit": "ton",
+      "values": {"2019": 900.03, "2020": 944.259, "2021": 783.006, "2022": 683.236},
+      "source": "SPOI 2023, hlm. 41, Gambar 47 (transkripsi manual dari gambar)"
+    }
+  },
+  "sayuran": {
+    "produksi": {
+      "unit": "ton",
+      "values": {"2019": 4193.807, "2020": 2919.872, "2021": 5421.379, "2022": 3043.58},
+      "source": "SPOI 2023, hlm. 42, Gambar 48 (transkripsi manual dari gambar)"
+    }
+  }
+}

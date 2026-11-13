@@ -1,0 +1,43 @@
+# Transkripsi manual SPOI 2023, hlm. 70, Tabel 4 Pisang Organik (dibaca dari render halaman, zoom).
+# Format: Provinsi | 2019 | 2020 | 2021 | 2022. Tiap tahun: luas(ha);produksi(ton);produsen(orang).
+# "0" sendirian = ketiga kolom 0. "." = sel kosong di tabel asli. Koma = desimal.
+# komoditas: pisang
+# kolom: luas;produksi;produsen
+Aceh | . | . | . | .;0,5;.
+Sumatera Utara | . | . | .;0,5;. | .
+Sumatera Barat | . | . | . | .
+Riau | . | . | . | .
+Jambi | . | . | . | .
+Sumatera Selatan | . | . | . | .
+Bengkulu | . | . | . | .
+Lampung | . | . | . | .
+Bangka Belitung | . | . | . | .
+Kepulauan Riau | . | . | . | .
+DKI Jakarta | 9;.;. | 10,4;.;. | 10,4;.;. | 10,4;.;.
+Jawa Barat | 20,8;157,384;3 | 20,8;10,6;3 | 20,8;9,55;3 | 20,8;9,55;3
+Jawa Tengah | 1;0,2;20 | 1;0,2;20 | 1;0,2;20 | 1;0,2;20
+DI Yogyakarta | . | . | . | .
+Jawa Timur | 11,9;6,6;15 | 11,9;6,6;15 | 27,4;161,6;35 | 15,5;155;20
+Banten | . | . | . | .
+Bali | 3,4;6;3 | 3,4;6;3 | 3,4;6;3 | .
+Nusa Tenggara Barat | . | . | . | .
+Nusa Tenggara Timur | . | . | . | .
+Kalimantan Barat | . | . | . | .
+Kalimantan Tengah | . | . | . | .
+Kalimantan Selatan | . | . | . | .
+Kalimantan Timur | . | . | . | .
+Kalimantan Utara | . | . | . | .
+Sulawesi Utara | . | . | . | 10;100;10
+Sulawesi Tengah | 7;.;5 | 7;.;5 | . | .
+Sulawesi Selatan | . | . | . | .
+Sulawesi Tenggara | . | . | . | .
+Gorontalo | . | . | . | .
+Sulawesi Barat | 2,9;8,8;3 | 2,9;8,8;3 | 2,9;8,8;3 | .
+Maluku | . | . | . | .
+Maluku Utara | . | . | . | .
+Papua | . | . | . | .
+Papua Barat | . | . | . | .
+Papua Selatan | . | . | . | .
+Papua Tengah | . | . | . | .
+Papua Pegunungan | . | . | . | .
+Papua Barat Daya | . | . | . | .

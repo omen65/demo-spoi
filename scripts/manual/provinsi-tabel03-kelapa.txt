@@ -1,0 +1,43 @@
+# Transkripsi manual SPOI 2023, hlm. 69, Tabel 3 Kelapa Organik (dibaca dari render halaman, zoom).
+# Format: Provinsi | 2019 | 2020 | 2021 | 2022. Tiap tahun: luas(ha);produksi(ton);produsen(orang).
+# "0" sendirian = ketiga kolom 0. "." = sel kosong di tabel asli. Koma = desimal.
+# komoditas: kelapa
+# kolom: luas;produksi;produsen
+Aceh | 2633,74;2633,74;476 | 2633,74;2633,74;476 | 2633,74;2633,74;476 | 2633,74;2633,74;476
+Sumatera Utara | . | . | . | .
+Sumatera Barat | . | . | . | .
+Riau | . | . | . | .
+Jambi | . | . | . | .
+Sumatera Selatan | . | . | . | .
+Bengkulu | . | . | . | .
+Lampung | . | . | . | .
+Bangka Belitung | . | . | . | .
+Kepulauan Riau | 753;753;198 | 753;753;198 | 753;753;198 | 753;753;198
+DKI Jakarta | . | . | . | .
+Jawa Barat | 1410,74;1410,74;155 | 1410,74;1410,74;155 | 1410,74;1410,74;155 | 1410,74;1410,74;155
+Jawa Tengah | 3969,983;4141,293;5398 | 4006,323;4141,293;5292 | 4133,323;4191,293;5872 | 4541,043;5582,978;7105
+DI Yogyakarta | 730,965;730,965;1570 | 730,965;730,965;1570 | 730,965;730,965;1570 | 730,965;730,965;1570
+Jawa Timur | 3260;3260;2 | 3260;3260;2 | 3281,4;3356,3;27 | 3330,14;4049;96
+Banten | . | . | . | .
+Bali | 0,5;0,5;1 | 0,5;0,5;1 | 0,5;0,5;1 | 6,84;0,5;8
+Nusa Tenggara Barat | . | . | . | .
+Nusa Tenggara Timur | . | . | . | .
+Kalimantan Barat | 15,63;15,63;1 | 15,63;15,63;1 | 15,63;15,63;1 | 15,63;15,63;1
+Kalimantan Tengah | . | . | . | .
+Kalimantan Selatan | . | . | . | .
+Kalimantan Timur | . | . | . | .
+Kalimantan Utara | . | . | . | .
+Sulawesi Utara | 2567;2567;330 | 2567;2567;330 | 2567;2567;330 | 2567;2567;330
+Sulawesi Tengah | 5650,95;5564,55;301 | 5649,95;7571,1;300 | 5649,95;7566,3;300 | 5552,55;5552,55;300
+Sulawesi Selatan | . | . | . | .
+Sulawesi Tenggara | . | . | . | .
+Gorontalo | . | . | . | .
+Sulawesi Barat | . | . | . | .
+Maluku | . | . | . | .
+Maluku Utara | . | . | . | .
+Papua | . | . | . | .
+Papua Barat | . | . | . | .
+Papua Selatan | . | . | . | .
+Papua Tengah | . | . | . | .
+Papua Pegunungan | . | . | . | .
+Papua Barat Daya | . | . | . | .

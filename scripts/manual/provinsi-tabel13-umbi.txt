@@ -1,0 +1,42 @@
+# Transkripsi manual SPOI 2023, hlm. 79, Tabel 13 Umbi-umbian Organik (dibaca dari render halaman).
+# Format: Provinsi | 2019 | 2020 | 2021 | 2022. Satu kolom: produksi (ton). "0" = nol. "." = kosong. Koma = desimal.
+# komoditas: umbi
+# kolom: produksi
+Aceh | 0 | 0 | 0 | 0
+Sumatera Utara | 0 | 0 | 0 | 0
+Sumatera Barat | 0 | 0,1 | 0,115 | 0,112
+Riau | 0 | 0 | 0 | 0
+Jambi | 0 | 0 | 0 | 0
+Sumatera Selatan | 0 | 0 | 0 | 0
+Bengkulu | 0 | 0 | 0 | 0
+Lampung | 0 | 0 | 0 | 0
+Bangka Belitung | 0 | 0 | 0 | 0
+Kepulauan Riau | 0 | 0 | 0 | 0
+DKI Jakarta | 81 | 81 | 81 | 0
+Jawa Barat | 559,68 | 274,509 | 256,061 | 243,694
+Jawa Tengah | 108,35 | 437,65 | 437,65 | 437,65
+DI Yogyakarta | 0 | 0 | 0 | 0
+Jawa Timur | 0 | 0 | 2,18 | 1,78
+Banten | 40 | 40 | 0 | 0
+Bali | 6 | 6 | 6 | 0
+Nusa Tenggara Barat | 0 | 0 | 0 | 0
+Nusa Tenggara Timur | 0 | 0 | 0 | 0
+Kalimantan Barat | 0 | 0 | 0 | 0
+Kalimantan Tengah | 0 | 0 | 0 | 0
+Kalimantan Selatan | 0 | 0 | 0 | 0
+Kalimantan Timur | 0 | 0 | 0 | 0
+Kalimantan Utara | 0 | 0 | 0 | 0
+Sulawesi Utara | 0 | 0 | 0 | 0
+Sulawesi Tengah | 105 | 105 | 0 | 0
+Sulawesi Selatan | 0 | 0 | 0 | 0
+Sulawesi Tenggara | 0 | 0 | 0 | 0
+Gorontalo | 0 | 0 | 0 | 0
+Sulawesi Barat | 0 | 0 | 0 | 0
+Maluku | 0 | 0 | 0 | 0
+Maluku Utara | 0 | 0 | 0 | 0
+Papua | 0 | 0 | 0 | 0
+Papua Barat | 0 | 0 | 0 | 0
+Papua Selatan | 0 | 0 | 0 | 0
+Papua Tengah | 0 | 0 | 0 | 0
+Papua Pegunungan | 0 | 0 | 0 | 0
+Papua Barat Daya | 0 | 0 | 0 | 0

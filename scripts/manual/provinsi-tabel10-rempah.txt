@@ -1,0 +1,43 @@
+# Transkripsi manual SPOI 2023, hlm. 76, Tabel 10 Rempah-rempah Organik (dibaca dari render halaman, zoom).
+# Format: Provinsi | 2019 | 2020 | 2021 | 2022. Tiap tahun: luas(ha);produksi(ton);produsen(orang).
+# "0" sendirian = ketiga kolom 0. "." = sel kosong di tabel asli. Koma = desimal.
+# komoditas: rempah
+# kolom: luas;produksi;produsen
+Aceh | . | . | . | .
+Sumatera Utara | . | 22,4;2;9 | 22,4;2;9 | 22,4;12,14;9
+Sumatera Barat | 25;25;10 | 26,5;29,37;14 | 27;50,259;20 | 27;41,547;20
+Riau | . | . | . | .
+Jambi | 457,9;477,955;213 | 457,9;477,955;213 | 457,9;1007,955;213 | 241,55;791,605;163
+Sumatera Selatan | . | . | . | .
+Bengkulu | . | . | . | .
+Lampung | 303,96;303,96;95 | 319,01;303,96;110 | 319,01;303,96;110 | 319,01;303,96;110
+Bangka Belitung | . | . | . | .
+Kepulauan Riau | . | . | . | .
+DKI Jakarta | . | 26,19;395;14 | 26,19;1,4;14 | 26,19;21,4;14
+Jawa Barat | 2759,79;2659,79;650 | 2760,807;2660,302;650 | 2770,361;2663,74;650 | 2770,361;2665,457;650
+Jawa Tengah | 21,61;45,55;162 | 19,11;8,2;152 | 19,11;8,15;152 | 19,11;8,15;152
+DI Yogyakarta | 107,12;2142,4;30 | 107,12;2142,4;30 | 107,12;2142,4;30 | 107,12;2142,4;30
+Jawa Timur | 872,5;872,5;100 | 890,5;873,186;204 | 890,5;874,95;204 | 922,376;955,205;220
+Banten | 11,5;144,5;6 | 11,5;144,5;6 | 11,5;144,5;6 | 4,5;4,5;1
+Bali | . | . | . | .
+Nusa Tenggara Barat | . | . | . | .
+Nusa Tenggara Timur | 28,28;28,28;50 | 28,28;28,28;50 | 28,28;28,28;50 | 28,28;28,28;50
+Kalimantan Barat | . | . | . | .
+Kalimantan Tengah | . | . | . | .
+Kalimantan Selatan | . | . | . | .
+Kalimantan Timur | . | . | . | .
+Kalimantan Utara | . | . | . | .
+Sulawesi Utara | 200,65;802,6;75 | 200,65;802,6;75 | 201,65;817,6;80 | 211,65;867,6;100
+Sulawesi Tengah | 1;.;1 | . | . | .
+Sulawesi Selatan | . | . | 2;1;5 | 2;1;5
+Sulawesi Tenggara | 158,85;158,85;50 | 158,85;158,85;50 | 158,85;158,85;50 | 158,85;158,85;50
+Gorontalo | . | . | . | .
+Sulawesi Barat | . | . | . | .
+Maluku | . | . | . | .
+Maluku Utara | . | . | . | .
+Papua | . | . | . | .
+Papua Barat | . | . | . | .
+Papua Selatan | . | . | . | .
+Papua Tengah | . | . | . | .
+Papua Pegunungan | . | . | . | .
+Papua Barat Daya | . | . | . | .

@@ -1,0 +1,43 @@
+# Transkripsi manual SPOI 2023, hlm. 77, Tabel 11 Buah Tropis Organik (dibaca dari render halaman, zoom).
+# Format: Provinsi | 2019 | 2020 | 2021 | 2022. Tiap tahun: luas(ha);produksi(ton);produsen(orang).
+# "0" sendirian = ketiga kolom 0. "." = sel kosong di tabel asli. Koma = desimal.
+# komoditas: buah-tropis
+# kolom: luas;produksi;produsen
+Aceh | . | . | . | .
+Sumatera Utara | 10,17;39,535;33 | 10,17;39,535;33 | 10,17;39,535;33 | 0,48;3,675;3
+Sumatera Barat | . | . | . | .
+Riau | . | . | . | .
+Jambi | . | . | . | .
+Sumatera Selatan | 3,35;.;6 | 3,35;.;6 | 3,35;.;6 | .
+Bengkulu | . | . | . | .
+Lampung | 48,46;.;76 | 12,96;.;5 | 8,86;.;. | 8,86;.;.
+Bangka Belitung | . | . | . | 5;3;15
+Kepulauan Riau | . | . | . | .
+DKI Jakarta | . | . | . | .
+Jawa Barat | 22,75;.;33 | 25,59;.;37 | 11,24;.;6 | 11,24;.;6
+Jawa Tengah | 501,934;4613,44;842 | 577,514;4613,44;781 | 540,774;4613,44;647 | 416,244;3268,54;338
+DI Yogyakarta | 494,535;4945,35;1474 | 494,535;4945,35;1474 | 494,535;4945,35;1474 | 510,855;5190,15;1547
+Jawa Timur | 74,852;1012,118;170 | 68,249;1192,176;122 | 69,649;1177,337;122 | 72,57;820,074;133
+Banten | 10,1;101;10 | 11,77;101;10 | 11,77;101;10 | 11,77;101;10
+Bali | 141,3;1259,22;155 | 141,3;1259,22;155 | 141,3;1259,22;155 | .
+Nusa Tenggara Barat | 37,63;.;45 | 37,63;.;45 | 37,63;.;45 | .
+Nusa Tenggara Timur | . | . | . | .
+Kalimantan Barat | . | . | . | .
+Kalimantan Tengah | . | . | . | .
+Kalimantan Selatan | . | . | . | .
+Kalimantan Timur | . | . | . | .
+Kalimantan Utara | . | . | . | .
+Sulawesi Utara | . | . | . | 45;272,5;45
+Sulawesi Tengah | 71,02;.;97 | 71,42;.;102 | 39,07;.;52 | 10,4;.;12
+Sulawesi Selatan | . | . | . | .
+Sulawesi Tenggara | . | . | . | .
+Gorontalo | . | . | . | .
+Sulawesi Barat | . | . | . | .
+Maluku | . | . | . | .
+Maluku Utara | . | . | . | .
+Papua | . | . | . | .
+Papua Barat | . | . | . | .
+Papua Selatan | . | . | . | .
+Papua Tengah | . | . | . | .
+Papua Pegunungan | . | . | . | .
+Papua Barat Daya | . | . | . | .

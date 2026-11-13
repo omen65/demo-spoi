@@ -1,0 +1,43 @@
+# Transkripsi manual SPOI 2023, hlm. 74, Tabel 8 Kakao Organik (dibaca dari render halaman, zoom).
+# Format: Provinsi | 2019 | 2020 | 2021 | 2022. Tiap tahun: luas(ha);produksi(ton);produsen(orang).
+# "0" sendirian = ketiga kolom 0. "." = sel kosong di tabel asli. Koma = desimal.
+# komoditas: kakao
+# kolom: luas;produksi;produsen
+Aceh | . | . | . | .
+Sumatera Utara | . | . | . | .
+Sumatera Barat | . | . | . | .
+Riau | . | . | . | .
+Jambi | . | . | . | .
+Sumatera Selatan | . | . | . | .
+Bengkulu | . | . | . | .
+Lampung | . | . | . | .
+Bangka Belitung | . | . | . | .
+Kepulauan Riau | . | . | . | .
+DKI Jakarta | . | 4;.;1 | 4;.;1 | 4;.;1
+Jawa Barat | . | . | . | .
+Jawa Tengah | 2;4;45 | 2;4;45 | 2;4;45 | 2;4;45
+DI Yogyakarta | . | . | . | .
+Jawa Timur | . | . | . | .
+Banten | . | . | . | .
+Bali | 294,84;589,68;100 | 334,68;589,68;156 | 334,68;589,68;156 | 338,68;602,32;159
+Nusa Tenggara Barat | . | . | . | .
+Nusa Tenggara Timur | 103,7;366,715;158 | 103,7;366,715;158 | 103,7;366,715;158 | 103,7;366,715;158
+Kalimantan Barat | . | . | . | .
+Kalimantan Tengah | . | . | . | .
+Kalimantan Selatan | . | . | . | .
+Kalimantan Timur | . | . | . | .
+Kalimantan Utara | . | . | . | .
+Sulawesi Utara | . | . | . | .
+Sulawesi Tengah | 1;.;1 | . | . | .
+Sulawesi Selatan | 115,55;1168,719;66 | 115,55;1168,719;66 | 115,55;1168,719;66 | 115,55;1168,719;66
+Sulawesi Tenggara | . | . | . | .
+Gorontalo | . | . | . | .
+Sulawesi Barat | . | . | . | .
+Maluku | . | . | . | .
+Maluku Utara | . | . | . | .
+Papua | . | . | . | .
+Papua Barat | . | . | . | .
+Papua Selatan | . | . | . | .
+Papua Tengah | . | . | . | .
+Papua Pegunungan | . | . | . | .
+Papua Barat Daya | . | . | . | .

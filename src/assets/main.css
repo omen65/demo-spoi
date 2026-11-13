@@ -1,0 +1,77 @@
+@import 'tailwindcss';
+
+/*
+ * Palet: hijau-teal tua untuk sidebar dan data, mint untuk lencana, kunyit hanya untuk sorotan,
+ * tomat untuk tanda † (angka perlu konfirmasi). Seri chart dibedakan juga lewat bentuk/pola.
+ */
+@theme {
+  --font-sans: 'Public Sans Variable', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: 'Public Sans Variable', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  /* Latar netral hangat, permukaan putih */
+  --color-paper-50: #f7f6f3;
+  --color-paper-100: #efede8;
+  --color-paper-200: #e6e4de;
+  --color-paper-300: #d2d0c9;
+
+  --color-ink-900: #1b211e;
+  --color-ink-700: #3d4541;
+  --color-ink-600: #6a716c;
+
+  /* Hijau hutan tua untuk aksi, zamrud kalem untuk data */
+  --color-deep-900: #16402f;
+  --color-accent-700: #1b5b44;
+  --color-accent-600: #2a9d78;
+
+  --color-mint-100: #e8f2ec;
+  --color-mint-700: #1b6b4a;
+  --color-gold-500: #16402f;
+  --color-gold-700: #16402f;
+
+  --color-flag: #b4382b;
+}
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  background: var(--color-paper-50);
+}
+
+body {
+  font-feature-settings: 'cv11', 'ss01';
+  margin: 0;
+  background: var(--color-paper-50);
+  color: var(--color-ink-900);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-deep-900);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
