@@ -29,12 +29,14 @@ const option = computed<EChartsOption>(() => {
   const muted = themeColor('--color-ink-600', '#4f5f5b')
   const line = themeColor('--color-paper-200', '#dbe2de')
   // Tiga seri dibedakan oleh luminans warna DAN pola isi, bukan warna saja
-  const fills = ['#cfe8dc', themeColor('--color-accent-600', '#2a9d78'), themeColor('--color-deep-900', '#16402f')]
-  const decals = [
-    undefined,
-    { symbol: 'rect', color: 'rgba(22,64,47,0.5)', dashArrayX: [1, 0], dashArrayY: [2, 3], symbolSize: 1, rotation: Math.PI / 4 },
-    { symbol: 'circle', color: 'rgba(251,246,234,0.7)', dashArrayX: [1, 0], dashArrayY: [2, 4], symbolSize: 0.6 },
-  ]
+  const accent = themeColor('--color-accent-600', '#2a9d78')
+  const deep = themeColor('--color-deep-900', '#16402f')
+  const stripes = { symbol: 'rect', color: 'rgba(22,64,47,0.5)', dashArrayX: [1, 0], dashArrayY: [2, 3], symbolSize: 1, rotation: Math.PI / 4 }
+  const dots = { symbol: 'circle', color: 'rgba(251,246,234,0.7)', dashArrayX: [1, 0], dashArrayY: [2, 4], symbolSize: 0.6 }
+  // Tiga seri: terang, sedang bergaris, gelap bertitik. Empat seri: tambah satu tingkat terang di awal.
+  const four = props.series.length > 3
+  const fills = four ? ['#e1efe8', '#a9d6c0', accent, deep] : ['#cfe8dc', accent, deep]
+  const decals = four ? [undefined, stripes, dots, undefined] : [undefined, stripes, dots]
   return {
     aria: { enabled: true, label: { description: props.description } },
     animationDuration: 400,

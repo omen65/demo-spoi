@@ -91,3 +91,198 @@ export interface ResearchData {
   garudaTotalApprox: Record<string, number>
   source: string
 }
+
+// ---------------------------------------------------------------------------
+// SPOI 2025 (Draft V13). Berdiri sendiri: tidak dipakai bersama tipe 2023.
+// ---------------------------------------------------------------------------
+
+export type YearKey2025 = '2019' | '2020' | '2021' | '2022' | '2023' | '2024'
+
+export interface SeriesData2025 {
+  unit: string
+  /** null = kosong di dokumen (bukan 0) */
+  values: Record<YearKey2025, number | null>
+  /** Rujukan bab dan nomor grafik di draf V13 */
+  source: string
+  /** Nomor butir di docs/data-issues-2025.md */
+  issues?: number[]
+  note?: string
+}
+
+export interface Commodity2025 {
+  id: string
+  name: string
+  metrics: Partial<Record<Metric, SeriesData2025>>
+}
+
+export interface NationalData2025 {
+  edition: string
+  years: number[]
+  commodities: Commodity2025[]
+}
+
+export interface Meta2025 {
+  edition: string
+  title: string
+  status: string
+  publisher: string
+  published: string
+  dataYears: { from: number; to: number }
+  collectionNote: string
+  externalSource: string
+  sourceFile: string
+  coverage: { kabupatenKotaTotal: number; respondents: number }
+  issuesDoc: string
+}
+
+export interface CoverageRow {
+  name: string
+  lengkap: number
+  tidakLengkap: number
+  tidakAda: number
+}
+
+export interface CoverageTotals {
+  lengkap: number
+  tidakLengkap: number
+  tidakAda: number
+}
+
+export interface CoverageData {
+  edition: string
+  kabupatenKota: {
+    unit: string
+    source: string
+    regions: CoverageRow[]
+    total: CoverageTotals
+    reportedPercent: CoverageTotals
+  }
+  lembaga: {
+    unit: string
+    source: string
+    rows: CoverageRow[]
+    total: CoverageTotals
+    reportedPercent: CoverageTotals
+  }
+}
+
+export interface MapImage2025 {
+  year: number
+  file: string
+}
+
+export interface MapItem2025 {
+  commodity: string
+  gambar: number
+  /** Keterangan gambar di dokumen (apa adanya) */
+  caption: string
+  metricInImage: 'produksi'
+  unitInImage: 'ton'
+  issues: number[]
+  images: MapImage2025[]
+}
+
+export interface MapsData2025 {
+  edition: string
+  source: string
+  note: string
+  national: { gambar: number; title: string; year: number; file: string }
+  items: MapItem2025[]
+}
+
+export type SurveyKind2025 = 'single' | 'multi' | 'scale'
+
+export interface SurveyChart2025 {
+  id: string
+  grafik: number
+  title: string
+  kind: SurveyKind2025
+  unit: string
+  /** null = penyebut tidak dinyatakan di dokumen */
+  respondents: number | null
+  source: string
+  categories: string[]
+  /** single/multi: proporsi (0-1) per kategori. scale: proporsi per tingkat, lalu per kategori */
+  values: number[] | Record<string, number[]>
+  /** hanya untuk scale: urutan tingkat dari paling negatif ke paling positif */
+  levels?: string[]
+  note?: string
+}
+
+export interface SurveyData2025 {
+  edition: string
+  respondents: number
+  note: string
+  charts: SurveyChart2025[]
+}
+
+export interface PgsSystem2025 {
+  id: string
+  name: string
+  source: string
+  issues: number[]
+  summary: string
+  figures: PgsFigure[]
+  note?: string
+}
+
+export interface PgsData2025 {
+  edition: string
+  source: string
+  mergerNote: string
+  systems: PgsSystem2025[]
+  totalFarmersReported: { value: number; unit: string; sum: number }
+}
+
+export interface PolicyRow2025 {
+  period: string
+  stage: string
+  instrument: string
+  substance: string
+}
+
+export interface PolicyData2025 {
+  edition: string
+  source: string
+  rows: PolicyRow2025[]
+}
+
+export interface CommunityRow2025 {
+  name: string
+  base: string
+  role: string
+}
+
+export interface CommunitiesData2025 {
+  edition: string
+  source: string
+  rows: CommunityRow2025[]
+}
+
+export interface ResearchData2025 {
+  edition: string
+  title: string
+  unit: string
+  snapshots: string[]
+  note: string
+  issues: number[]
+  rows: ResearchRow[]
+  /** Total yang tertulis di dokumen */
+  totalReported: Record<string, number>
+  /** Jumlah topik, dihitung ulang */
+  totalSummed: Record<string, number>
+  garudaTotalApprox: Record<string, number>
+  source: string
+}
+
+export interface AreaByRegion2025 {
+  edition: string
+  year: number
+  unit: string
+  source: string
+  note: string
+  issues: number[]
+  regions: { name: string; luas2024: number | null }[]
+  totalReported: number | null
+  totalSummed: number
+}

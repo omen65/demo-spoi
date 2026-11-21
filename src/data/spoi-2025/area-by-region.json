@@ -1,0 +1,43 @@
+{
+  "edition": "SPOI 2025 (Draft V13)",
+  "year": 2024,
+  "unit": "ha",
+  "source": "SPOI 2025, Bab 3.1, Tabel 3",
+  "note": "Kolom 2020, 2023, dan % perubahan kosong di dokumen sehingga tidak disertakan. Nilai 0 (Maluku, Papua) belum jelas artinya: nol atau tidak melapor.",
+  "issues": [
+    1,
+    2
+  ],
+  "regions": [
+    {
+      "name": "Sumatera",
+      "luas2024": 610
+    },
+    {
+      "name": "Jawa",
+      "luas2024": 1407
+    },
+    {
+      "name": "Kalimantan",
+      "luas2024": 44.6
+    },
+    {
+      "name": "Sulawesi",
+      "luas2024": 34
+    },
+    {
+      "name": "Maluku",
+      "luas2024": 0
+    },
+    {
+      "name": "Bali, NTB, dan NTT",
+      "luas2024": 651.36
+    },
+    {
+      "name": "Papua",
+      "luas2024": 0
+    }
+  ],
+  "totalReported": 2747,
+  "totalSummed": 2746.96
+}

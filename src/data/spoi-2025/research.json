@@ -1,0 +1,124 @@
+{
+  "edition": "SPOI 2025 (Draft V13)",
+  "title": "Jumlah publikasi riset pertanian organik di Indonesia",
+  "unit": "publikasi",
+  "snapshots": [
+    "2015",
+    "2020",
+    "2023",
+    "2024"
+  ],
+  "note": "Empat potret waktu: 2015, 2020, 2023, dan 2024.",
+  "issues": [
+    8,
+    9,
+    10
+  ],
+  "rows": [
+    {
+      "topic": "Pertanian Organik Secara Umum",
+      "values": {
+        "2015": 17,
+        "2020": 49,
+        "2023": 105,
+        "2024": 207
+      }
+    },
+    {
+      "topic": "Air, Tanah, dan Lingkungan",
+      "values": {
+        "2015": 20,
+        "2020": 64,
+        "2023": 118,
+        "2024": 254
+      }
+    },
+    {
+      "topic": "Sosial Ekonomi",
+      "values": {
+        "2015": 25,
+        "2020": 70,
+        "2023": 82,
+        "2024": 257
+      }
+    },
+    {
+      "topic": "Transformasi, Regulasi dan Konversi",
+      "values": {
+        "2015": 12,
+        "2020": 30,
+        "2023": 61,
+        "2024": 80
+      }
+    },
+    {
+      "topic": "Konsumen dan Konsumsi",
+      "values": {
+        "2015": 13,
+        "2020": 19,
+        "2023": 21,
+        "2024": 105
+      }
+    },
+    {
+      "topic": "Perlindungan Tanaman",
+      "values": {
+        "2015": 5,
+        "2020": 15,
+        "2023": 39,
+        "2024": 67
+      }
+    },
+    {
+      "topic": "Benih",
+      "values": {
+        "2015": 1,
+        "2020": 4,
+        "2023": 6,
+        "2024": 10
+      }
+    },
+    {
+      "topic": "Budidaya",
+      "values": {
+        "2015": 4,
+        "2020": 22,
+        "2023": 24,
+        "2024": 48
+      }
+    }
+  ],
+  "totalReported": {
+    "2015": 97,
+    "2020": 273,
+    "2023": 456,
+    "2024": 1030
+  },
+  "totalSummed": {
+    "2015": 97,
+    "2020": 273,
+    "2023": 456,
+    "2024": 1028
+  },
+  "garudaTotalApprox": {
+    "2015": 280000,
+    "2020": 1134556,
+    "2023": 2482592,
+    "2024": 4743112
+  },
+  "reportedGrowthPct": {
+    "organik": {
+      "2015": null,
+      "2020": 281,
+      "2023": 67,
+      "2024": 125
+    },
+    "garuda": {
+      "2015": null,
+      "2020": 305,
+      "2023": 119,
+      "2024": null
+    }
+  },
+  "source": "SPOI 2025, Bab 11, Tabel 4"
+}

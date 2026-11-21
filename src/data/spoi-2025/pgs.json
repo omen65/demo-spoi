@@ -1,0 +1,105 @@
+{
+  "edition": "SPOI 2025 (Draft V13)",
+  "source": "SPOI 2025, Bab 9",
+  "mergerNote": "Per 2024, PGS ROLES, PGS Lestari, dan PGS Madu melebur menjadi PGS Nasional Indonesia \"Agroforestri dan Hasil Hutan Bukan Kayu\" (Bab 9, paragraf pembuka).",
+  "systems": [
+    {
+      "id": "pamor",
+      "name": "PAMOR Indonesia",
+      "source": "SPOI 2025, Bab 9.3",
+      "issues": [
+        26
+      ],
+      "summary": "Sistem penjaminan partisipatif tertua di Indonesia, diinisiasi AOI pada November 2008 dan terdaftar di direktori internasional IFOAM.",
+      "figures": [
+        {
+          "key": "petani",
+          "label": "Petani terlibat",
+          "value": 640,
+          "unit": "orang"
+        },
+        {
+          "key": "luas",
+          "label": "Luas lahan",
+          "value": 124.38,
+          "unit": "ha"
+        },
+        {
+          "key": "kabupaten",
+          "label": "Kabupaten",
+          "value": 12,
+          "unit": "kabupaten"
+        },
+        {
+          "key": "unit",
+          "label": "Unit PAMOR",
+          "value": 20,
+          "unit": "unit"
+        },
+        {
+          "key": "calon",
+          "label": "Calon Unit PAMOR",
+          "value": 5,
+          "unit": "unit"
+        }
+      ],
+      "note": "Daftar calon unit mengacu pada SPOI 2023."
+    },
+    {
+      "id": "roles",
+      "name": "PGS Rotan Lestari (ROLES)",
+      "source": "SPOI 2025, Bab 9 (paragraf pembuka) dan 9.4",
+      "issues": [
+        25
+      ],
+      "summary": "Dikembangkan organisasi masyarakat sipil pegiat hasil hutan bukan kayu untuk petani rotan. Pembeli membayar Rp200/kg lebih tinggi untuk rotan basah bersertifikat ROLES.",
+      "figures": [
+        {
+          "key": "petani",
+          "label": "Petani rotan",
+          "value": 200,
+          "unit": "orang"
+        }
+      ],
+      "note": "Jumlah petani rotan sedang diverifikasi."
+    },
+    {
+      "id": "pgs-lestari",
+      "name": "PGS Lestari",
+      "source": "SPOI 2025, Bab 9 (paragraf pembuka) dan 9.2",
+      "issues": [],
+      "summary": "Dijalankan Konsorsium Pangan Bijak, terkonsentrasi di tujuh provinsi dengan tujuh komoditas unggulan.",
+      "figures": [
+        {
+          "key": "petani",
+          "label": "Petani",
+          "value": 500,
+          "unit": "orang"
+        }
+      ]
+    },
+    {
+      "id": "wfl",
+      "name": "White Flower Label (WFL)",
+      "source": "SPOI 2025, Bab 9.1",
+      "issues": [
+        23
+      ],
+      "summary": "Dikembangkan Komunitas Organik Indonesia (KOI) dengan tiga tingkatan kode: Blank, Yellow, dan Green.",
+      "figures": [
+        {
+          "key": "simpul",
+          "label": "Simpul",
+          "value": 10,
+          "unit": "simpul"
+        }
+      ],
+      "note": "Data sedang diverifikasi."
+    }
+  ],
+  "totalFarmersReported": {
+    "value": 1340,
+    "unit": "petani dan pelaku usaha",
+    "sum": 1340
+  }
+}

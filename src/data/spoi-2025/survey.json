@@ -1,0 +1,627 @@
+{
+  "edition": "SPOI 2025 (Draft V13)",
+  "respondents": 235,
+  "note": "Survei 235 responden, bukan sensus dan bukan representatif nasional (Bab 8).",
+  "charts": [
+    {
+      "id": "domisili",
+      "grafik": 36,
+      "title": "Domisili responden pengonsumsi pangan organik",
+      "kind": "single",
+      "unit": "proporsi responden",
+      "respondents": 235,
+      "source": "SPOI 2025, Bab 8, Grafik 36",
+      "categories": [
+        "Yogyakarta",
+        "Jawa Tengah",
+        "Sumatera Utara",
+        "Lampung",
+        "Sumatera Barat",
+        "Jakarta",
+        "Aceh",
+        "Sulawesi Tenggara",
+        "Jawa Barat",
+        "Banten",
+        "Sulawesi Selatan",
+        "Jawa Timur",
+        "NTT",
+        "Kalimantan Barat",
+        "Belitung",
+        "Jambi",
+        "Bali"
+      ],
+      "values": [
+        0.012766,
+        0.161702,
+        0.034043,
+        0.008511,
+        0.046809,
+        0.029787,
+        0.025532,
+        0.012766,
+        0.259574,
+        0.017021,
+        0.110638,
+        0.017021,
+        0.102128,
+        0.021277,
+        0.004255,
+        0.004255,
+        0.131915
+      ]
+    },
+    {
+      "id": "gender",
+      "grafik": 37,
+      "title": "Responden berdasarkan gender",
+      "kind": "single",
+      "unit": "proporsi responden",
+      "respondents": 235,
+      "source": "SPOI 2025, Bab 8, Grafik 37",
+      "categories": [
+        "Laki-laki",
+        "Perempuan"
+      ],
+      "values": [
+        0.540426,
+        0.459574
+      ]
+    },
+    {
+      "id": "usia",
+      "grafik": 38,
+      "title": "Responden berdasarkan kelompok usia",
+      "kind": "single",
+      "unit": "proporsi responden",
+      "respondents": 235,
+      "source": "SPOI 2025, Bab 8, Grafik 38",
+      "categories": [
+        "< 20 Tahun",
+        "20 - 30 Tahun",
+        "31 - 40 Tahun",
+        "41 - 50 Tahun",
+        "51 - 60 Tahun",
+        "61 - 65 Tahun",
+        "> 65 Tahun"
+      ],
+      "values": [
+        0.008511,
+        0.297872,
+        0.212766,
+        0.221277,
+        0.221277,
+        0.029787,
+        0.008511
+      ]
+    },
+    {
+      "id": "pekerjaan",
+      "grafik": 39,
+      "title": "Responden berdasarkan pekerjaan",
+      "kind": "single",
+      "unit": "proporsi responden",
+      "respondents": 235,
+      "source": "SPOI 2025, Bab 8, Grafik 39",
+      "categories": [
+        "Pegawai Negeri Sipil (PNS)",
+        "Pegawai Swasta",
+        "Petani",
+        "Wiraswasta",
+        "Pelajar / Mahasiswa",
+        "Ibu Rumah Tangga",
+        "Professional",
+        "Lainnya"
+      ],
+      "values": [
+        0.32766,
+        0.153191,
+        0.114894,
+        0.123404,
+        0.076596,
+        0.051064,
+        0.029787,
+        0.123404
+      ]
+    },
+    {
+      "id": "pendidikan",
+      "grafik": 40,
+      "title": "Responden berdasarkan pendidikan terakhir",
+      "kind": "single",
+      "unit": "proporsi responden",
+      "respondents": 235,
+      "source": "SPOI 2025, Bab 8, Grafik 40",
+      "categories": [
+        "Sekolah Dasar (SD)",
+        "Sekolah Menengah Pertama (SMP)",
+        "Sekolah Menengah Akhir (SMA)",
+        "Diploma (D3)",
+        "Sarjana (S1)",
+        "Magister (S2)",
+        "Doktor (S3)"
+      ],
+      "values": [
+        0.004255,
+        0.004255,
+        0.13617,
+        0.06383,
+        0.52766,
+        0.234043,
+        0.029787
+      ]
+    },
+    {
+      "id": "pendapatan",
+      "grafik": 41,
+      "title": "Responden berdasarkan pendapatan per bulan",
+      "kind": "single",
+      "unit": "proporsi responden",
+      "respondents": 235,
+      "source": "SPOI 2025, Bab 8, Grafik 41",
+      "categories": [
+        "<Rp 1.000.000",
+        "Rp 1.000.000 – Rp 3.000.000",
+        "Rp 3.000.001 – Rp 5.000.000",
+        "5.000.001 – Rp 7.000.000",
+        "7.000.001 – Rp 10.000.000",
+        "≥ Rp. 10.000.001"
+      ],
+      "values": [
+        0.148936,
+        0.212766,
+        0.225532,
+        0.182979,
+        0.131915,
+        0.097872
+      ]
+    },
+    {
+      "id": "cara-memperoleh",
+      "grafik": 42,
+      "title": "Cara memperoleh produk organik",
+      "kind": "single",
+      "unit": "proporsi responden",
+      "respondents": 235,
+      "source": "SPOI 2025, Bab 8, Grafik 42",
+      "categories": [
+        "Offline",
+        "Menanam Sendiri",
+        "Online"
+      ],
+      "values": [
+        0.489362,
+        0.378723,
+        0.131915
+      ]
+    },
+    {
+      "id": "platform-online",
+      "grafik": 43,
+      "title": "Platform online untuk membeli produk organik",
+      "kind": "multi",
+      "unit": "proporsi responden",
+      "respondents": null,
+      "source": "SPOI 2025, Bab 8, Grafik 43",
+      "categories": [
+        "Shopee",
+        "Tokopedia",
+        "Sayurbox",
+        "TaniHub",
+        "Go-Mart",
+        "Grab-Mart",
+        "Kecipir",
+        "HappyFresh",
+        "Segari",
+        "TukangSayur.co",
+        "Lainnya"
+      ],
+      "values": [
+        0.645161,
+        0.290323,
+        0.258065,
+        0.129032,
+        0.129032,
+        0.129032,
+        0.064516,
+        0.064516,
+        0.064516,
+        0.032258,
+        0.096774
+      ],
+      "note": "Penyebut tidak dinyatakan di dokumen (subset pengguna online/offline). Perhitungan balik menunjukkan sekitar 31 (online) dan 115 (offline), belum dikonfirmasi."
+    },
+    {
+      "id": "alasan-daring",
+      "grafik": 44,
+      "title": "Alasan berbelanja secara daring",
+      "kind": "multi",
+      "unit": "proporsi responden",
+      "respondents": null,
+      "source": "SPOI 2025, Bab 8, Grafik 44",
+      "categories": [
+        "Praktis, dan efisiensi waktu",
+        "Harga terjangkau dan banyak promo",
+        "Pengiriman lebih mudah dan cepat",
+        "Produk lebih bervariasi",
+        "Mudah dalam pembayaran",
+        "Banyak pilihan produk",
+        "Ada jaminan organik",
+        "Banyak testimoni",
+        "Lebih menarik secara visual dan packaging"
+      ],
+      "values": [
+        0.870968,
+        0.451613,
+        0.451613,
+        0.322581,
+        0.290323,
+        0.258065,
+        0.193548,
+        0.129032,
+        0.032258
+      ],
+      "note": "Penyebut tidak dinyatakan di dokumen (subset pengguna online/offline). Perhitungan balik menunjukkan sekitar 31 (online) dan 115 (offline), belum dikonfirmasi."
+    },
+    {
+      "id": "pengeluaran-daring",
+      "grafik": 45,
+      "title": "Pengeluaran belanja daring per bulan",
+      "kind": "single",
+      "unit": "proporsi responden",
+      "respondents": null,
+      "source": "SPOI 2025, Bab 8, Grafik 45",
+      "categories": [
+        "< Rp500.000",
+        "Rp500.000 – Rp1.000.000",
+        "Rp1.000.001 – Rp2.000.000",
+        "Rp2.000.001 – Rp3.000.000",
+        "Rp3.000.001 – Rp4.000.000"
+      ],
+      "values": [
+        0.645161,
+        0.225806,
+        0.064516,
+        0.032258,
+        0.032258
+      ],
+      "note": "Penyebut tidak dinyatakan di dokumen (subset pengguna online/offline). Perhitungan balik menunjukkan sekitar 31 (online) dan 115 (offline), belum dikonfirmasi."
+    },
+    {
+      "id": "alasan-luring",
+      "grafik": 46,
+      "title": "Alasan berbelanja secara luring",
+      "kind": "multi",
+      "unit": "proporsi responden",
+      "respondents": null,
+      "source": "SPOI 2025, Bab 8, Grafik 46",
+      "categories": [
+        "Dapat melihat dan menyentuh secara langsung",
+        "Lebih yakin terhadap keaslian/penjaminan produk organik",
+        "Mendukung petani atau usaha lokal secara langsung",
+        "Berinteraksi langsung dengan penjual",
+        "Mengetahui asal-usul dan proses produksi",
+        "Tidak perlu menunggu pengiriman",
+        "Bisa memilih produk yang paling segar",
+        "Bisa membeli dalam jumlah kecil/satuan",
+        "Lokasi toko/pasar dekat dengan tempat tinggal",
+        "Menjadi sarana interaksi dengan komunitas",
+        "Harga"
+      ],
+      "values": [
+        0.547826,
+        0.469565,
+        0.417391,
+        0.313043,
+        0.295652,
+        0.252174,
+        0.243478,
+        0.208696,
+        0.156522,
+        0.086957,
+        0.008696
+      ],
+      "note": "Penyebut tidak dinyatakan di dokumen (subset pengguna online/offline). Perhitungan balik menunjukkan sekitar 31 (online) dan 115 (offline), belum dikonfirmasi."
+    },
+    {
+      "id": "cara-luring",
+      "grafik": 47,
+      "title": "Cara berbelanja secara luring",
+      "kind": "multi",
+      "unit": "proporsi responden",
+      "respondents": null,
+      "source": "SPOI 2025, Bab 8, Grafik 47",
+      "categories": [
+        "Pesan langsung dengan petani",
+        "Supermarket",
+        "Pasar Komunitas",
+        "Pameran / event / festival produk organik",
+        "Toko khusus produk organik",
+        "Toko dan resto organik",
+        "Dari dinas pertanian",
+        "Langsung di Satgas Organik",
+        "Pesan melalui teman yang kenal dengan petani organik",
+        "Pesan dari CSA atau penjual yang langsung dari petani",
+        "Lainnya"
+      ],
+      "values": [
+        0.53913,
+        0.365217,
+        0.26087,
+        0.2,
+        0.173913,
+        0.13913,
+        0.008696,
+        0.008696,
+        0.008696,
+        0.008696,
+        0.008696
+      ],
+      "note": "Penyebut tidak dinyatakan di dokumen (subset pengguna online/offline). Perhitungan balik menunjukkan sekitar 31 (online) dan 115 (offline), belum dikonfirmasi."
+    },
+    {
+      "id": "pengeluaran-luring",
+      "grafik": 48,
+      "title": "Pengeluaran belanja luring per bulan",
+      "kind": "single",
+      "unit": "proporsi responden",
+      "respondents": null,
+      "source": "SPOI 2025, Bab 8, Grafik 48",
+      "categories": [
+        "< Rp500.000",
+        "Rp500.000 – Rp1.000.000",
+        "Rp1.000.001 – Rp2.000.000",
+        "Rp2.000.001 – Rp3.000.000",
+        "Rp3.000.001 – Rp4.000.000",
+        "> Rp5.000.000"
+      ],
+      "values": [
+        0.608696,
+        0.295652,
+        0.06087,
+        0.017391,
+        0.008696,
+        0.008696
+      ],
+      "note": "Penyebut tidak dinyatakan di dokumen (subset pengguna online/offline). Perhitungan balik menunjukkan sekitar 31 (online) dan 115 (offline), belum dikonfirmasi."
+    },
+    {
+      "id": "produk-segar",
+      "grafik": 49,
+      "title": "Produk segar yang dikonsumsi",
+      "kind": "multi",
+      "unit": "proporsi responden",
+      "respondents": 235,
+      "source": "SPOI 2025, Bab 8, Grafik 49",
+      "categories": [
+        "Sayur",
+        "Beras",
+        "Buah-buahan",
+        "Telur",
+        "Rempah-rempah",
+        "Daging (ayam, sapi, kambing)",
+        "Susu segar",
+        "Lainnya"
+      ],
+      "values": [
+        0.821277,
+        0.621277,
+        0.548936,
+        0.32766,
+        0.302128,
+        0.208511,
+        0.093617,
+        0.029787
+      ]
+    },
+    {
+      "id": "produk-olahan",
+      "grafik": 50,
+      "title": "Jenis produk olahan organik yang dikonsumsi",
+      "kind": "multi",
+      "unit": "proporsi responden",
+      "respondents": 235,
+      "source": "SPOI 2025, Bab 8, Grafik 50",
+      "categories": [
+        "Gula aren",
+        "Teh dan Kopi",
+        "Tepung-tepungan",
+        "Bumbu",
+        "Gula kelapa",
+        "Makanan ringan",
+        "Kecap",
+        "Mie",
+        "Kaldu bubuk",
+        "Makanan bayi",
+        "Tidak Mengonsumsi Produk Olahan",
+        "Lainnya"
+      ],
+      "values": [
+        0.506383,
+        0.497872,
+        0.319149,
+        0.297872,
+        0.289362,
+        0.26383,
+        0.212766,
+        0.208511,
+        0.148936,
+        0.114894,
+        0.004255,
+        0.038298
+      ]
+    },
+    {
+      "id": "faktor-kepercayaan",
+      "grafik": 51,
+      "title": "Faktor yang menentukan kepercayaan",
+      "kind": "scale",
+      "unit": "proporsi responden",
+      "respondents": 235,
+      "source": "SPOI 2025, Bab 8, Grafik 51",
+      "levels": [
+        "Sangat Tidak Setuju",
+        "Tidak Setuju",
+        "Setuju",
+        "Sangat Setuju"
+      ],
+      "categories": [
+        "Memiliki label/sertifikasi",
+        "Dijual oleh penjual yang dikenal",
+        "Rekomendasi teman/keluarga",
+        "Informasi dari media sosial",
+        "Kemasan dan branding",
+        "Keanggotaan komunitas/jejaring organik"
+      ],
+      "values": {
+        "Sangat Tidak Setuju": [
+          0.046809,
+          0.055319,
+          0.038298,
+          0.034043,
+          0.042553,
+          0.042553
+        ],
+        "Tidak Setuju": [
+          0.140426,
+          0.12766,
+          0.13617,
+          0.131915,
+          0.13617,
+          0.055319
+        ],
+        "Setuju": [
+          0.557447,
+          0.587234,
+          0.668085,
+          0.659574,
+          0.612766,
+          0.646809
+        ],
+        "Sangat Setuju": [
+          0.255319,
+          0.229787,
+          0.157447,
+          0.174468,
+          0.208511,
+          0.255319
+        ]
+      }
+    },
+    {
+      "id": "pentingnya-sertifikasi",
+      "grafik": 52,
+      "title": "Pentingnya sertifikasi organik",
+      "kind": "single",
+      "unit": "proporsi responden",
+      "respondents": 235,
+      "source": "SPOI 2025, Bab 8, Grafik 52",
+      "categories": [
+        "Penting",
+        "Tidak penting"
+      ],
+      "values": [
+        0.931915,
+        0.068085
+      ]
+    },
+    {
+      "id": "jenis-penjaminan",
+      "grafik": 53,
+      "title": "Jenis penjaminan organik yang dipercaya",
+      "kind": "multi",
+      "unit": "proporsi responden",
+      "respondents": 235,
+      "source": "SPOI 2025, Bab 8, Grafik 53",
+      "categories": [
+        "Sertifikasi organik Indonesia",
+        "Penjaminan komunitas (PGS)",
+        "Pernyataan produsen (self-declare)",
+        "Sertifikasi organik luar negeri"
+      ],
+      "values": [
+        0.849315,
+        0.438356,
+        0.360731,
+        0.223744
+      ]
+    },
+    {
+      "id": "kemudahan-akses",
+      "grafik": 54,
+      "title": "Kemudahan akses produk organik (skala 1-4)",
+      "kind": "single",
+      "unit": "proporsi responden",
+      "respondents": 235,
+      "source": "SPOI 2025, Bab 8, Grafik 54",
+      "categories": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "values": [
+        0.085106,
+        0.2,
+        0.374468,
+        0.340426
+      ]
+    },
+    {
+      "id": "faktor-pembelian",
+      "grafik": 55,
+      "title": "Tingkat kepentingan faktor pembelian",
+      "kind": "scale",
+      "unit": "proporsi responden",
+      "respondents": 235,
+      "source": "SPOI 2025, Bab 8, Grafik 55",
+      "levels": [
+        "Sangat Tidak Penting",
+        "Tidak Penting",
+        "Penting",
+        "Sangat Penting"
+      ],
+      "categories": [
+        "Kesehatan pribadi",
+        "Kesehatan keluarga/anak",
+        "Keamanan pangan (bebas pestisida)",
+        "Ramah lingkungan",
+        "Mendukung petani lokal",
+        "Tren/gaya hidup sehat"
+      ],
+      "values": {
+        "Sangat Tidak Penting": [
+          0.029787,
+          0.029787,
+          0.034043,
+          0.034043,
+          0.029787,
+          0.042553
+        ],
+        "Tidak Penting": [
+          0.004255,
+          0.004255,
+          0.004255,
+          0.008511,
+          0.012766,
+          0.080851
+        ],
+        "Penting": [
+          0.391489,
+          0.361702,
+          0.365957,
+          0.382979,
+          0.4,
+          0.497872
+        ],
+        "Sangat Penting": [
+          0.574468,
+          0.604255,
+          0.595745,
+          0.574468,
+          0.557447,
+          0.378723
+        ]
+      }
+    }
+  ]
+}

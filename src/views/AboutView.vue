@@ -57,8 +57,6 @@ function goTo(id: string): void {
           <h2 :id="`h-${s.method.id}`" class="text-base font-semibold">{{ s.method.title }}</h2>
           <p class="text-sm leading-relaxed">{{ t.method.collect(meta.collection.certifiers, meta.collection.pgs, meta.collection.period) }}</p>
           <p class="text-sm leading-relaxed">{{ t.method.aggregate }}</p>
-          <p class="text-sm leading-relaxed">{{ t.method.extract }}</p>
-          <p class="text-sm leading-relaxed">{{ t.method.provinces }}</p>
           <p class="text-sm leading-relaxed">{{ t.method.derived }}</p>
         </section>
 

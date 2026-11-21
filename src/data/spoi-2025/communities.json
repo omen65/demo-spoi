@@ -1,0 +1,36 @@
+{
+  "edition": "SPOI 2025 (Draft V13)",
+  "source": "SPOI 2025, Bab 12",
+  "rows": [
+    {
+      "name": "Komunitas Organik Indonesia (KOI)",
+      "base": "Jaringan pelaku organik, artisan, petani, UMKM, komunitas",
+      "role": "Edukasi konsumen, promosi produk, event, membangun jaringan produsen–konsumen"
+    },
+    {
+      "name": "Lingkar Organik (LO)",
+      "base": "Yogyakarta; komunitas sekaligus jaringan pemberdayaan dan bisnis organik",
+      "role": "Menghubungkan petani dengan konsumen, pemasaran produk, edukasi gaya hidup organik"
+    },
+    {
+      "name": "Komunitas 1000 Kebun",
+      "base": "Bandung; komunitas pangan/kebun lokal dan organik",
+      "role": "Konsumsi pangan lokal, edukasi, hubungan konsumen dengan petani"
+    },
+    {
+      "name": "Komunitas Pasar Organik Milas",
+      "base": "Yogyakarta",
+      "role": "Pasar/komunitas yang mempertemukan konsumen dengan produk pangan organik"
+    },
+    {
+      "name": "Aliansi Organis Indonesia (AOI)",
+      "base": "Jaringan masyarakat sipil organik",
+      "role": "Lebih kuat pada pemberdayaan petani, sistem penjaminan, pangan lokal dan gerakan organis; bukan komunitas konsumen murni"
+    },
+    {
+      "name": "Jaringan PGS/penjaminan partisipatif",
+      "base": "Berbasis komunitas",
+      "role": "Membangun kepercayaan antara produsen dan konsumen melalui penjaminan partisipatif"
+    }
+  ]
+}

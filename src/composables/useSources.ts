@@ -9,3 +9,14 @@ export function combineSources(sources: string[]): string {
   if (!edition || parts.length === 0) return sources.join('; ')
   return `${edition}: ${parts.join('; ')}`
 }
+
+/** SPOI 2025: "SPOI 2025 (Draft V13), Bab 3.2.1, Grafik 2" digabung menjadi "SPOI 2025 (Draft V13), Grafik 2, 4, 6". */
+export function combineSources2025(sources: string[]): string {
+  const edition = sources.map((s) => /^(.*?), Bab /.exec(s)?.[1]).find((e) => e)
+  const numbers = sources.flatMap((s) => {
+    const m = /Grafik (\d+)/.exec(s)
+    return m ? [Number(m[1])] : []
+  })
+  if (!edition || numbers.length === 0) return sources.join('; ')
+  return `${edition}, Grafik ${[...new Set(numbers)].sort((a, b) => a - b).join(', ')}`
+}

@@ -1,0 +1,72 @@
+{
+  "edition": "SPOI 2025 (Draft V13)",
+  "source": "SPOI 2025, Bab 10",
+  "rows": [
+    {
+      "period": "Pra-1970-an",
+      "stage": "Praktik Tradisional",
+      "instrument": "Kearifan lokal pertanian",
+      "substance": "Sistem pertanian berbasis bahan alami, pupuk organik, rotasi tanaman, dan pengendalian hayati; belum ada regulasi formal."
+    },
+    {
+      "period": "1970–1980-an",
+      "stage": "Dominasi Revolusi Hijau",
+      "instrument": "Program intensifikasi pertanian",
+      "substance": "Fokus peningkatan produksi melalui pupuk kimia dan pestisida sintetis; praktik organik terpinggirkan dan tidak menjadi kebijakan arus utama."
+    },
+    {
+      "period": "1980–1998",
+      "stage": "Pionir & Gerakan Sipil",
+      "instrument": "Inisiatif LSM dan komunitas petani",
+      "substance": "Muncul gerakan pertanian organik oleh LSM, komunitas petani, dan program FAO (IPM–FFS) sebagai respons degradasi lingkungan."
+    },
+    {
+      "period": "1999–2002",
+      "stage": "Awal Kelembagaan",
+      "instrument": "SNI 6729:2002",
+      "substance": "Standar Nasional Indonesia pertama tentang Sistem Pertanian Organik sebagai dasar penjaminan mutu dan klaim organik."
+    },
+    {
+      "period": "2003–2009",
+      "stage": "Pengarusutamaan Kebijakan",
+      "instrument": "Program “Go Organic 2010”",
+      "substance": "Strategi nasional pengembangan pertanian organik dari produksi, sertifikasi, hingga pemasaran dan ekspor; lahir AOI sebagai aktor advokasi."
+    },
+    {
+      "period": "2010–2012",
+      "stage": "Ekspansi & Industrialisasi Awal",
+      "instrument": "Penguatan pasar dan sertifikasi",
+      "substance": "Peningkatan promosi ekspor, partisipasi pameran internasional, serta perluasan lembaga sertifikasi organik."
+    },
+    {
+      "period": "2013",
+      "stage": "Penguatan Regulasi Inti",
+      "instrument": "Permentan No. 64 Tahun 2013",
+      "substance": "Pengaturan sistem pertanian organik secara komprehensif mencakup budidaya, sertifikasi, pelabelan, pengawasan, dan pembinaan pusat–daerah."
+    },
+    {
+      "period": "2016–2019",
+      "stage": "Penyempurnaan Standar",
+      "instrument": "SNI 6729:2016",
+      "substance": "Revisi standar organik agar selaras dengan perkembangan praktik dan pasar; penguatan peran LSO dan PGS."
+    },
+    {
+      "period": "2020–2024",
+      "stage": "Integrasi Pembangunan Nasional",
+      "instrument": "RPJMN 2020–2024 & Program 1.000 Desa Organik",
+      "substance": "Pertanian organik dimasukkan dalam kebijakan pembangunan berkelanjutan; fokus kawasan dan komoditas perkebunan rakyat."
+    },
+    {
+      "period": "2025",
+      "stage": "Reformulasi Standar",
+      "instrument": "SNI 6729:2025",
+      "substance": "Perluasan pengaturan ke aspek sumber daya dan input produksi; penguatan sistem pangan berkelanjutan dan daya saing global."
+    },
+    {
+      "period": "2025–2045",
+      "stage": "Reorientasi Jangka Panjang",
+      "instrument": "Peta Jalan Pertanian Organik Nasional",
+      "substance": "Penataan kelembagaan, pendekatan yurisdiksi, agroekologi, serta integrasi pertanian organik dalam transformasi sistem pangan nasional."
+    }
+  ]
+}

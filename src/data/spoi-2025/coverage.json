@@ -1,0 +1,107 @@
+{
+  "edition": "SPOI 2025 (Draft V13)",
+  "kabupatenKota": {
+    "unit": "kabupaten/kota",
+    "source": "SPOI 2025, Bab 2.2.5, Tabel 1",
+    "regions": [
+      {
+        "name": "Sumatera",
+        "lengkap": 8,
+        "tidakLengkap": 2,
+        "tidakAda": 144
+      },
+      {
+        "name": "Jawa",
+        "lengkap": 4,
+        "tidakLengkap": 10,
+        "tidakAda": 105
+      },
+      {
+        "name": "Kalimantan",
+        "lengkap": 3,
+        "tidakLengkap": 1,
+        "tidakAda": 51
+      },
+      {
+        "name": "Sulawesi",
+        "lengkap": 0,
+        "tidakLengkap": 2,
+        "tidakAda": 80
+      },
+      {
+        "name": "Maluku",
+        "lengkap": 0,
+        "tidakLengkap": 0,
+        "tidakAda": 21
+      },
+      {
+        "name": "Bali, NTB, dan NTT",
+        "lengkap": 0,
+        "tidakLengkap": 1,
+        "tidakAda": 40
+      },
+      {
+        "name": "Papua",
+        "lengkap": 0,
+        "tidakLengkap": 0,
+        "tidakAda": 42
+      }
+    ],
+    "total": {
+      "lengkap": 15,
+      "tidakLengkap": 16,
+      "tidakAda": 483
+    },
+    "reportedPercent": {
+      "lengkap": 2.92,
+      "tidakLengkap": 3.11,
+      "tidakAda": 93.97
+    }
+  },
+  "lembaga": {
+    "unit": "lembaga/mitra",
+    "source": "SPOI 2025, Bab 2.2.5, Tabel 2",
+    "rows": [
+      {
+        "name": "LSPRo Nasional",
+        "lengkap": 12,
+        "tidakLengkap": 3,
+        "tidakAda": 1
+      },
+      {
+        "name": "LSPRo Internasional",
+        "lengkap": 0,
+        "tidakLengkap": 2,
+        "tidakAda": 5
+      },
+      {
+        "name": "Kementerian Pertanian",
+        "lengkap": 2,
+        "tidakLengkap": 2,
+        "tidakAda": 0
+      },
+      {
+        "name": "Anggota AOI",
+        "lengkap": 16,
+        "tidakLengkap": 47,
+        "tidakAda": 36
+      },
+      {
+        "name": "Jaringan AOI",
+        "lengkap": 0,
+        "tidakLengkap": 5,
+        "tidakAda": 20
+      }
+    ],
+    "total": {
+      "lengkap": 30,
+      "tidakLengkap": 59,
+      "tidakAda": 62
+    },
+    "reportedPercent": {
+      "lengkap": 19.87,
+      "tidakLengkap": 39.07,
+      "tidakAda": 41.06
+    }
+  }
+}

@@ -12,7 +12,7 @@ const formatCount = (n: number): string => new Intl.NumberFormat('id-ID').format
 
 export const ui = {
   brand: 'SPOI 2023',
-  demoBadge: 'Demo',
+  demoBadge: 'Arsip',
   skipToContent: 'Lewati ke konten',
   nav: {
     home: 'Beranda',
@@ -45,12 +45,12 @@ export const ui = {
     credit: (publisher: string, edition: string, published: string) =>
       `Data: ${edition}, ${publisher}, terbit ${published}.`,
     demoNote:
-      'Ini demo visual untuk gambaran produk, bukan produk resmi AOI. Angka mengikuti buku apa adanya; tanda † berarti angkanya perlu konfirmasi AOI.',
+      'Dashboard statistik pertanian organik. Edisi 2023 adalah arsip: angka mengikuti buku apa adanya; tanda † berarti angkanya sedang diverifikasi.',
     aboutLink: 'Tentang data dan batasannya',
   },
   comingSoon: {
     title: 'Halaman ini sedang disiapkan',
-    body: 'Demo dibangun halaman demi halaman. Beranda sudah bisa dicoba.',
+    body: 'Halaman ini belum tersedia.',
     back: 'Kembali ke Beranda',
   },
   chart: {
@@ -61,7 +61,7 @@ export const ui = {
     downloadCsv: 'Unduh CSV',
     sourcePrefix: 'Sumber:',
     unitPrefix: 'Satuan:',
-    flagLegend: '† Perlu konfirmasi AOI',
+    flagLegend: '† Dalam verifikasi',
     noData: 'Tidak ada data',
   },
   home: {
@@ -141,7 +141,7 @@ export const ui = {
     changeArea: (dir: 'naik' | 'turun' | 'tetap', pct: string, from: string) =>
       dir === 'tetap' ? `Luas tetap sejak ${from}` : `Luas ${dir} ${pct} sejak ${from}`,
     noValue: 'Tidak ada data',
-    flagTitle: 'Perlu konfirmasi AOI',
+    flagTitle: 'Dalam verifikasi',
     table: {
       name: 'Komoditas',
       area: 'Luas lahan (ha)',
@@ -160,7 +160,7 @@ export const ui = {
     summary: (year: string) => `Ringkasan ${year}`,
     lead: (year: string, from: string) => `Ringkasan ${year} dan tren ${from}-${year}`,
     notesTitle: 'Catatan data',
-    notesLead: 'Angka berikut tampil apa adanya seperti di buku, dan perlu konfirmasi AOI.',
+    notesLead: 'Angka berikut tampil apa adanya seperti di buku, dan sedang diverifikasi.',
     notesYears: (years: string) => `Tahun ${years}`,
     trendTitle: (noun: string, name: string, dir: 'naik' | 'turun' | 'tetap', pct: string, from: string, to: string) =>
       dir === 'tetap'
@@ -204,7 +204,7 @@ export const ui = {
       pupuk: 'pupuk dan input',
       jamur: 'jamur',
     } as Record<string, string>,
-    pgsNote: 'Luas lahan PAMOR dan lokasi unit ROLEs tidak ditampilkan karena menunggu konfirmasi AOI.',
+    pgsNote: 'Luas lahan PAMOR dan lokasi unit ROLEs tidak ditampilkan karena menunggu verifikasi.',
     pgsFigures: (name: string) => `Angka ${name}`,
     notesTitle: 'Catatan data',
     otherLinks: 'Lihat juga',
@@ -239,13 +239,13 @@ export const ui = {
       limits: { id: 'batasan', title: 'Batasan' },
       notes: { id: 'catatan-data', title: 'Catatan data' },
       map: { id: 'peta', title: 'Peta' },
-      demo: { id: 'demo', title: 'Tentang demo ini' },
+      demo: { id: 'demo', title: 'Tentang dashboard' },
     },
     source: {
       lead: (title: string, publisher: string, published: string, from: number, to: number) =>
-        `Seluruh angka berasal dari buku "${title}" yang disusun ${publisher}, terbit ${published}, dengan data tahun ${from}-${to}. Tidak ada angka dari edisi atau sumber lain.`,
+        `Seluruh angka berasal dari buku "${title}" yang disusun ${publisher}, terbit ${published}, dengan data tahun ${from}-${to}.`,
       printer: (p: string) => `Dicetak oleh ${p}.`,
-      trace: 'Setiap grafik mencantumkan halaman dan tabel atau gambar di buku sebagai sumbernya. Nomor halaman adalah nomor halaman cetak buku.',
+      trace: 'Setiap grafik mencantumkan sumbernya (halaman dan tabel atau gambar di buku).',
     },
     method: {
       collect: (certifiers: number, pgs: number, period: string) =>
@@ -257,10 +257,10 @@ export const ui = {
     },
     definitions: {
       items: [
-        { term: 'Luas lahan (ha)', text: 'Buku tidak memuat definisi tertulis tersendiri. Rujukan terdekatnya menyebut "lahan yang disertifikasi organik" (hlm. 1). Dashboard memakai angka luas apa adanya dan tidak menafsirkan apakah termasuk lahan masa konversi.' },
+        { term: 'Luas lahan (ha)', text: 'Luas lahan pertanian organik dalam hektare (ha), per komoditas. Dashboard tidak menafsirkan apakah termasuk lahan masa konversi.' },
         { term: 'Produksi (ton)', text: 'Jumlah produksi per tahun menurut grafik buku, dalam ton.' },
         { term: 'Petani, produsen, operator (orang)', text: 'Jumlah pelaku yang tercatat per tahun. Buku memakai "petani" untuk komoditas pertanian dan "operator" untuk pelaku pasar, olahan, ternak, pupuk, dan jamur.' },
-        { term: 'Kosong dan 0', text: 'Sel kosong di tabel provinsi ditampilkan sebagai "Tidak ada data" (di peta: arsiran), sedangkan 0 ditampilkan sebagai 0. Buku sendiri menyebut angka kosong atau 0 bisa berarti belum terkonfirmasi (hlm. 8).' },
+        { term: 'Kosong dan 0', text: 'Sel kosong di tabel provinsi ditampilkan sebagai "Tidak ada data" (di peta: arsiran), sedangkan 0 ditampilkan sebagai 0.' },
         { term: 'Format angka', text: 'Titik sebagai pemisah ribuan dan koma sebagai desimal, mengikuti kebiasaan penulisan Indonesia.' },
       ],
     },
@@ -271,29 +271,24 @@ export const ui = {
         'Satu hamparan bisa ditanami beberapa komoditas, jadi luas lahan antarkomoditas tidak boleh dijumlahkan. Karena itu dashboard tidak menampilkan "total luas organik".',
         'Angka SPOI antaredisi tidak bisa dibandingkan langsung karena cakupannya bisa berbeda. Dashboard ini hanya memakai SPOI 2023.',
         'Tabel provinsi hanya ada untuk 13 komoditas; jamur, madu, ternak, pupuk, dan pasar tidak punya sebaran wilayah di buku.',
-        'Survei konsumen di buku tidak dimasukkan karena sampelnya kecil dan tidak mewakili populasi.',
         'Riset hanya tiga potret waktu (2015, 2020, 2023) dengan rentang kumulatif yang berbeda, bukan deret tahunan.',
       ],
     },
     notes: {
-      lead: 'Angka berikut tampil apa adanya seperti di buku dan diberi tanda † karena tampak janggal. Semuanya menunggu konfirmasi AOI.',
+      lead: 'Angka dengan tanda † sedang diverifikasi dan dapat berubah.',
       flaggedHeading: 'Angka bertanda †',
       years: (y: string) => `Tahun ${y}`,
       provinceHeading: 'Tabel provinsi',
       otherHeading: 'Catatan lain',
       other: [
-        'Kacang-kacangan, umbi-umbian, sayuran, dan jamur dibaca manual dari gambar grafik, bukan dari teks.',
-        'Judul dan nomor gambar beras di buku tertukar antara grafik produksi dan petani; dashboard memakai satuan pada sumbu grafik sebagai patokan.',
-        'Pada beberapa komoditas, angka di narasi sedikit berbeda dari grafik karena pembulatan; dashboard memakai angka grafik.',
-        'Jumlah operator pupuk 2019 di grafik (88) berbeda dari yang disebut di narasi (42). Dashboard memakai angka grafik.',
-        'PAMOR dan ROLEs: luas lahan PAMOR (ditulis "100,819 ha") dan lokasi unit ROLEs di buku meragukan, sehingga tidak ditampilkan.',
+        'Angka di narasi yang sedikit berbeda dari grafik karena pembulatan: dashboard memakai angka grafik.',
       ],
     },
     map: {
       text: 'Batas provinsi memakai dataset "Indonesia GeoJSON & TopoJSON Maps (38 Provinces)" (Deny Herianto), lisensi CC BY 4.0. Asal batas aslinya tidak terdokumentasi dan geometrinya sangat disederhanakan, jadi peta ini hanya untuk gambaran sebaran, bukan batas resmi.',
     },
     demo: {
-      text: 'Ini demo visual yang dibuat untuk memberi gambaran produk dashboard publik SPOI. Ini bukan produk resmi AOI dan belum dipublikasikan. Kredit data sepenuhnya milik Aliansi Organis Indonesia.',
+      text: 'Dashboard ini menampilkan statistik pertanian organik Indonesia dari buku SPOI 2023 secara interaktif, dibuat oleh Aliansi Organis Indonesia (AOI). Edisi 2023 adalah arsip dan tidak digabung atau dibandingkan dengan edisi lain.',
     },
   },
   regions: {

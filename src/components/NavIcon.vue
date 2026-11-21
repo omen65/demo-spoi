@@ -1,10 +1,11 @@
 <script setup lang="ts">
-defineProps<{ name: 'home' | 'grid' | 'pin' | 'layers' | 'flask' | 'info' | 'arrow' | 'up' | 'down' | 'sidebar' | 'chevron' | 'download' }>()
+defineProps<{ name: 'home' | 'users' | 'grid' | 'pin' | 'layers' | 'flask' | 'info' | 'arrow' | 'up' | 'down' | 'sidebar' | 'chevron' | 'download' }>()
 </script>
 
 <template>
   <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="shrink-0">
     <template v-if="name === 'home'"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z" /></template>
+    <template v-else-if="name === 'users'"><circle cx="9" cy="8" r="3.2" /><path d="M3 20a6 6 0 0 1 12 0M16 5.2a3.2 3.2 0 0 1 0 5.6M18 14.5a6 6 0 0 1 3 5.5" /></template>
     <template v-else-if="name === 'grid'"><path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z" /></template>
     <template v-else-if="name === 'pin'"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z" /><circle cx="12" cy="10" r="2.5" /></template>
     <template v-else-if="name === 'layers'"><path d="m12 3 9 5-9 5-9-5 9-5z" /><path d="m3 13 9 5 9-5" /></template>
