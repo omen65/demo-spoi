@@ -16,8 +16,8 @@ const t = ui2025.commodities
 const commodities = getCommodities2025()
 
 const year = ref<YearKey2025>(LATEST_YEAR_2025)
-const metric = ref<RowMetric>('luas')
-const sortKey = ref<SortKey2025>('luas')
+const metric = ref<RowMetric>('produksi')
+const sortKey = ref<SortKey2025>('produksi')
 function setSort(k: SortKey2025): void {
   sortKey.value = k
 }
@@ -122,7 +122,7 @@ const tableRows = computed(() =>
       <CommodityTable2025 :rows="sortedTanaman" :sort-key="sortKey" :caption="t.listTitle" :metric-name="metricName" @sort="setSort" />
     </section>
 
-    <section aria-labelledby="produk-lain" class="space-y-2">
+    <section v-if="sortedProduk.length" aria-labelledby="produk-lain" class="space-y-2">
       <div class="flex flex-wrap items-baseline justify-between gap-2">
         <h2 id="produk-lain" class="text-base font-semibold">{{ t.otherTitle }}</h2>
         <p class="text-xs text-ink-600">{{ t.otherLead }}</p>

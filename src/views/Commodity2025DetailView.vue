@@ -1,7 +1,9 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import { useRoute } from 'vue-router'
+import BarChart, { type BarItem } from '@/components/BarChart.vue'
 import ChartCard from '@/components/ChartCard.vue'
+import ChoiceGroup from '@/components/ChoiceGroup.vue'
 import DeltaPill from '@/components/DeltaPill.vue'
 import PageHeader from '@/components/PageHeader.vue'
 import type { TableColumn } from '@/components/DataTable.vue'
@@ -15,10 +17,12 @@ import {
   YEARS_2025,
   getCommodities2025,
   getCommodity2025,
-  getMap2025,
+  getCommodityNote2025,
+  getProvinceSource2025,
+  getProvinceValues2025,
   getSeries2025,
 } from '@/data/api'
-import type { Metric } from '@/data/types'
+import type { Metric, ProvinceMetric2025, YearKey2025 } from '@/data/types'
 import { flaggedYearsFor, notesFor } from '@/content/flags-2025'
 import { ui2025 } from '@/content/id-2025'
 
@@ -102,14 +106,36 @@ const notes = computed(() => {
   return present.value.flatMap((m) => {
     const s = getSeries2025(c, m)!
     const list = notesFor(c.id, m, s.values, YEARS)
-    // Catatan di JSON dipakai hanya bila tidak ada penanda otomatis (mis. nilai 2024 kosong)
-    const extra = list.length === 0 && s.note ? [s.note] : []
-    return [...list, ...extra].map((note, i) => ({ key: `${m}-${i}`, title: t.notesLabel(t.summaryNames[m]), note }))
+    return list.map((note, i) => ({ key: `${m}-${i}`, title: t.notesLabel(t.summaryNames[m]), note }))
   })
 })
+// Catatan komoditas (mis. Minyak Atsiri = Jeruk di edisi sebelumnya) tampil sekali, bukan per metrik
+const commodityNote = computed(() => (commodity.value ? getCommodityNote2025(commodity.value.id) : undefined))
 
-// --- Peta dari dokumen ---
-const map = computed(() => (commodity.value ? getMap2025(commodity.value.id) : undefined))
+// --- Sebaran provinsi (nilai dari Excel AOI; peta lengkap ada di halaman Wilayah) ---
+const provYear = ref<YearKey2025>(LATEST)
+const provYearOptions = (['2023', '2024'] as const).map((y) => ({ value: y, label: y }))
+const provMetric = computed<ProvinceMetric2025>(() => (getSeries2025(commodity.value!, 'luas') ? 'luas' : 'produksi'))
+const provItems = computed<BarItem[]>(() => {
+  const c = commodity.value
+  if (!c) return []
+  return Object.entries(getProvinceValues2025(c.id, provMetric.value, provYear.value))
+    .flatMap(([name, value]) => (value !== null ? [{ name, value }] : []))
+    .sort((a, b) => b.value - a.value)
+})
+const provUnit = computed(() => t.provinces.units[provMetric.value])
+const provTitle = computed(() => {
+  const c = commodity.value
+  const first = provItems.value[0]
+  if (!c) return ''
+  return first
+    ? t.provinces.title(first.name, c.name.toLowerCase(), t.provinces.phrase[provMetric.value], provYear.value, provItems.value.length)
+    : t.provinces.none(c.name.toLowerCase(), provYear.value)
+})
+const provColumns: TableColumn[] = [
+  { key: 'name', label: t.provinces.columns.name },
+  { key: 'value', label: t.provinces.columns.value, numeric: true },
+]
 
 // --- Navigasi sebelum/berikutnya ---
 const pageList = getCommodities2025()
@@ -152,6 +178,10 @@ const neighbours = computed(() => {
       </dl>
     </section>
 
+    <aside v-if="commodityNote" class="rounded-lg bg-paper-100 p-4 text-sm text-ink-900">
+      <span class="font-semibold">{{ t.noteTitle }}.</span> {{ commodityNote }}
+    </aside>
+
     <aside v-if="notes.length" class="rounded-lg bg-flag/5 p-4" aria-labelledby="catatan">
       <h2 id="catatan" class="text-lg">† {{ t.notesTitle }}</h2>
       <p class="mt-1 text-sm text-ink-700">{{ t.notesLead }}</p>
@@ -189,24 +219,28 @@ const neighbours = computed(() => {
       <p class="text-xs text-ink-600">{{ ui2025.chart.breakNote }}</p>
     </section>
 
-    <section aria-labelledby="peta">
-      <figure class="rounded-lg bg-white p-4 md:p-5">
-        <figcaption>
-          <h2 id="peta" class="text-sm font-semibold leading-snug text-ink-900">{{ t.maps.title(commodity.name) }}</h2>
-          <p class="mt-0.5 text-xs text-ink-600">{{ map ? t.maps.intro : t.maps.none }}</p>
-        </figcaption>
-        <template v-if="map">
-          <div class="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2">
-            <div v-for="img in map.images" :key="img.year">
-              <p class="mb-1 text-xs font-medium text-ink-700">{{ t.maps.year(img.year) }}</p>
-              <a :href="img.url" target="_blank" rel="noopener" :aria-label="`${t.maps.open}: ${t.maps.year(img.year)}`">
-                <img :src="img.url" :alt="t.maps.alt(commodity.name, img.year)" loading="lazy" class="w-full rounded-md border border-paper-100" />
-              </a>
-            </div>
-          </div>
-          <p class="mt-3 text-[11px] leading-snug text-ink-600">{{ ui2025.chart.sourcePrefix }} {{ map.source }}</p>
+    <section aria-labelledby="provinsi">
+      <ChartCard
+        :title="provTitle"
+        :unit="provUnit"
+        :source="getProvinceSource2025(commodity.id, provMetric)"
+        :csv-name="`spoi-2025-${commodity.id}-${provMetric}-provinsi-${provYear}`"
+        :columns="provColumns"
+        :rows="provItems.map((p) => ({ name: p.name, value: p.value }))"
+        :note="t.provinces.note"
+      >
+        <template #controls>
+          <ChoiceGroup v-model="provYear" :legend="t.provinces.year" name="tahun-provinsi" :options="provYearOptions" />
         </template>
-      </figure>
+        <BarChart v-if="provItems.length" :items="provItems.slice(0, 10)" :unit="provUnit" :description="provTitle" />
+        <p v-else class="py-6 text-sm text-ink-600">{{ t.provinces.empty }}</p>
+        <RouterLink
+          :to="{ path: '/2025/wilayah', query: { komoditas: commodity.id } }"
+          class="mt-3 inline-block text-sm font-semibold text-accent-700 underline underline-offset-4"
+        >
+          {{ t.provinces.mapLink }}
+        </RouterLink>
+      </ChartCard>
     </section>
 
     <nav class="flex flex-wrap items-center justify-between gap-3 pt-2" aria-label="Komoditas lain">

@@ -43,7 +43,7 @@ function goTo(id: string): void {
       <div class="grid grid-cols-1 gap-3 md:grid-cols-2">
         <article v-for="s in pgs.systems" :key="s.id" class="rounded-lg bg-white p-4 md:p-5">
           <h3 class="text-[15px] font-semibold">
-            {{ s.name }}<span v-if="s.issues.length" class="ml-1 text-flag" :title="t.pgs.flag" :aria-label="t.pgs.flag">†</span>
+            {{ s.name }}
           </h3>
           <p class="mt-1 text-[13px] leading-relaxed text-ink-600">{{ s.summary }}</p>
           <dl class="mt-3 grid grid-cols-2 gap-3" :aria-label="t.pgs.figuresAria(s.name)">
@@ -55,7 +55,6 @@ function goTo(id: string): void {
               </dd>
             </div>
           </dl>
-          <p v-if="s.note" class="mt-3 text-xs leading-relaxed text-flag">† {{ s.note }}</p>
           <p class="mt-3 text-xs text-ink-600">{{ t.sourcePrefix }} {{ s.source }}</p>
         </article>
       </div>

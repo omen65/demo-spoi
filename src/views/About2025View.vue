@@ -70,7 +70,7 @@ function goTo(id: string): void {
       <div class="max-w-3xl space-y-3">
         <section :id="s.source.id" :aria-labelledby="`h-${s.source.id}`" class="scroll-mt-20 space-y-2 rounded-lg bg-white p-5">
           <h2 :id="`h-${s.source.id}`" class="text-base font-semibold">{{ s.source.title }}</h2>
-          <p class="text-sm leading-relaxed">{{ t.source.lead(meta.title, meta.publisher, meta.status, meta.dataYears.from, meta.dataYears.to) }}</p>
+          <p class="text-sm leading-relaxed">{{ t.source.lead(meta.title, meta.publisher, meta.dataYears.from, meta.dataYears.to) }}</p>
           <p class="text-sm leading-relaxed text-ink-600">{{ t.source.published(meta.published) }}</p>
         </section>
 
@@ -127,8 +127,11 @@ function goTo(id: string): void {
           <h3 class="mt-4 text-sm font-semibold">{{ t.notes.breakTitle }}</h3>
           <p class="mt-1 text-[13px] leading-relaxed">{{ t.notes.breakText }}</p>
 
-          <h3 class="mt-4 text-sm font-semibold"><span class="text-flag">†</span> {{ t.notes.flagTitle }}</h3>
-          <p class="mt-1 text-[13px] leading-relaxed">{{ t.notes.flagText }}</p>
+          <h3 class="mt-4 text-sm font-semibold">{{ t.notes.itemsTitle }}</h3>
+          <ul class="mt-1 list-disc space-y-1 pl-5 text-[13px] leading-relaxed">
+            <li v-for="n in t.notes.items" :key="n">{{ n }}</li>
+          </ul>
+
         </section>
 
         <section :id="s.demo.id" :aria-labelledby="`h-${s.demo.id}`" class="scroll-mt-20 space-y-2 rounded-lg bg-white p-5">

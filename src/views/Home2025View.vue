@@ -3,7 +3,7 @@ import { computed, ref } from 'vue'
 import ChartCard from '@/components/ChartCard.vue'
 import ChoiceGroup from '@/components/ChoiceGroup.vue'
 import CoverageBars from '@/components/CoverageBars.vue'
-import BarChart, { type BarItem } from '@/components/BarChart.vue'
+import GroupedBarChart from '@/components/GroupedBarChart.vue'
 import DeltaBars, { type DeltaItem } from '@/components/DeltaBars.vue'
 import DeltaPill from '@/components/DeltaPill.vue'
 import HeadlineCards, { type HeadlineItem } from '@/components/HeadlineCards.vue'
@@ -19,11 +19,10 @@ import {
   LATEST_YEAR_2025,
   PREVIOUS_YEAR_2025,
   YEARS_2025,
-  getAreaByRegion2025,
   getCommodities2025,
   getCoverage2025,
   getMeta2025,
-  getNationalMap2025,
+  getProvinces2025,
   getSeries2025,
 } from '@/data/api'
 import type { YearKey2025 } from '@/data/types'
@@ -42,7 +41,7 @@ const PREVIOUS = PREVIOUS_YEAR_2025
 const breakIndex = YEARS.indexOf(BREAK_AFTER_2025)
 const commodities = getCommodities2025()
 
-const metric = ref<HomeMetric>('luas')
+const metric = ref<HomeMetric>('produksi')
 const pickId = ref<string>('beras')
 
 const metricOptions = (Object.keys(t.metricNames) as HomeMetric[]).map((m) => ({ value: m, label: t.metricNames[m] }))
@@ -194,18 +193,39 @@ const coverageRows = [
   { region: 'Total', lengkap: coverage.total.lengkap, tidakLengkap: coverage.total.tidakLengkap, tidakAda: coverage.total.tidakAda },
 ]
 
-// --- Luas per wilayah (Tabel 3) dan peta nasional (Gambar 1) ---
-const area = getAreaByRegion2025()
-const nationalMap = getNationalMap2025()
-const regionItems: BarItem[] = area.regions
-  .flatMap((r) => (r.luas2024 === null ? [] : [{ name: r.name, value: r.luas2024 }]))
-  .sort((a, b) => b.value - a.value)
-const regionTitle = regionItems[0] ? t.regions.title(regionItems[0].name, formatNumber(regionItems[0].value)) : ''
-const regionColumns: TableColumn[] = [
-  { key: 'name', label: t.regions.columns.name },
-  { key: 'value', label: t.regions.columns.value, numeric: true },
+// --- Angka nasional dan gender (Excel AOI, 38 provinsi, 2023-2024) ---
+const provinces = getProvinces2025()
+const natNow = provinces.national[LATEST as '2024']
+const natPrev = provinces.national[PREVIOUS as '2023']
+const pct = (a: number | null, b: number | null): number | null => (a !== null && b !== null ? changePct(a, b) : null)
+const womenShare = (n: { perempuan: number | null; total: number | null }): number | null =>
+  n.perempuan !== null && n.total ? (n.perempuan / n.total) * 100 : null
+const shareNow = womenShare(natNow)
+const sharePrev = womenShare(natPrev)
+const nationalCards = [
+  { id: 'luas', label: t.national.area.label, value: natNow.luas, unit: t.national.area.unit, delta: pct(natPrev.luas, natNow.luas) },
+  { id: 'produsen', label: t.national.producers.label, value: natNow.total, unit: t.national.producers.unit, delta: pct(natPrev.total, natNow.total) },
 ]
-const regionRows = regionItems.map((r) => ({ name: r.name, value: r.value }))
+const shareDelta = shareNow !== null && sharePrev !== null ? shareNow - sharePrev : null
+const menShareNow = shareNow === null ? null : 100 - shareNow
+const genderTitle = t.gender.title(shareNow === null ? '' : formatPercent(shareNow), formatNumber(natNow.total ?? 0), LATEST)
+const genderCategories = ['2023', '2024']
+const genderSeries = [
+  { name: t.gender.series.lakiLaki, values: [natPrev.lakiLaki ?? 0, natNow.lakiLaki ?? 0] },
+  { name: t.gender.series.perempuan, values: [natPrev.perempuan ?? 0, natNow.perempuan ?? 0] },
+]
+const genderColumns: TableColumn[] = [
+  { key: 'year', label: t.gender.columns.year },
+  { key: 'lakiLaki', label: t.gender.columns.lakiLaki, numeric: true },
+  { key: 'perempuan', label: t.gender.columns.perempuan, numeric: true },
+  { key: 'total', label: t.gender.columns.total, numeric: true },
+  { key: 'share', label: t.gender.columns.share, numeric: true },
+]
+const genderRows = (['2023', '2024'] as const).map((y) => {
+  const n = provinces.national[y]
+  const sh = womenShare(n)
+  return { year: y, lakiLaki: n.lakiLaki, perempuan: n.perempuan, total: n.total, share: sh === null ? '–' : Number(sh.toFixed(1)) }
+})
 
 // --- Matriks indikator ---
 const matrixRows = t.matrix.rows
@@ -225,6 +245,38 @@ const matrixTable = matrixRows.map((r) => ({ no: r.no, name: r.name, status: t.m
     <PageHeader :title="t.title" :lead="t.intro(meta.dataYears.from, meta.dataYears.to)">
       <ChoiceGroup v-model="metric" :legend="t.controls.metric" name="metrik-beranda-2025" :options="metricOptions" />
     </PageHeader>
+
+    <section :aria-label="t.national.aria(LATEST)" class="space-y-3">
+      <ul class="grid grid-cols-1 gap-px overflow-hidden rounded-lg bg-paper-200 sm:grid-cols-3">
+        <li v-for="k in nationalCards" :key="k.id" class="bg-white p-4 md:p-5">
+          <p class="text-[13px] font-medium text-ink-600">{{ k.label }}</p>
+          <p class="mt-3 text-[30px] font-semibold leading-none tracking-tight text-ink-900 tabular-nums md:text-[34px]">{{ k.value === null ? '–' : formatNumber(k.value) }}</p>
+          <p class="mt-1.5 text-xs text-ink-600">{{ k.unit }}, {{ LATEST }}</p>
+          <p class="mt-3 flex items-center gap-1.5 text-xs text-ink-600"><DeltaPill :pct="k.delta" /><span>{{ t.national.since(PREVIOUS) }}</span></p>
+        </li>
+        <li class="bg-white p-4 md:p-5">
+          <p class="text-[13px] font-medium text-ink-600">{{ t.national.gender.label }}, {{ LATEST }}</p>
+          <dl class="mt-3 grid grid-cols-2 gap-3">
+            <div>
+              <dt class="text-xs text-ink-600">{{ t.national.gender.men }}</dt>
+              <dd class="mt-1 text-[26px] font-semibold leading-none tracking-tight text-ink-900 tabular-nums">{{ menShareNow === null ? '–' : formatPercent(menShareNow) }}</dd>
+              <dd class="mt-1 text-xs text-ink-600">{{ t.national.gender.people(formatNumber(natNow.lakiLaki ?? 0)) }}</dd>
+            </div>
+            <div>
+              <dt class="text-xs text-ink-600">{{ t.national.gender.women }}</dt>
+              <dd class="mt-1 text-[26px] font-semibold leading-none tracking-tight text-ink-900 tabular-nums">{{ shareNow === null ? '–' : formatPercent(shareNow) }}</dd>
+              <dd class="mt-1 text-xs text-ink-600">{{ t.national.gender.people(formatNumber(natNow.perempuan ?? 0)) }}</dd>
+            </div>
+          </dl>
+          <p v-if="shareDelta !== null" class="mt-3 text-xs text-ink-600">
+            {{ t.national.gender.women }}
+            <span class="font-medium tabular-nums text-ink-900">{{ shareDelta >= 0 ? '+' : '−' }}{{ formatNumber(Number(Math.abs(shareDelta).toFixed(1))) }}</span>
+            {{ t.national.pointsSince(PREVIOUS) }}
+          </p>
+        </li>
+      </ul>
+      <p class="text-xs text-ink-600">{{ t.national.note }}</p>
+    </section>
 
     <HeadlineCards :items="headline" :break-after-index="breakIndex" :label="t.headline.aria(LATEST)" />
 
@@ -312,30 +364,17 @@ const matrixTable = matrixRows.map((r) => ({ no: r.no, name: r.name, status: t.m
 
     <div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
       <ChartCard
-        :title="regionTitle"
-        :unit="area.unit"
-        :source="area.source"
-        csv-name="spoi-2025-luas-per-wilayah-2024"
-        :columns="regionColumns"
-        :rows="regionRows"
-        :note="t.regions.note"
+        :title="genderTitle"
+        :unit="t.gender.unit"
+        :source="provinces.sources.produsen"
+        csv-name="spoi-2025-produsen-gender"
+        :columns="genderColumns"
+        :rows="genderRows"
+        :note="t.gender.note"
       >
-        <BarChart :items="regionItems" :unit="area.unit" :description="t.regions.aria" />
+        <GroupedBarChart :categories="genderCategories" :series="genderSeries" :unit="t.gender.unit" :description="t.gender.aria" />
       </ChartCard>
 
-      <figure v-if="nationalMap" class="flex h-full flex-col rounded-lg bg-white p-4 md:p-5">
-        <figcaption>
-          <h3 class="text-sm font-semibold leading-snug text-ink-900">{{ t.map.title }}</h3>
-          <p class="mt-0.5 text-xs text-ink-600">{{ ui2025.chart.sourcePrefix }} {{ nationalMap.source }}</p>
-        </figcaption>
-        <a :href="nationalMap.url" target="_blank" rel="noopener" :aria-label="t.map.open" class="mt-4 block">
-          <img :src="nationalMap.url" :alt="t.map.alt" loading="lazy" class="w-full rounded-md border border-paper-100" />
-        </a>
-        <p class="mt-3 text-xs leading-relaxed text-ink-600">{{ t.map.caption }}</p>
-      </figure>
-    </div>
-
-    <div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
       <ChartCard
         :title="deltaTitle"
         unit="%"

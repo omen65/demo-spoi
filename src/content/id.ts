@@ -310,7 +310,7 @@ export const ui = {
     legendTitle: 'Legenda',
     legendZero: 'Nol (0)',
     legendNoData: 'Tidak ada data',
-    legendNoDataNote: 'Sel kosong di tabel buku: tidak dilaporkan, bukan nol.',
+    legendNoDataNote: '',
     tooltipNoData: 'Tidak ada data',
     attribution: 'Batas provinsi: Indonesia GeoJSON & TopoJSON Maps (38 Provinces), CC BY 4.0',
     rankingTitle: (year: string) => `Peringkat provinsi, ${year}`,

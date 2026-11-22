@@ -31,6 +31,6 @@ const t = ui.regions
         <span class="text-ink-700">{{ t.legendNoData }}</span>
       </li>
     </ul>
-    <p v-if="showNoData" class="mt-2 text-xs text-ink-600">{{ t.legendNoDataNote }}</p>
+    <p v-if="showNoData && t.legendNoDataNote" class="mt-2 text-xs text-ink-600">{{ t.legendNoDataNote }}</p>
   </div>
 </template>

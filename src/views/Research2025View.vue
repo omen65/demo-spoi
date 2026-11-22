@@ -36,7 +36,6 @@ const rows = computed(() => [
 const totals = snaps.map((y) => ({ year: y, total: r.totalSummed[y] ?? 0 }))
 // Hanya potret terakhir dibandingkan dengan potret sebelumnya (jarak setahun)
 const lastPct = changePct(r.totalSummed[prev] ?? 0, lastTotal)
-const mismatch = (r.totalReported[last] ?? 0) !== lastTotal
 const garuda = snaps.map((y) => ({ year: y, value: r.garudaTotalApprox[y] ?? null }))
 </script>
 
@@ -54,7 +53,7 @@ const garuda = snaps.map((y) => ({ year: y, value: r.garudaTotalApprox[y] ?? nul
           :columns="columns"
           :rows="rows"
           :note="r.note"
-          :show-flag-legend="mismatch"
+          :show-flag-legend="false"
         >
           <GroupedBarChart :categories="categories" :series="series" :unit="r.unit" :description="t.aria" />
         </ChartCard>
@@ -71,13 +70,12 @@ const garuda = snaps.map((y) => ({ year: y, value: r.garudaTotalApprox[y] ?? nul
                   <DeltaPill :pct="lastPct" />{{ t.sinceLabel(prev) }}
                 </span>
                 <span class="text-xl font-semibold tabular-nums text-ink-900">
-                  {{ formatNumber(x.total) }}<span v-if="x.year === last && mismatch" class="ml-0.5 text-base text-flag" :title="ui2025.chart.flagLegend" :aria-label="ui2025.chart.flagLegend">†</span>
+                  {{ formatNumber(x.total) }}
                 </span>
               </dd>
             </div>
           </dl>
           <p class="mt-1 text-xs text-ink-600">{{ t.totalsNote }}</p>
-          <p v-if="mismatch" class="mt-2 text-xs leading-relaxed text-flag">{{ ui2025.chart.flagLegend }}</p>
         </section>
 
         <aside class="rounded-lg bg-white p-4" aria-labelledby="cara-baca-2025">

@@ -12,6 +12,13 @@ export function combineSources(sources: string[]): string {
 
 /** SPOI 2025: "SPOI 2025 (Draft V13), Bab 3.2.1, Grafik 2" digabung menjadi "SPOI 2025 (Draft V13), Grafik 2, 4, 6". */
 export function combineSources2025(sources: string[]): string {
+  // Sumber Excel AOI: "<berkas>, sheet 'X', kolom Y" -> "<berkas>, sheet X, Y, Z"
+  const excel = sources.map((s) => /^(.*?), sheet '(.+?)', kolom/.exec(s))
+  if (excel.length > 0 && excel.every((m) => m)) {
+    const file = excel[0]![1]
+    const sheets = [...new Set(excel.map((m) => m![2]))]
+    return `${file}, sheet ${sheets.join(', ')}`
+  }
   const edition = sources.map((s) => /^(.*?), Bab /.exec(s)?.[1]).find((e) => e)
   const numbers = sources.flatMap((s) => {
     const m = /Grafik (\d+)/.exec(s)

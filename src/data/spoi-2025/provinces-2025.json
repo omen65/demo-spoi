@@ -1,0 +1,941 @@
+{
+ "edition": "SPOI 2025 (data AOI, progres)",
+ "years": [
+  2023,
+  2024
+ ],
+ "note": "Nilai null = tidak ada yang melapor (0 atau kosong di Excel). Sertifikasi hanya mencakup sebagian luas; sisanya tanpa keterangan jenis.",
+ "sources": {
+  "luas": "Rekap Per Provinsi SPOI 2025 (Excel AOI), sheet 'Luas Lahan dan Jumlah Producer'",
+  "produsen": "Rekap Per Provinsi SPOI 2025 (Excel AOI), sheet 'Luas Lahan dan Jumlah Producer'",
+  "sertifikasi2024": "Rekap Per Provinsi SPOI 2025 (Excel AOI), sheet 'Luas lahan organic berdasarkan'"
+ },
+ "national": {
+  "2023": {
+   "luas": 90755.13,
+   "lakiLaki": 96078,
+   "perempuan": 27316,
+   "total": 123394
+  },
+  "2024": {
+   "luas": 91765.65,
+   "lakiLaki": 96985,
+   "perempuan": 27433,
+   "total": 124418
+  }
+ },
+ "provinces": [
+  {
+   "name": "Aceh",
+   "luas": {
+    "2023": 29519.8,
+    "2024": 29533.72
+   },
+   "produsen": {
+    "2023": {
+     "lakiLaki": 26569,
+     "perempuan": 8252,
+     "total": 34821
+    },
+    "2024": {
+     "lakiLaki": 26580,
+     "perempuan": 8243,
+     "total": 34823
+    }
+   },
+   "sertifikasi2024": {
+    "konversi": null,
+    "pgs": null,
+    "selfDeclare": 1
+   }
+  },
+  {
+   "name": "Sumatera Utara",
+   "luas": {
+    "2023": 5602.06,
+    "2024": 5614.52
+   },
+   "produsen": {
+    "2023": {
+     "lakiLaki": 5184,
+     "perempuan": 1539,
+     "total": 6723
+    },
+    "2024": {
+     "lakiLaki": 5220,
+     "perempuan": 1572,
+     "total": 6792
+    }
+   },
+   "sertifikasi2024": {
+    "konversi": 1.37,
+    "pgs": 29.6,
+    "selfDeclare": 57.5
+   }
+  },
+  {
+   "name": "Sumatera Barat",
+   "luas": {
+    "2023": 226.19,
+    "2024": 241.19
+   },
+   "produsen": {
+    "2023": {
+     "lakiLaki": 230,
+     "perempuan": 95,
+     "total": 325
+    },
+    "2024": {
+     "lakiLaki": 248,
+     "perempuan": 99,
+     "total": 347
+    }
+   },
+   "sertifikasi2024": {
+    "konversi": 84.5,
+    "pgs": null,
+    "selfDeclare": 139.3
+   }
+  },
+  {
+   "name": "Riau",
+   "luas": {
+    "2023": 1063.6,
+    "2024": 1126.68
+   },
+   "produsen": {
+    "2023": {
+     "lakiLaki": 25,
+     "perempuan": 72,
+     "total": 97
+    },
+    "2024": {
+     "lakiLaki": 137,
+     "perempuan": 162,
+     "total": 299
+    }
+   },
+   "sertifikasi2024": {
+    "konversi": 115.8,
+    "pgs": null,
+    "selfDeclare": 114.18
+   }
+  },
+  {
+   "name": "Jambi",
+   "luas": {
+    "2023": 3973,
+    "2024": 3993
+   },
+   "produsen": {
+    "2023": {
+     "lakiLaki": 1952,
+     "perempuan": 655,
+     "total": 2607
+    },
+    "2024": {
+     "lakiLaki": 1977,
+     "perempuan": 655,
+     "total": 2632
+    }
+   },
+   "sertifikasi2024": {
+    "konversi": null,
+    "pgs": null,
+    "selfDeclare": null
+   }
+  },
+  {
+   "name": "Sumatera Selatan",
+   "luas": {
+    "2023": 140.52,
+    "2024": 176.73
+   },
+   "produsen": {
+    "2023": {
+     "lakiLaki": 209,
+     "perempuan": 17,
+     "total": 226
+    },
+    "2024": {
+     "lakiLaki": 212,
+     "perempuan": 22,
+     "total": 234
+    }
+   },
+   "sertifikasi2024": {
+    "konversi": null,
+    "pgs": null,
+    "selfDeclare": 32.5
+   }
+  },
+  {
+   "name": "Bengkulu",
+   "luas": {
+    "2023": null,
+    "2024": 100.58
+   },
+   "produsen": {
+    "2023": {
+     "lakiLaki": null,
+     "perempuan": null,
+     "total": null
+    },
+    "2024": {
+     "lakiLaki": 71,
+     "perempuan": null,
+     "total": 71
+    }
+   },
+   "sertifikasi2024": {
+    "konversi": 10.75,
+    "pgs": null,
+    "selfDeclare": 38.55
+   }
+  },
+  {
+   "name": "Lampung",
+   "luas": {
+    "2023": 439.6,
+    "2024": 846.18
+   },
+   "produsen": {
+    "2023": {
+     "lakiLaki": 409,
+     "perempuan": 84,
+     "total": 493
+    },
+    "2024": {
+     "lakiLaki": 764,
+     "perempuan": 106,
+     "total": 870
+    }
+   },
+   "sertifikasi2024": {
+    "konversi": null,
+    "pgs": null,
+    "selfDeclare": 29.05
+   }
+  },
+  {
+   "name": "Bangka Belitung",
+   "luas": {
+    "2023": 13.75,
+    "2024": 13.75
+   },
+   "produsen": {
+    "2023": {
+     "lakiLaki": 36,
+     "perempuan": null,
+     "total": 36
+    },
+    "2024": {
+     "lakiLaki": 36,
+     "perempuan": null,
+     "total": 36
+    }
+   },
+   "sertifikasi2024": {
+    "konversi": null,
+    "pgs": null,
+    "selfDeclare": null
+   }
+  },
+  {
+   "name": "Kepulauan Riau",
+   "luas": {
+    "2023": 198,
+    "2024": 283
+   },
+   "produsen": {
+    "2023": {
+     "lakiLaki": 700,
+     "perempuan": 53,
+     "total": 753
+    },
+    "2024": {
+     "lakiLaki": 784,
+     "perempuan": 53,
+     "total": 837
+    }
+   },
+   "sertifikasi2024": {
+    "konversi": 85,
+    "pgs": null,
+    "selfDeclare": 85
+   }
+  },
+  {
+   "name": "DKI Jakarta",
+   "luas": {
+    "2023": 3.19,
+    "2024": null
+   },
+   "produsen": {
+    "2023": {
+     "lakiLaki": 1,
+     "perempuan": null,
+     "total": 1
+    },
+    "2024": {
+     "lakiLaki": null,
+     "perempuan": null,
+     "total": null
+    }
+   },
+   "sertifikasi2024": {
+    "konversi": null,
+    "pgs": null,
+    "selfDeclare": null
+   }
+  },
+  {
+   "name": "Jawa Barat",
+   "luas": {
+    "2023": 5350.25,
+    "2024": 5292.93
+   },
+   "produsen": {
+    "2023": {
+     "lakiLaki": 3825,
+     "perempuan": 940,
+     "total": 4765
+    },
+    "2024": {
+     "lakiLaki": 3959,
+     "perempuan": 968,
+     "total": 4927
+    }
+   },
+   "sertifikasi2024": {
+    "konversi": 0.73,
+    "pgs": 0.63,
+    "selfDeclare": 128.56
+   }
+  },
+  {
+   "name": "Jawa Tengah",
+   "luas": {
+    "2023": 13736.52,
+    "2024": 13578.44
+   },
+   "produsen": {
+    "2023": {
+     "lakiLaki": 36317,
+     "perempuan": 9483,
+     "total": 45800
+    },
+    "2024": {
+     "lakiLaki": 35800,
+     "perempuan": 9208,
+     "total": 45008
+    }
+   },
+   "sertifikasi2024": {
+    "konversi": 33.03,
+    "pgs": 4.66,
+    "selfDeclare": 377.24
+   }
+  },
+  {
+   "name": "DI Yogyakarta",
+   "luas": {
+    "2023": 2512.47,
+    "2024": 2503.73
+   },
+   "produsen": {
+    "2023": {
+     "lakiLaki": 5551,
+     "perempuan": 1909,
+     "total": 7460
+    },
+    "2024": {
+     "lakiLaki": 5613,
+     "perempuan": 1930,
+     "total": 7543
+    }
+   },
+   "sertifikasi2024": {
+    "konversi": null,
+    "pgs": null,
+    "selfDeclare": 0.34
+   }
+  },
+  {
+   "name": "Jawa Timur",
+   "luas": {
+    "2023": 2352.04,
+    "2024": 2648.04
+   },
+   "produsen": {
+    "2023": {
+     "lakiLaki": 3074,
+     "perempuan": 933,
+     "total": 4007
+    },
+    "2024": {
+     "lakiLaki": 3289,
+     "perempuan": 1093,
+     "total": 4382
+    }
+   },
+   "sertifikasi2024": {
+    "konversi": 3.99,
+    "pgs": null,
+    "selfDeclare": 207.51
+   }
+  },
+  {
+   "name": "Banten",
+   "luas": {
+    "2023": 714.75,
+    "2024": 594.13
+   },
+   "produsen": {
+    "2023": {
+     "lakiLaki": 419,
+     "perempuan": 132,
+     "total": 551
+    },
+    "2024": {
+     "lakiLaki": 490,
+     "perempuan": 150,
+     "total": 640
+    }
+   },
+   "sertifikasi2024": {
+    "konversi": 9.2,
+    "pgs": null,
+    "selfDeclare": 15
+   }
+  },
+  {
+   "name": "Bali",
+   "luas": {
+    "2023": 1466.06,
+    "2024": 1563.32
+   },
+   "produsen": {
+    "2023": {
+     "lakiLaki": 1269,
+     "perempuan": 362,
+     "total": 1631
+    },
+    "2024": {
+     "lakiLaki": 1292,
+     "perempuan": 398,
+     "total": 1690
+    }
+   },
+   "sertifikasi2024": {
+    "konversi": 10.53,
+    "pgs": null,
+    "selfDeclare": 196.32
+   }
+  },
+  {
+   "name": "Nusa Tenggara Barat",
+   "luas": {
+    "2023": 43.83,
+    "2024": 158.13
+   },
+   "produsen": {
+    "2023": {
+     "lakiLaki": 52,
+     "perempuan": null,
+     "total": 52
+    },
+    "2024": {
+     "lakiLaki": 91,
+     "perempuan": null,
+     "total": 91
+    }
+   },
+   "sertifikasi2024": {
+    "konversi": null,
+    "pgs": null,
+    "selfDeclare": null
+   }
+  },
+  {
+   "name": "Nusa Tenggara Timur",
+   "luas": {
+    "2023": 2026.47,
+    "2024": 2070.03
+   },
+   "produsen": {
+    "2023": {
+     "lakiLaki": 2077,
+     "perempuan": 717,
+     "total": 2794
+    },
+    "2024": {
+     "lakiLaki": 2169,
+     "perempuan": 709,
+     "total": 2878
+    }
+   },
+   "sertifikasi2024": {
+    "konversi": null,
+    "pgs": null,
+    "selfDeclare": 247.36
+   }
+  },
+  {
+   "name": "Kalimantan Barat",
+   "luas": {
+    "2023": 8781.45,
+    "2024": 8775.6
+   },
+   "produsen": {
+    "2023": {
+     "lakiLaki": 658,
+     "perempuan": 24,
+     "total": 682
+    },
+    "2024": {
+     "lakiLaki": 649,
+     "perempuan": 19,
+     "total": 668
+    }
+   },
+   "sertifikasi2024": {
+    "konversi": null,
+    "pgs": null,
+    "selfDeclare": null
+   }
+  },
+  {
+   "name": "Kalimantan Tengah",
+   "luas": {
+    "2023": 2.5,
+    "2024": 2.5
+   },
+   "produsen": {
+    "2023": {
+     "lakiLaki": 27,
+     "perempuan": 19,
+     "total": 46
+    },
+    "2024": {
+     "lakiLaki": 27,
+     "perempuan": 19,
+     "total": 46
+    }
+   },
+   "sertifikasi2024": {
+    "konversi": null,
+    "pgs": null,
+    "selfDeclare": 2.5
+   }
+  },
+  {
+   "name": "Kalimantan Selatan",
+   "luas": {
+    "2023": 209.82,
+    "2024": 36
+   },
+   "produsen": {
+    "2023": {
+     "lakiLaki": 213,
+     "perempuan": 36,
+     "total": 249
+    },
+    "2024": {
+     "lakiLaki": 53,
+     "perempuan": 5,
+     "total": 58
+    }
+   },
+   "sertifikasi2024": {
+    "konversi": null,
+    "pgs": null,
+    "selfDeclare": null
+   }
+  },
+  {
+   "name": "Kalimantan Timur",
+   "luas": {
+    "2023": 140.86,
+    "2024": 145.26
+   },
+   "produsen": {
+    "2023": {
+     "lakiLaki": 81,
+     "perempuan": 13,
+     "total": 94
+    },
+    "2024": {
+     "lakiLaki": 119,
+     "perempuan": 21,
+     "total": 140
+    }
+   },
+   "sertifikasi2024": {
+    "konversi": 1,
+    "pgs": null,
+    "selfDeclare": 69.11
+   }
+  },
+  {
+   "name": "Kalimantan Utara",
+   "luas": {
+    "2023": null,
+    "2024": null
+   },
+   "produsen": {
+    "2023": {
+     "lakiLaki": null,
+     "perempuan": null,
+     "total": null
+    },
+    "2024": {
+     "lakiLaki": null,
+     "perempuan": null,
+     "total": null
+    }
+   },
+   "sertifikasi2024": {
+    "konversi": null,
+    "pgs": null,
+    "selfDeclare": null
+   }
+  },
+  {
+   "name": "Sulawesi Utara",
+   "luas": {
+    "2023": 1173.11,
+    "2024": 1204.61
+   },
+   "produsen": {
+    "2023": {
+     "lakiLaki": 841,
+     "perempuan": 158,
+     "total": 999
+    },
+    "2024": {
+     "lakiLaki": 863,
+     "perempuan": 158,
+     "total": 1021
+    }
+   },
+   "sertifikasi2024": {
+    "konversi": null,
+    "pgs": null,
+    "selfDeclare": 2.5
+   }
+  },
+  {
+   "name": "Sulawesi Tengah",
+   "luas": {
+    "2023": 5777.75,
+    "2024": 6017.19
+   },
+   "produsen": {
+    "2023": {
+     "lakiLaki": 2225,
+     "perempuan": 456,
+     "total": 2681
+    },
+    "2024": {
+     "lakiLaki": 2482,
+     "perempuan": 449,
+     "total": 2931
+    }
+   },
+   "sertifikasi2024": {
+    "konversi": null,
+    "pgs": null,
+    "selfDeclare": 701
+   }
+  },
+  {
+   "name": "Sulawesi Selatan",
+   "luas": {
+    "2023": 1655.54,
+    "2024": 1605.64
+   },
+   "produsen": {
+    "2023": {
+     "lakiLaki": 1786,
+     "perempuan": 642,
+     "total": 2428
+    },
+    "2024": {
+     "lakiLaki": 1686,
+     "perempuan": 623,
+     "total": 2309
+    }
+   },
+   "sertifikasi2024": {
+    "konversi": 2,
+    "pgs": null,
+    "selfDeclare": 495.04
+   }
+  },
+  {
+   "name": "Sulawesi Tenggara",
+   "luas": {
+    "2023": 294,
+    "2024": 277.25
+   },
+   "produsen": {
+    "2023": {
+     "lakiLaki": 295,
+     "perempuan": 29,
+     "total": 324
+    },
+    "2024": {
+     "lakiLaki": 276,
+     "perempuan": 66,
+     "total": 342
+    }
+   },
+   "sertifikasi2024": {
+    "konversi": null,
+    "pgs": null,
+    "selfDeclare": 6.8
+   }
+  },
+  {
+   "name": "Gorontalo",
+   "luas": {
+    "2023": 25.5,
+    "2024": 23
+   },
+   "produsen": {
+    "2023": {
+     "lakiLaki": 96,
+     "perempuan": null,
+     "total": 96
+    },
+    "2024": {
+     "lakiLaki": 96,
+     "perempuan": null,
+     "total": 96
+    }
+   },
+   "sertifikasi2024": {
+    "konversi": null,
+    "pgs": null,
+    "selfDeclare": null
+   }
+  },
+  {
+   "name": "Sulawesi Barat",
+   "luas": {
+    "2023": null,
+    "2024": null
+   },
+   "produsen": {
+    "2023": {
+     "lakiLaki": null,
+     "perempuan": null,
+     "total": null
+    },
+    "2024": {
+     "lakiLaki": null,
+     "perempuan": null,
+     "total": null
+    }
+   },
+   "sertifikasi2024": {
+    "konversi": null,
+    "pgs": null,
+    "selfDeclare": null
+   }
+  },
+  {
+   "name": "Maluku",
+   "luas": {
+    "2023": 811,
+    "2024": 811
+   },
+   "produsen": {
+    "2023": {
+     "lakiLaki": 476,
+     "perempuan": 225,
+     "total": 701
+    },
+    "2024": {
+     "lakiLaki": 476,
+     "perempuan": 225,
+     "total": 701
+    }
+   },
+   "sertifikasi2024": {
+    "konversi": null,
+    "pgs": null,
+    "selfDeclare": null
+   }
+  },
+  {
+   "name": "Maluku Utara",
+   "luas": {
+    "2023": 2351.5,
+    "2024": 2376.5
+   },
+   "produsen": {
+    "2023": {
+     "lakiLaki": 1231,
+     "perempuan": 421,
+     "total": 1652
+    },
+    "2024": {
+     "lakiLaki": 1251,
+     "perempuan": 425,
+     "total": 1676
+    }
+   },
+   "sertifikasi2024": {
+    "konversi": null,
+    "pgs": null,
+    "selfDeclare": null
+   }
+  },
+  {
+   "name": "Papua",
+   "luas": {
+    "2023": 150,
+    "2024": 150
+   },
+   "produsen": {
+    "2023": {
+     "lakiLaki": 250,
+     "perempuan": 50,
+     "total": 300
+    },
+    "2024": {
+     "lakiLaki": 250,
+     "perempuan": 50,
+     "total": 300
+    }
+   },
+   "sertifikasi2024": {
+    "konversi": null,
+    "pgs": null,
+    "selfDeclare": null
+   }
+  },
+  {
+   "name": "Papua Barat",
+   "luas": {
+    "2023": null,
+    "2024": null
+   },
+   "produsen": {
+    "2023": {
+     "lakiLaki": null,
+     "perempuan": null,
+     "total": null
+    },
+    "2024": {
+     "lakiLaki": null,
+     "perempuan": null,
+     "total": null
+    }
+   },
+   "sertifikasi2024": {
+    "konversi": null,
+    "pgs": null,
+    "selfDeclare": null
+   }
+  },
+  {
+   "name": "Papua Selatan",
+   "luas": {
+    "2023": null,
+    "2024": null
+   },
+   "produsen": {
+    "2023": {
+     "lakiLaki": null,
+     "perempuan": null,
+     "total": null
+    },
+    "2024": {
+     "lakiLaki": null,
+     "perempuan": null,
+     "total": null
+    }
+   },
+   "sertifikasi2024": {
+    "konversi": null,
+    "pgs": null,
+    "selfDeclare": null
+   }
+  },
+  {
+   "name": "Papua Tengah",
+   "luas": {
+    "2023": null,
+    "2024": null
+   },
+   "produsen": {
+    "2023": {
+     "lakiLaki": null,
+     "perempuan": null,
+     "total": null
+    },
+    "2024": {
+     "lakiLaki": null,
+     "perempuan": null,
+     "total": null
+    }
+   },
+   "sertifikasi2024": {
+    "konversi": null,
+    "pgs": null,
+    "selfDeclare": null
+   }
+  },
+  {
+   "name": "Papua Pegunungan",
+   "luas": {
+    "2023": null,
+    "2024": null
+   },
+   "produsen": {
+    "2023": {
+     "lakiLaki": null,
+     "perempuan": null,
+     "total": null
+    },
+    "2024": {
+     "lakiLaki": null,
+     "perempuan": null,
+     "total": null
+    }
+   },
+   "sertifikasi2024": {
+    "konversi": null,
+    "pgs": null,
+    "selfDeclare": null
+   }
+  },
+  {
+   "name": "Papua Barat Daya",
+   "luas": {
+    "2023": null,
+    "2024": 3
+   },
+   "produsen": {
+    "2023": {
+     "lakiLaki": null,
+     "perempuan": null,
+     "total": null
+    },
+    "2024": {
+     "lakiLaki": 25,
+     "perempuan": 5,
+     "total": 30
+    }
+   },
+   "sertifikasi2024": {
+    "konversi": null,
+    "pgs": null,
+    "selfDeclare": null
+   }
+  }
+ ]
+}

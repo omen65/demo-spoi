@@ -6,35 +6,40 @@ import ChartCard from '@/components/ChartCard.vue'
 import ChoiceGroup from '@/components/ChoiceGroup.vue'
 import type { TableColumn } from '@/components/DataTable.vue'
 import MapLegend from '@/components/MapLegend.vue'
-import ProvinceMap from '@/components/ProvinceMap.vue'
 import PageHeader from '@/components/PageHeader.vue'
-import ProvincePanel from '@/components/ProvincePanel.vue'
+import ProvinceMap from '@/components/ProvinceMap.vue'
+import ProvincePanel2025 from '@/components/ProvincePanel2025.vue'
 import RankingList, { type RankItem } from '@/components/RankingList.vue'
 import { classify } from '@/composables/useChoropleth'
 import { formatNumber } from '@/composables/useFormat'
 import {
-  LATEST_YEAR,
-  YEARS,
-  getCommodity,
-  getProvinceTable,
-  getProvinceTableIds,
+  LATEST_YEAR_2025,
+  YEARS_2025,
+  getCommodities2025,
+  getProvinceSource2025,
+  getProvinceValues2025,
+  getProvinces2025,
   loadProvinceGeo,
 } from '@/data/api'
-import type { ProvinceMetric, YearKey } from '@/data/types'
-import { PROVINCE_NOTES } from '@/content/flags'
-import { ui } from '@/content/id'
+import type { ProvinceMetric2025, YearKey2025 } from '@/data/types'
+import { ui2025 } from '@/content/id-2025'
 
-const t = ui.regions
+type WilayahMetric = 'luas' | 'produksi' | 'produsen' | 'lakiLaki' | 'perempuan' | 'porsi'
+
+const t = ui2025.wilayah
 const route = useRoute()
 const router = useRouter()
 
-const tableIds = getProvinceTableIds()
-const commodityOptions = tableIds.map((id) => ({ id, name: getCommodity(id)?.name ?? id }))
+const ALL = 'semua'
+const commodities = getCommodities2025()
+const provinces = getProvinces2025()
+const commodityOptions = [{ id: ALL, name: t.all }, ...commodities.map((c) => ({ id: c.id, name: c.name }))]
+const ids = commodityOptions.map((c) => c.id)
 
 const initial = String(route.query.komoditas ?? '')
-const commodityId = ref<string>(tableIds.includes(initial) ? initial : (tableIds[0] ?? 'beras'))
-const metric = ref<ProvinceMetric>('luas')
-const year = ref<YearKey>(LATEST_YEAR)
+const commodityId = ref<string>(ids.includes(initial) ? initial : 'beras')
+const metric = ref<WilayahMetric>('produksi')
+const year = ref<YearKey2025>(LATEST_YEAR_2025)
 const selected = ref<string | null>(null)
 
 const geo = shallowRef<FeatureCollection | null>(null)
@@ -47,42 +52,75 @@ onMounted(async () => {
   }
 })
 
-const table = computed(() => getProvinceTable(commodityId.value))
-const commodityName = computed(() => getCommodity(commodityId.value)?.name.toLowerCase() ?? '')
+const isAll = computed(() => commodityId.value === ALL)
+// Kosong untuk "Semua komoditas" supaya kalimat judul tetap wajar ("lahan organik terluas")
+const commodityName = computed(() => (isAll.value ? '' : (commodityOptions.find((c) => c.id === commodityId.value)?.name.toLowerCase() ?? '')))
+const squash = (s: string): string => s.replace(/\s+/g, ' ').trim()
 
-const availableMetrics = computed(() => (['luas', 'produksi', 'produsen'] as ProvinceMetric[]).filter((m) => table.value?.metrics[m]))
-// Jaga agar metrik terpilih selalu tersedia untuk komoditas yang dipilih
+// Metrik dan tahun yang tersedia bergantung pada pilihan komoditas
+const availableMetrics = computed<WilayahMetric[]>(() => {
+  if (isAll.value) return ['luas', 'produsen', 'lakiLaki', 'perempuan', 'porsi']
+  const c = commodities.find((x) => x.id === commodityId.value)
+  return (['luas', 'produksi', 'produsen'] as const).filter((m) => c?.metrics[m === 'produsen' ? 'petani' : m])
+})
+const availableYears = computed<YearKey2025[]>(() => (isAll.value ? ['2023', '2024'] : [...YEARS_2025]))
 watch(
-  availableMetrics,
-  (list) => {
-    if (!list.includes(metric.value)) metric.value = list[0] ?? 'produksi'
+  [availableMetrics, availableYears],
+  () => {
+    if (!availableMetrics.value.includes(metric.value)) metric.value = availableMetrics.value[0] ?? 'luas'
+    if (!availableYears.value.includes(year.value)) year.value = LATEST_YEAR_2025
   },
   { immediate: true },
 )
-
 const metricOptions = computed(() => availableMetrics.value.map((m) => ({ value: m, label: t.metricLabels[m] })))
-const yearOptions = YEARS.map((y) => ({ value: y, label: y }))
+const yearOptions = computed(() => availableYears.value.map((y) => ({ value: y, label: y })))
 
 const unit = computed(() => t.metricUnits[metric.value])
-const values = computed<Record<string, number | null>>(() => table.value?.metrics[metric.value]?.values[year.value] ?? {})
-const classification = computed(() => classify(Object.values(values.value)))
+const metricName = computed(() => t.metricLabels[metric.value])
 
+const values = computed<Record<string, number | null>>(() => {
+  if (!isAll.value) {
+    return getProvinceValues2025(commodityId.value, metric.value as ProvinceMetric2025, year.value)
+  }
+  const y = year.value === '2023' ? '2023' : '2024'
+  return Object.fromEntries(
+    provinces.provinces.map((p) => {
+      const prod = p.produsen[y]
+      const share = prod.total && prod.perempuan !== null ? Number(((prod.perempuan / prod.total) * 100).toFixed(1)) : null
+      const v =
+        metric.value === 'luas'
+          ? p.luas[y]
+          : metric.value === 'produsen'
+            ? prod.total
+            : metric.value === 'lakiLaki'
+              ? prod.lakiLaki
+              : metric.value === 'perempuan'
+                ? prod.perempuan
+                : share
+      return [p.name, v]
+    }),
+  )
+})
+const source = computed(() =>
+  isAll.value
+    ? metric.value === 'luas'
+      ? provinces.sources.luas
+      : provinces.sources.produsen
+    : getProvinceSource2025(commodityId.value, metric.value as ProvinceMetric2025),
+)
+const classification = computed(() => classify(Object.values(values.value)))
 const ranking = computed<RankItem[]>(() =>
   Object.entries(values.value)
-    .flatMap(([name, value]) => (value !== null && value > 0 ? [{ name, value }] : []))
+    .flatMap(([name, value]) => (value !== null ? [{ name, value }] : []))
     .sort((a, b) => b.value - a.value),
 )
-
-const hasZero = computed(() => Object.values(values.value).some((v) => v === 0))
 const hasNoData = computed(() => Object.values(values.value).some((v) => v === null))
-
-const metricName = computed(() => t.metricLabels[metric.value])
 
 const title = computed(() => {
   const first = ranking.value[0]
   return first
-    ? t.mapTitle(first.name, t.metricPhrase[metric.value](commodityName.value), year.value)
-    : t.mapTitleEmpty(commodityName.value, metricName.value, year.value)
+    ? t.mapTitle(first.name, squash(t.metricPhrase[metric.value](commodityName.value)), year.value, ranking.value.length)
+    : squash(t.mapTitleEmpty(commodityName.value, metricName.value, year.value))
 })
 
 const columns: TableColumn[] = [
@@ -94,12 +132,7 @@ const tableRows = computed(() =>
     .map(([province, value]) => ({ province, value }))
     .sort((a, b) => (b.value ?? -1) - (a.value ?? -1)),
 )
-
-const note = computed(() => {
-  const n = PROVINCE_NOTES[commodityId.value]
-  const only = availableMetrics.value.length === 1 ? t.onlyProduction : ''
-  return [n ? `† ${n.note}` : '', only].filter(Boolean).join(' ') || undefined
-})
+const note = computed(() => [isAll.value ? t.allNote : '', t.note].filter(Boolean).join(' '))
 
 const panelEl = ref<HTMLElement | null>(null)
 async function selectProvince(name: string): Promise<void> {
@@ -108,7 +141,7 @@ async function selectProvince(name: string): Promise<void> {
   panelEl.value?.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
 }
 
-// Sinkron dengan URL (?komoditas=) supaya tautan dari halaman detail dan berbagi tautan berfungsi
+// Sinkron dengan URL (?komoditas=) supaya tautan dari halaman komoditas dan berbagi tautan berfungsi
 watch(commodityId, (id) => {
   if (route.query.komoditas !== id) void router.replace({ query: { ...route.query, komoditas: id } })
 })
@@ -116,7 +149,7 @@ watch(
   () => route.query.komoditas,
   (q) => {
     const id = String(q ?? '')
-    if (tableIds.includes(id) && id !== commodityId.value) commodityId.value = id
+    if (ids.includes(id) && id !== commodityId.value) commodityId.value = id
   },
 )
 </script>
@@ -134,7 +167,7 @@ watch(
           <option v-for="c in commodityOptions" :key="c.id" :value="c.id">{{ c.name }}</option>
         </select>
       </div>
-      <ChoiceGroup v-if="metricOptions.length > 1" v-model="metric" :legend="t.controls.metric" name="metrik-wilayah" :options="metricOptions" />
+      <ChoiceGroup v-model="metric" :legend="t.controls.metric" name="metrik-wilayah" :options="metricOptions" />
       <ChoiceGroup v-model="year" :legend="t.controls.year" name="tahun-wilayah" :options="yearOptions" />
     </PageHeader>
 
@@ -143,8 +176,8 @@ watch(
         <ChartCard
           :title="title"
           :unit="unit"
-          :source="table?.source ?? ''"
-          :csv-name="`spoi-2023-${commodityId}-${metric}-provinsi-${year}`"
+          :source="source"
+          :csv-name="`spoi-2025-${commodityId}-${metric}-provinsi-${year}`"
           :columns="columns"
           :rows="tableRows"
           :note="note"
@@ -160,10 +193,10 @@ watch(
               :classification="classification"
               :unit="unit"
               :selected="selected"
-              :description="t.mapAria(commodityName, metricName, year)"
+              :description="squash(t.mapAria(commodityName, metricName, year))"
               @select="selectProvince"
             />
-            <MapLegend :classes="classification.classes" :unit="unit" :show-zero="hasZero" :show-no-data="hasNoData" />
+            <MapLegend :classes="classification.classes" :unit="unit" :show-zero="false" :show-no-data="hasNoData" />
           </div>
         </ChartCard>
       </div>
@@ -175,14 +208,13 @@ watch(
         </div>
         <div class="mt-2 max-h-[380px] flex-1 overflow-y-auto px-2 pb-3 lg:max-h-[440px]">
           <RankingList v-if="ranking.length" :items="ranking" :unit="unit" :selected="selected" @select="selectProvince" />
-          <p v-else class="px-3 py-4 text-sm text-ink-600">{{ t.rankingEmpty }}</p>
         </div>
       </section>
     </div>
 
     <div ref="panelEl" class="scroll-mt-20">
-      <ProvincePanel v-if="selected" :province="selected" :year="year" @close="selected = null" />
-      <p v-else class="rounded-xl border border-dashed border-paper-300 bg-white/60 p-4 text-sm text-ink-600">{{ t.panelNone }}</p>
+      <ProvincePanel2025 v-if="selected" :province="selected" :year="year" @close="selected = null" />
+      <p v-else class="rounded-xl border border-dashed border-paper-300 bg-white/60 p-4 text-sm text-ink-600">{{ t.panel.none }}</p>
     </div>
   </div>
 </template>

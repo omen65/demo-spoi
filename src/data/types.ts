@@ -121,6 +121,55 @@ export interface NationalData2025 {
   commodities: Commodity2025[]
 }
 
+// --- Data Excel AOI (rekap per provinsi): sumber angka komoditas dan provinsi edisi 2025 ---
+
+export type ProvinceMetric2025 = 'luas' | 'produksi' | 'produsen'
+
+/** Nilai per provinsi per tahun; null = tidak ada yang melapor (0 atau kosong di Excel). */
+export interface CommodityProvinceMetric2025 {
+  unit: string
+  national: Record<YearKey2025, number | null>
+  byProvince: Record<string, Record<YearKey2025, number | null>>
+  source: string
+}
+
+export interface CommodityProvinces2025 {
+  id: string
+  name: string
+  sheet: string
+  note?: string
+  metrics: Record<ProvinceMetric2025, CommodityProvinceMetric2025>
+}
+
+export interface CommodityProvincesData2025 {
+  edition: string
+  years: number[]
+  note: string
+  commodities: CommodityProvinces2025[]
+}
+
+export interface GenderCount2025 {
+  lakiLaki: number | null
+  perempuan: number | null
+  total: number | null
+}
+
+export interface ProvinceRow2025 {
+  name: string
+  luas: Record<'2023' | '2024', number | null>
+  produsen: Record<'2023' | '2024', GenderCount2025>
+  sertifikasi2024: { konversi: number | null; pgs: number | null; selfDeclare: number | null }
+}
+
+export interface ProvincesData2025 {
+  edition: string
+  years: number[]
+  note: string
+  sources: { luas: string; produsen: string; sertifikasi2024: string }
+  national: Record<'2023' | '2024', { luas: number | null } & GenderCount2025>
+  provinces: ProvinceRow2025[]
+}
+
 export interface Meta2025 {
   edition: string
   title: string
