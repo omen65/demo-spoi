@@ -15401,6 +15401,1930 @@
      "source": "Rekap Per Provinsi SPOI 2025 (Excel AOI), sheet 'Horti', kolom Producers"
     }
    }
+  },
+  {
+   "id": "produk-olahan",
+   "name": "Produk Olahan",
+   "sheet": "Produk Olahan",
+   "hasSheetTotal": true,
+   "metrics": {
+    "luas": {
+     "unit": "ha",
+     "national": {
+      "2019": 30.03,
+      "2020": 0.03,
+      "2021": 25.76,
+      "2022": 280.864,
+      "2023": null,
+      "2024": null
+     },
+     "byProvince": {
+      "Aceh": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Sumatera Utara": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Sumatera Barat": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Riau": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Jambi": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Sumatera Selatan": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Bengkulu": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Lampung": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Bangka Belitung": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Kepulauan Riau": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "DKI Jakarta": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Jawa Barat": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Jawa Tengah": {
+       "2019": null,
+       "2020": null,
+       "2021": 25.73,
+       "2022": 0.274,
+       "2023": null,
+       "2024": null
+      },
+      "DI Yogyakarta": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Jawa Timur": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": 105.64,
+       "2023": null,
+       "2024": null
+      },
+      "Banten": {
+       "2019": 0.03,
+       "2020": 0.03,
+       "2021": 0.03,
+       "2022": 167.61,
+       "2023": null,
+       "2024": null
+      },
+      "Bali": {
+       "2019": 30,
+       "2020": null,
+       "2021": null,
+       "2022": 7.34,
+       "2023": null,
+       "2024": null
+      },
+      "Nusa Tenggara Barat": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Nusa Tenggara Timur": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Kalimantan Barat": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Kalimantan Tengah": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Kalimantan Selatan": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Kalimantan Timur": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Kalimantan Utara": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Sulawesi Utara": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Sulawesi Tengah": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Sulawesi Selatan": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Sulawesi Tenggara": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Gorontalo": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Sulawesi Barat": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Maluku": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Maluku Utara": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Papua": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Papua Barat": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Papua Selatan": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Papua Tengah": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Papua Pegunungan": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Papua Barat Daya": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      }
+     },
+     "source": "Rekap Per Provinsi SPOI 2025 (Excel AOI), sheet 'Produk Olahan', kolom Luas (ha)"
+    },
+    "produksi": {
+     "unit": "ton",
+     "national": {
+      "2019": 1455.499,
+      "2020": 3339.902,
+      "2021": 4013.663,
+      "2022": 4795.287,
+      "2023": 317937.93,
+      "2024": 322855.57
+     },
+     "byProvince": {
+      "Aceh": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Sumatera Utara": {
+       "2019": 274.3,
+       "2020": 202.25,
+       "2021": 20.716,
+       "2022": 31.255,
+       "2023": 32108.6,
+       "2024": 32211.7
+      },
+      "Sumatera Barat": {
+       "2019": null,
+       "2020": 0.029,
+       "2021": 0.056,
+       "2022": 0.284,
+       "2023": 0.03,
+       "2024": 0.03
+      },
+      "Riau": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": 4645.9,
+       "2024": 4140.6
+      },
+      "Jambi": {
+       "2019": 530.4,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": 1500,
+       "2024": 1500
+      },
+      "Sumatera Selatan": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Bengkulu": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Lampung": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": 75033.64,
+       "2024": 75030.04
+      },
+      "Bangka Belitung": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Kepulauan Riau": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": 2364,
+       "2024": 2364
+      },
+      "DKI Jakarta": {
+       "2019": 0.77,
+       "2020": 101.137,
+       "2021": 40.208,
+       "2022": 213.55,
+       "2023": 3186.34,
+       "2024": 10834.84
+      },
+      "Jawa Barat": {
+       "2019": 2.5,
+       "2020": 182.396,
+       "2021": 493.492,
+       "2022": 531.331,
+       "2023": 24297.54,
+       "2024": 24345.06
+      },
+      "Jawa Tengah": {
+       "2019": 1.7,
+       "2020": 48.146,
+       "2021": 651.892,
+       "2022": 96.319,
+       "2023": 53415.29,
+       "2024": 51398.91
+      },
+      "DI Yogyakarta": {
+       "2019": null,
+       "2020": 14.7,
+       "2021": 14.7,
+       "2022": 106.02,
+       "2023": 9908.24,
+       "2024": 9908.24
+      },
+      "Jawa Timur": {
+       "2019": 22.4,
+       "2020": 246.32,
+       "2021": 373.467,
+       "2022": 2797.108,
+       "2023": 54134,
+       "2024": 53942.14
+      },
+      "Banten": {
+       "2019": 249,
+       "2020": 274.15,
+       "2021": 397.5,
+       "2022": 931.42,
+       "2023": 2137.23,
+       "2024": 2146.46
+      },
+      "Bali": {
+       "2019": 0.416,
+       "2020": 0.416,
+       "2021": 21.398,
+       "2022": 88,
+       "2023": 446.95,
+       "2024": 363.95
+      },
+      "Nusa Tenggara Barat": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": 152.33,
+       "2024": 59.65
+      },
+      "Nusa Tenggara Timur": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": 77.05,
+       "2024": 77.05
+      },
+      "Kalimantan Barat": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": 1.7
+      },
+      "Kalimantan Tengah": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Kalimantan Selatan": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Kalimantan Timur": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": 4.59,
+       "2024": 5
+      },
+      "Kalimantan Utara": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Sulawesi Utara": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": 433.2,
+       "2024": 433.2
+      },
+      "Sulawesi Tengah": {
+       "2019": 374.013,
+       "2020": 2270.358,
+       "2021": 2000.234,
+       "2022": null,
+       "2023": 50000,
+       "2024": 50000
+      },
+      "Sulawesi Selatan": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Sulawesi Tenggara": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Gorontalo": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Sulawesi Barat": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Maluku": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Maluku Utara": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": 4093,
+       "2024": 4093
+      },
+      "Papua": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Papua Barat": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Papua Selatan": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Papua Tengah": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Papua Pegunungan": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Papua Barat Daya": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      }
+     },
+     "source": "Rekap Per Provinsi SPOI 2025 (Excel AOI), sheet 'Produk Olahan', kolom Production (Ton)"
+    },
+    "produsen": {
+     "unit": "operator",
+     "national": {
+      "2019": 50,
+      "2020": 64,
+      "2021": 68,
+      "2022": 99,
+      "2023": 166,
+      "2024": 178
+     },
+     "byProvince": {
+      "Aceh": {
+       "2019": 1,
+       "2020": 1,
+       "2021": 1,
+       "2022": 1,
+       "2023": null,
+       "2024": null
+      },
+      "Sumatera Utara": {
+       "2019": 6,
+       "2020": 6,
+       "2021": 7,
+       "2022": 7,
+       "2023": 5,
+       "2024": 5
+      },
+      "Sumatera Barat": {
+       "2019": null,
+       "2020": 1,
+       "2021": 1,
+       "2022": 2,
+       "2023": 1,
+       "2024": 1
+      },
+      "Riau": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": 2,
+       "2024": 3
+      },
+      "Jambi": {
+       "2019": 1,
+       "2020": null,
+       "2021": 1,
+       "2022": 2,
+       "2023": 1,
+       "2024": 1
+      },
+      "Sumatera Selatan": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Bengkulu": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Lampung": {
+       "2019": null,
+       "2020": 1,
+       "2021": 1,
+       "2022": 1,
+       "2023": 3,
+       "2024": 2
+      },
+      "Bangka Belitung": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Kepulauan Riau": {
+       "2019": 1,
+       "2020": 1,
+       "2021": 1,
+       "2022": 1,
+       "2023": 1,
+       "2024": 1
+      },
+      "DKI Jakarta": {
+       "2019": 3,
+       "2020": 12,
+       "2021": 10,
+       "2022": 8,
+       "2023": 9,
+       "2024": 11
+      },
+      "Jawa Barat": {
+       "2019": 6,
+       "2020": 8,
+       "2021": 9,
+       "2022": 12,
+       "2023": 18,
+       "2024": 23
+      },
+      "Jawa Tengah": {
+       "2019": 12,
+       "2020": 12,
+       "2021": 13,
+       "2022": 17,
+       "2023": 77,
+       "2024": 75
+      },
+      "DI Yogyakarta": {
+       "2019": 2,
+       "2020": 3,
+       "2021": 3,
+       "2022": 9,
+       "2023": 9,
+       "2024": 10
+      },
+      "Jawa Timur": {
+       "2019": 9,
+       "2020": 9,
+       "2021": 11,
+       "2022": 24,
+       "2023": 11,
+       "2024": 13
+      },
+      "Banten": {
+       "2019": 1,
+       "2020": 3,
+       "2021": 3,
+       "2022": 8,
+       "2023": 13,
+       "2024": 16
+      },
+      "Bali": {
+       "2019": 3,
+       "2020": 2,
+       "2021": 1,
+       "2022": 3,
+       "2023": 4,
+       "2024": 3
+      },
+      "Nusa Tenggara Barat": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": 1,
+       "2023": 3,
+       "2024": 4
+      },
+      "Nusa Tenggara Timur": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": 2,
+       "2024": 2
+      },
+      "Kalimantan Barat": {
+       "2019": 1,
+       "2020": 1,
+       "2021": 1,
+       "2022": 1,
+       "2023": null,
+       "2024": 1
+      },
+      "Kalimantan Tengah": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Kalimantan Selatan": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Kalimantan Timur": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": 1,
+       "2024": 1
+      },
+      "Kalimantan Utara": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Sulawesi Utara": {
+       "2019": 1,
+       "2020": 1,
+       "2021": 2,
+       "2022": 2,
+       "2023": 3,
+       "2024": 3
+      },
+      "Sulawesi Tengah": {
+       "2019": 3,
+       "2020": 3,
+       "2021": 3,
+       "2022": null,
+       "2023": 1,
+       "2024": 1
+      },
+      "Sulawesi Selatan": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Sulawesi Tenggara": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Gorontalo": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Sulawesi Barat": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Maluku": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Maluku Utara": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": 2,
+       "2024": 2
+      },
+      "Papua": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Papua Barat": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Papua Selatan": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Papua Tengah": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Papua Pegunungan": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Papua Barat Daya": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      }
+     },
+     "source": "Rekap Per Provinsi SPOI 2025 (Excel AOI), sheet 'Produk Olahan', kolom Operator"
+    }
+   }
+  },
+  {
+   "id": "pemasar",
+   "name": "Pemasar",
+   "sheet": "Pemasar",
+   "hasSheetTotal": true,
+   "metrics": {
+    "luas": {
+     "unit": "ha",
+     "national": {
+      "2019": 0.082,
+      "2020": 26.051,
+      "2021": 0.449,
+      "2022": 2.194,
+      "2023": null,
+      "2024": null
+     },
+     "byProvince": {
+      "Aceh": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Sumatera Utara": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Sumatera Barat": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Riau": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Jambi": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Sumatera Selatan": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Bengkulu": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Lampung": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Bangka Belitung": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Kepulauan Riau": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "DKI Jakarta": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Jawa Barat": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Jawa Tengah": {
+       "2019": null,
+       "2020": 0.097,
+       "2021": 0.19,
+       "2022": 0.16,
+       "2023": null,
+       "2024": null
+      },
+      "DI Yogyakarta": {
+       "2019": null,
+       "2020": 25.85,
+       "2021": 0.001,
+       "2022": 0.401,
+       "2023": null,
+       "2024": null
+      },
+      "Jawa Timur": {
+       "2019": 0.082,
+       "2020": 0.024,
+       "2021": 0.178,
+       "2022": 1.553,
+       "2023": null,
+       "2024": null
+      },
+      "Banten": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Bali": {
+       "2019": null,
+       "2020": 0.08,
+       "2021": 0.08,
+       "2022": 0.08,
+       "2023": null,
+       "2024": null
+      },
+      "Nusa Tenggara Barat": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Nusa Tenggara Timur": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Kalimantan Barat": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Kalimantan Tengah": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Kalimantan Selatan": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Kalimantan Timur": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Kalimantan Utara": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Sulawesi Utara": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Sulawesi Tengah": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Sulawesi Selatan": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Sulawesi Tenggara": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Gorontalo": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Sulawesi Barat": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Maluku": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Maluku Utara": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Papua": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Papua Barat": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Papua Selatan": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Papua Tengah": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Papua Pegunungan": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Papua Barat Daya": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      }
+     },
+     "source": "Rekap Per Provinsi SPOI 2025 (Excel AOI), sheet 'Pemasar', kolom Luas (ha)"
+    },
+    "produksi": {
+     "unit": "ton",
+     "national": {
+      "2019": 491.432,
+      "2020": 7843.517,
+      "2021": 18354.523,
+      "2022": 7795.984,
+      "2023": 43882.46,
+      "2024": 48665.48
+     },
+     "byProvince": {
+      "Aceh": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Sumatera Utara": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": 150,
+       "2024": 150
+      },
+      "Sumatera Barat": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Riau": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Jambi": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Sumatera Selatan": {
+       "2019": null,
+       "2020": 102.604,
+       "2021": 102.604,
+       "2022": 102.604,
+       "2023": null,
+       "2024": null
+      },
+      "Bengkulu": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Lampung": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": 2000,
+       "2024": 2000
+      },
+      "Bangka Belitung": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Kepulauan Riau": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "DKI Jakarta": {
+       "2019": 314.432,
+       "2020": 1286.292,
+       "2021": 1770.953,
+       "2022": 1370.333,
+       "2023": 8274.9,
+       "2024": 7286.19
+      },
+      "Jawa Barat": {
+       "2019": null,
+       "2020": 597.25,
+       "2021": 597.25,
+       "2022": 597.25,
+       "2023": 23048.98,
+       "2024": 22728.63
+      },
+      "Jawa Tengah": {
+       "2019": null,
+       "2020": 4499.414,
+       "2021": 13610.633,
+       "2022": 3005.633,
+       "2023": 4132.31,
+       "2024": 6657.91
+      },
+      "DI Yogyakarta": {
+       "2019": null,
+       "2020": 516.139,
+       "2021": 498.232,
+       "2022": 517.359,
+       "2023": 1944.72,
+       "2024": 5411.12
+      },
+      "Jawa Timur": {
+       "2019": 177,
+       "2020": 239.874,
+       "2021": 427.069,
+       "2022": 800.023,
+       "2023": 1505.27,
+       "2024": 2116.13
+      },
+      "Banten": {
+       "2019": null,
+       "2020": 381.944,
+       "2021": 1039.782,
+       "2022": 1039.782,
+       "2023": 2584.28,
+       "2024": 1879.5
+      },
+      "Bali": {
+       "2019": null,
+       "2020": 220,
+       "2021": 308,
+       "2022": 363,
+       "2023": 242,
+       "2024": 436
+      },
+      "Nusa Tenggara Barat": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Nusa Tenggara Timur": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Kalimantan Barat": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Kalimantan Tengah": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Kalimantan Selatan": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Kalimantan Timur": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Kalimantan Utara": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Sulawesi Utara": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Sulawesi Tengah": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Sulawesi Selatan": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Sulawesi Tenggara": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Gorontalo": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Sulawesi Barat": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Maluku": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Maluku Utara": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Papua": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Papua Barat": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Papua Selatan": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Papua Tengah": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Papua Pegunungan": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Papua Barat Daya": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      }
+     },
+     "source": "Rekap Per Provinsi SPOI 2025 (Excel AOI), sheet 'Pemasar', kolom Production (Ton)"
+    },
+    "produsen": {
+     "unit": "operator",
+     "national": {
+      "2019": 9,
+      "2020": 43,
+      "2021": 47,
+      "2022": 48,
+      "2023": 63,
+      "2024": 62
+     },
+     "byProvince": {
+      "Aceh": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Sumatera Utara": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": 1,
+       "2024": 1
+      },
+      "Sumatera Barat": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Riau": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Jambi": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Sumatera Selatan": {
+       "2019": null,
+       "2020": 1,
+       "2021": 1,
+       "2022": 1,
+       "2023": null,
+       "2024": null
+      },
+      "Bengkulu": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Lampung": {
+       "2019": 1,
+       "2020": 1,
+       "2021": 1,
+       "2022": null,
+       "2023": 1,
+       "2024": 1
+      },
+      "Bangka Belitung": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Kepulauan Riau": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "DKI Jakarta": {
+       "2019": 2,
+       "2020": 8,
+       "2021": 10,
+       "2022": 9,
+       "2023": 16,
+       "2024": 16
+      },
+      "Jawa Barat": {
+       "2019": 1,
+       "2020": 9,
+       "2021": 10,
+       "2022": 9,
+       "2023": 10,
+       "2024": 10
+      },
+      "Jawa Tengah": {
+       "2019": 1,
+       "2020": 9,
+       "2021": 9,
+       "2022": 9,
+       "2023": 10,
+       "2024": 11
+      },
+      "DI Yogyakarta": {
+       "2019": null,
+       "2020": 2,
+       "2021": 2,
+       "2022": 4,
+       "2023": 5,
+       "2024": 6
+      },
+      "Jawa Timur": {
+       "2019": 2,
+       "2020": 3,
+       "2021": 3,
+       "2022": 5,
+       "2023": 7,
+       "2024": 7
+      },
+      "Banten": {
+       "2019": 1,
+       "2020": 8,
+       "2021": 10,
+       "2022": 10,
+       "2023": 11,
+       "2024": 8
+      },
+      "Bali": {
+       "2019": 1,
+       "2020": 2,
+       "2021": 1,
+       "2022": 1,
+       "2023": 2,
+       "2024": 2
+      },
+      "Nusa Tenggara Barat": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Nusa Tenggara Timur": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Kalimantan Barat": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Kalimantan Tengah": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Kalimantan Selatan": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Kalimantan Timur": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Kalimantan Utara": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Sulawesi Utara": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Sulawesi Tengah": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Sulawesi Selatan": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Sulawesi Tenggara": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Gorontalo": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Sulawesi Barat": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Maluku": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Maluku Utara": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Papua": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Papua Barat": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Papua Selatan": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Papua Tengah": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Papua Pegunungan": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      },
+      "Papua Barat Daya": {
+       "2019": null,
+       "2020": null,
+       "2021": null,
+       "2022": null,
+       "2023": null,
+       "2024": null
+      }
+     },
+     "source": "Rekap Per Provinsi SPOI 2025 (Excel AOI), sheet 'Pemasar', kolom Operator"
+    }
+   }
   }
  ]
 }

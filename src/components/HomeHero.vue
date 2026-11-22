@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { computed, onMounted, ref, shallowRef } from 'vue'
 import DeltaPill from '@/components/DeltaPill.vue'
+import Sparkline from '@/components/Sparkline.vue'
+import { changePct } from '@/composables/useDerived'
 import { classify, CLASS_COLORS, ZERO_COLOR } from '@/composables/useChoropleth'
 import { useCountUp } from '@/composables/useCountUp'
 import { GEO_VIEWBOX, geoToPaths, type ProvincePath } from '@/composables/useGeoPaths'
@@ -12,11 +14,13 @@ const props = defineProps<{
   title: string
   lead: string
   year: string
-  previousYear: string
+  /** Tahun awal deret tren (2019) dan indeks tahun terakhir sebelum pergantian periode pendataan */
+  trendStart: string
+  breakAfterIndex: number
   area: number
-  areaDelta: number | null
+  areaSeries: (number | null)[]
   producers: number
-  producersDelta: number | null
+  producersSeries: (number | null)[]
   men: number
   women: number
   /** Luas per provinsi (null = tidak ada data) untuk mewarnai siluet */
@@ -30,6 +34,18 @@ const producersShown = useCountUp(() => props.producers)
 // Luas punya dua desimal di data; selama berhitung ditampilkan bulat, di akhir persis angka data
 const areaText = computed(() => (areaShown.value >= props.area ? formatNumber(props.area) : formatNumber(Math.round(areaShown.value))))
 const producersText = computed(() => formatNumber(Math.round(producersShown.value)))
+
+// Perubahan lima tahun (awal deret ke tahun terakhir) dan garis tren; deret yang punya celah tidak digambar
+const trend = (series: (number | null)[]): { pct: number | null; spark: number[] } => {
+  const first = series[0]
+  const last = series[series.length - 1]
+  return {
+    pct: first !== null && first !== undefined && last !== null && last !== undefined ? changePct(first, last) : null,
+    spark: series.every((v) => v !== null) ? (series as number[]) : [],
+  }
+}
+const areaTrend = computed(() => trend(props.areaSeries))
+const producersTrend = computed(() => trend(props.producersSeries))
 
 const total = computed(() => props.men + props.women)
 const womenPct = computed(() => (total.value ? (props.women / total.value) * 100 : 0))
@@ -65,20 +81,26 @@ const legend = computed(() => [CLASS_COLORS[0], CLASS_COLORS[CLASS_COLORS.length
           <div>
             <dt class="text-[13px] font-medium text-forest-300">{{ t.area }}</dt>
             <dd class="font-display mt-1 text-[44px] font-bold sm:text-[36px] md:text-[44px] lg:text-[52px] leading-none tracking-tight text-gold-500 tabular-nums">{{ areaText }}</dd>
-            <dd class="mt-1.5 flex items-center gap-1.5 text-xs text-forest-300">
-              <span>ha, {{ year }}</span><DeltaPill :pct="areaDelta" tone="dark" /><span>{{ t.since(previousYear) }}</span>
+            <dd class="mt-1.5 text-xs text-forest-300">ha, {{ year }}</dd>
+            <dd class="mt-2 flex items-center gap-3 text-xs text-forest-300">
+              <Sparkline v-if="areaTrend.spark.length" :values="areaTrend.spark" :label="t.sparkAria(t.area, trendStart, year)" :width="104" :height="32" :break-after-index="breakAfterIndex" color="#f0b429" />
+              <span v-if="areaTrend.pct !== null" class="inline-flex items-center gap-1.5"><DeltaPill :pct="areaTrend.pct" tone="dark" />{{ t.since(trendStart) }}</span>
             </dd>
           </div>
           <div>
             <dt class="text-[13px] font-medium text-forest-300">{{ t.producers }}</dt>
             <dd class="font-display mt-1 text-[44px] font-bold sm:text-[36px] md:text-[44px] lg:text-[52px] leading-none tracking-tight text-white tabular-nums">{{ producersText }}</dd>
-            <dd class="mt-1.5 flex items-center gap-1.5 text-xs text-forest-300">
-              <span>{{ t.people }}, {{ year }}</span><DeltaPill :pct="producersDelta" tone="dark" /><span>{{ t.since(previousYear) }}</span>
+            <dd class="mt-1.5 text-xs text-forest-300">{{ t.people }}, {{ year }}</dd>
+            <dd class="mt-2 flex items-center gap-3 text-xs text-forest-300">
+              <Sparkline v-if="producersTrend.spark.length" :values="producersTrend.spark" :label="t.sparkAria(t.producers, trendStart, year)" :width="104" :height="32" :break-after-index="breakAfterIndex" color="#ffffff" />
+              <span v-if="producersTrend.pct !== null" class="inline-flex items-center gap-1.5"><DeltaPill :pct="producersTrend.pct" tone="dark" />{{ t.since(trendStart) }}</span>
             </dd>
           </div>
         </dl>
 
-        <figure class="mt-6" :aria-label="t.genderAria(formatPercent(menPct), formatPercent(womenPct))">
+        <p class="mt-4 max-w-md text-[11px] leading-snug text-forest-300">{{ t.trendNote }}</p>
+
+        <figure class="mt-5" :aria-label="t.genderAria(formatPercent(menPct), formatPercent(womenPct))">
           <figcaption class="mb-2 text-[13px] font-medium text-forest-300">{{ t.gender }}, {{ year }}</figcaption>
           <div class="flex h-3 overflow-hidden rounded-full bg-forest-800" role="presentation">
             <div class="h-full bg-[#9fb0ff]" :style="{ width: `${menPct}%` }" />

@@ -1,0 +1,3 @@
+# Salin ke .deploy.local di root project (berkas itu tidak ikut Git), lalu isi tujuan servermu.
+# Akhiri dengan "/" supaya yang diunggah adalah isi dist/.
+DEPLOY_TARGET="user@IP_SERVER:/var/www/NAMA_FOLDER/"

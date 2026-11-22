@@ -23,6 +23,7 @@ import {
   getCommodities2025,
   getCoverage2025,
   getMeta2025,
+  getNationalSeries2025,
   getProvinces2025,
   getSeries2025,
 } from '@/data/api'
@@ -198,10 +199,12 @@ const coverageRows = [
 const provinces = getProvinces2025()
 const natNow = provinces.national[LATEST as '2024']
 const natPrev = provinces.national[PREVIOUS as '2023']
-const pct = (a: number | null, b: number | null): number | null => (a !== null && b !== null ? changePct(a, b) : null)
 const womenShare = (n: { perempuan: number | null; total: number | null }): number | null =>
   n.perempuan !== null && n.total ? (n.perempuan / n.total) * 100 : null
 const shareNow = womenShare(natNow)
+const nationalSeries = getNationalSeries2025()
+const areaSeries = YEARS.map((y) => nationalSeries.luas[y])
+const producersSeries = YEARS.map((y) => nationalSeries.produsen[y])
 const provinceArea: Record<string, number | null> = Object.fromEntries(provinces.provinces.map((p) => [p.name, p.luas[LATEST as '2024']]))
 const sum = (pick: (r: (typeof provinces.provinces)[number]) => number | null): number =>
   provinces.provinces.reduce((acc, r) => acc + (pick(r) ?? 0), 0)
@@ -257,11 +260,12 @@ const matrixTable = matrixRows.map((r) => ({ no: r.no, name: r.name, status: t.m
       :title="t.title"
       :lead="t.intro(meta.dataYears.from, meta.dataYears.to)"
       :year="LATEST"
-      :previous-year="PREVIOUS"
+      :trend-start="YEARS[0] ?? ''"
+      :break-after-index="breakIndex"
       :area="natNow.luas ?? 0"
-      :area-delta="pct(natPrev.luas, natNow.luas)"
+      :area-series="areaSeries"
       :producers="natNow.total ?? 0"
-      :producers-delta="pct(natPrev.total, natNow.total)"
+      :producers-series="producersSeries"
       :men="natNow.lakiLaki ?? 0"
       :women="natNow.perempuan ?? 0"
       :province-values="provinceArea"

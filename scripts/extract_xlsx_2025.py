@@ -10,6 +10,8 @@ Aturan (keputusan Feri dan jawaban AOI, 2026-11-22):
   - Angka tidak dibetulkan. Selisih dicetak sebagai laporan validasi.
   - Mete dan Minyak Atsiri hanya 2023-2024 (menggantikan Pisang dan Jeruk). 2019-2022 di sheetnya tidak dipakai.
   - Kelapa dua komoditas (Gula, Dehusked).
+  - Produk Olahan dan Pemasar: operator 2019-2024, luas 2019-2022, produksi 2019-2024.
+  - Luas Lahan dan Produser: total luas dan produsen per provinsi 2019-2024 (luas 2023-2024 memakai kolom "(real)").
   - Sheet Horti: luas dan produsen berupa total gabungan; produksi per kategori. Sayur+buah+biofarmaka dan Palawija
     hanya ada 2023-2024; Kacang (Nuts) dan Umbi (Roots) 2019-2024.
 
@@ -56,6 +58,16 @@ COMMODITIES = [
     ("mete", "Mete", "Mete", None, 2023),
 ]
 # Sheet Horti: kolom per tahun. Luas dan produsen satu kolom gabungan; produksi per kategori.
+# Sheet produk olahan dan pemasar: operator (2019-2024), luas (2019-2022), produksi (2019-2024); baris jumlah tanpa label di baris 43
+PROCESSED = [
+    ("produk-olahan", "Produk Olahan", "Produk Olahan", "olahan"),
+    ("pemasar", "Pemasar", "Pemasar", "pasar"),
+]
+PROC_OPERATOR = {y: c for y, c in zip(range(2019, 2025), "CDEFGH")}
+PROC_LUAS = {y: c for y, c in zip(range(2019, 2023), "IJKL")}
+PROC_PRODUKSI = {y: c for y, c in zip(range(2019, 2025), "MNOPQR")}
+# Sheet total nasional per provinsi 2019-2024 (luas dan produsen)
+TOTALS_SHEET = "Luas Lahan dan Produser"
 HORTI_SHEET = "Horti"
 HORTI_LUAS = {2019: "C", 2020: "I", 2021: "O", 2022: "U", 2023: "AA", 2024: "AG"}
 HORTI_PRODUSEN = {2019: "H", 2020: "N", 2021: "T", 2022: "Z", 2023: "AF", 2024: "AL"}
@@ -190,6 +202,104 @@ def build_horti(wb: openpyxl.Workbook) -> list[dict]:
     return out
 
 
+def build_processed(wb: openpyxl.Workbook) -> list[dict]:
+    from openpyxl.utils import column_index_from_string as ci
+
+    n23 = {c["id"]: c for c in json.loads(N23.read_text())["commodities"]}
+    out = []
+    for cid, name, sheet, id23 in PROCESSED:
+        ws = wb[sheet]
+        rows: dict[str, tuple] = {}
+        total_row = None
+        for r in ws.iter_rows(min_row=5):
+            p = province(r[1].value)
+            if p:
+                rows[p] = r
+            elif r[1].value is None and isinstance(r[2].value, (int, float)):
+                total_row = r
+        missing = set(PROVINCES) - set(rows)
+        if missing:
+            report.append(f"[{cid}] provinsi tidak ada di sheet: {sorted(missing)}")
+        cols = {"luas": PROC_LUAS, "produksi": PROC_PRODUKSI, "produsen": PROC_OPERATOR}
+        metrics = {}
+        for m, unit, header in METRICS:
+            unit = "operator" if m == "produsen" else unit
+            byprov: dict[str, dict[str, float | int | None]] = {p: {} for p in PROVINCES}
+            national: dict[str, float | int | None] = {}
+            for y in YEARS:
+                col = cols[m].get(y)
+                for p in PROVINCES:
+                    byprov[p][str(y)] = clean(val(rows[p][ci(col) - 1].value)) if col and p in rows else None
+                total = clean(sum_([byprov[p][str(y)] for p in PROVINCES]))
+                national[str(y)] = total
+                if col and total_row is not None:
+                    t = val(total_row[ci(col) - 1].value)
+                    if t is not None and total is not None and abs(t - total) > 0.5:
+                        report.append(f"[{cid}] {m} {y}: baris jumlah sheet {t:g} != jumlah provinsi {total:g}")
+                if col and y <= 2022:
+                    key = {"produsen": "operator"}.get(m, m)
+                    old = n23.get(id23, {}).get("metrics", {}).get(key, {}).get("values", {}).get(str(y))
+                    if old is not None and total is not None and abs(old - total) > 0.5:
+                        report.append(f"[{cid}] {m} {y}: SPOI 2023 = {old:g}, Excel = {total:g}")
+            metrics[m] = {"unit": unit, "national": national, "byProvince": byprov,
+                          "source": f"{FILE_LABEL}, sheet '{sheet}', kolom {header if m != 'produsen' else 'Operator'}"}
+        out.append({"id": cid, "name": name, "sheet": sheet, "hasSheetTotal": total_row is not None, "metrics": metrics})
+    return out
+
+
+def build_totals_series(wb: openpyxl.Workbook, rows: list[dict], nat: dict) -> dict:
+    """Deret luas dan produsen 2019-2024 per provinsi dari sheet "Luas Lahan dan Produser".
+
+    Luas 2023 dan 2024 punya dua kolom di sheet: "(real)" dan tanpa keterangan. Yang dipakai adalah "(real)"
+    karena sama dengan sheet total 2023-2024 (90.755,13 dan 91.765,65 ha). Kolom lain disimpan sebagai
+    `luasAlt` untuk dikonfirmasi ke AOI. Produsen 2023-2024 memakai kolom Total.
+    """
+    ws = wb[TOTALS_SHEET]
+    luas_cols = {2019: "C", 2020: "D", 2021: "E", 2022: "F", 2023: "G", 2024: "I"}
+    alt_cols = {2019: "C", 2020: "D", 2021: "E", 2022: "F", 2023: "H", 2024: "J"}
+    prod_cols = {2019: "K", 2020: "L", 2021: "M", 2022: "N", 2023: "Q", 2024: "T"}
+    from openpyxl.utils import column_index_from_string as ci
+
+    data: dict[str, tuple] = {}
+    total_row = None
+    for r in ws.iter_rows(min_row=5):
+        p = province(r[1].value)
+        if p:
+            data[p] = r
+        elif r[1].value is None and isinstance(r[2].value, (int, float)):
+            total_row = r
+    missing = set(PROVINCES) - set(data)
+    if missing:
+        report.append(f"[total] provinsi tidak ada di sheet: {sorted(missing)}")
+
+    def cell(p: str, cols: dict[int, str], y: int) -> float | int | None:
+        return clean(val(data[p][ci(cols[y]) - 1].value)) if p in data else None
+
+    by_prov: dict[str, dict] = {}
+    for p in PROVINCES:
+        by_prov[p] = {
+            "luas": {str(y): cell(p, luas_cols, y) for y in YEARS},
+            "luasAlt": {str(y): cell(p, alt_cols, y) for y in YEARS},
+            "produsen": {str(y): cell(p, prod_cols, y) for y in YEARS},
+        }
+    national = {"luas": {}, "luasAlt": {}, "produsen": {}}
+    for key, cols in (("luas", luas_cols), ("luasAlt", alt_cols), ("produsen", prod_cols)):
+        for y in YEARS:
+            tot = clean(sum_([by_prov[p][key][str(y)] for p in PROVINCES]))
+            national[key][str(y)] = tot
+            if total_row is not None:
+                t = val(total_row[ci(cols[y]) - 1].value)
+                if t is not None and tot is not None and abs(t - tot) > 0.5:
+                    report.append(f"[total] {key} {y}: baris Total sheet {t:g} != jumlah provinsi {tot:g}")
+    # cek silang dengan sheet total 2023-2024 dan gender
+    for y in ("2023", "2024"):
+        if national["luas"][y] != nat[y]["luas"]:
+            report.append(f"[total] luas {y} (real) {national['luas'][y]} != sheet 'Luas Lahan dan Jumlah Producer' {nat[y]['luas']}")
+        if national["produsen"][y] != nat[y]["total"]:
+            report.append(f"[total] produsen {y} {national['produsen'][y]} != sheet 'Luas Lahan dan Jumlah Producer' {nat[y]['total']}")
+    return {"byProvince": by_prov, "national": national}
+
+
 def build_provinces(wb: openpyxl.Workbook) -> dict:
     a = wb["Luas Lahan dan Jumlah Producer"]
     b = wb["Luas lahan organic berdasarkan "]
@@ -230,6 +340,10 @@ def build_provinces(wb: openpyxl.Workbook) -> dict:
         if r["produsen"]["2023"]["perempuan"] and r["produsen"]["2023"]["lakiLaki"] and \
                 r["produsen"]["2023"]["perempuan"] > r["produsen"]["2023"]["lakiLaki"]:
             report.append(f"[provinsi] {r['name']} 2023: perempuan ({r['produsen']['2023']['perempuan']}) > laki-laki ({r['produsen']['2023']['lakiLaki']})")
+    series = build_totals_series(wb, rows, nat)
+    for r in rows:
+        r["luasSeries"] = series["byProvince"][r["name"]]["luas"]
+        r["produsenSeries"] = series["byProvince"][r["name"]]["produsen"]
     return {
         "edition": EDITION,
         "years": [2023, 2024],
@@ -240,6 +354,7 @@ def build_provinces(wb: openpyxl.Workbook) -> dict:
             "sertifikasi2024": f"{FILE_LABEL}, sheet 'Luas lahan organic berdasarkan'",
         },
         "national": nat,
+        "nationalSeries": series["national"],
         "provinces": rows,
     }
 
@@ -247,7 +362,7 @@ def build_provinces(wb: openpyxl.Workbook) -> dict:
 def main() -> int:
     wb = openpyxl.load_workbook(XLSX, data_only=True)
     prov = build_provinces(wb)
-    com = build_commodities(wb) + build_horti(wb)
+    com = build_commodities(wb) + build_horti(wb) + build_processed(wb)
     OUT.mkdir(parents=True, exist_ok=True)
     (OUT / "provinces-2025.json").write_text(json.dumps(prov, ensure_ascii=False, indent=1) + "\n")
     (OUT / "commodity-provinces.json").write_text(json.dumps({

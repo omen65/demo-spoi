@@ -68,8 +68,8 @@ const chartTitle = computed(() => {
 })
 const chartSource = computed(() =>
   combineSources2025(
-    commodities.flatMap((c) => {
-      const s = getSeries2025(c, metric.value)
+    tanaman.value.flatMap((r) => {
+      const s = getSeries2025(r.commodity, metric.value)
       return s ? [s.source] : []
     }),
   ),

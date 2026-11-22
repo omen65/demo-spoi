@@ -101,7 +101,9 @@ function toCommodity(c: CommodityProvinces2025): Commodity2025 {
     const m = c.metrics[key]
     // Komoditas tanpa satu pun laporan pada metrik ini tidak punya seri (bukan deret nol)
     if (Object.values(m.national).every((v) => v === null)) continue
-    metrics[metric] = { unit: m.unit, values: m.national, source: m.source, ...(c.note ? { note: c.note } : {}) }
+    // Produk olahan dan pemasar melaporkan jumlah operator, bukan petani
+    const target: Metric = metric === 'petani' && m.unit === 'operator' ? 'operator' : metric
+    metrics[target] = { unit: m.unit, values: m.national, source: m.source, ...(c.note ? { note: c.note } : {}) }
   }
   const yield_ = productivity(c)
   if (yield_) metrics.produktivitas = yield_
@@ -177,6 +179,11 @@ export type ProvinceYear2025 = '2023' | '2024'
 
 export function getProvinces2025(): ProvincesData2025 {
   return provinces
+}
+
+/** Deret nasional 2019-2024: total luas lahan organik dan total produsen (jumlah 38 provinsi). */
+export function getNationalSeries2025(): ProvincesData2025['nationalSeries'] {
+  return provinces.nationalSeries
 }
 
 export function getProvinceRow2025(name: string): ProvinceRow2025 | undefined {

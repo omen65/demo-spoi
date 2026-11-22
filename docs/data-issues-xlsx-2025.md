@@ -24,3 +24,17 @@ Jawaban AOI atas pertanyaan anomali (2026-11-22) sudah dimasukkan. Nilai 0 atau 
 - Produk olahan, pemasar, pupuk, ternak, dan produk liar sedang diproses AOI; bisa ditambahkan kemudian.
 
 Daftar temuan versi draf V13 ada di [data-issues-2025.md](data-issues-2025.md).
+
+## Pembaruan berkas AOI (2026-11-22, "Progres Rekap ... (1).xlsx")
+
+Sheet lama tidak berubah (0 sel beda), termasuk total Beras 2023-2024 dan Sayur-Buah 2024 yang masih lebih besar dari jumlah provinsi. Sheet baru:
+
+- **Luas Lahan dan Produser**: total luas dan produsen per provinsi 2019-2024. Hero Beranda memakainya untuk tren lima tahun (luas 63.531,83 ke 91.765,65 ha, produsen 33.362 ke 124.418).
+- **Produk Olahan** dan **Pemasar**: operator 2019-2024, luas 2019-2022, produksi 2019-2024. Tampil di Komoditas sebagai Produk lain. Cocok dengan SPOI 2023 untuk 2019-2022.
+- Pupuk, ternak, dan produk liar belum ada.
+
+Pertanyaan untuk AOI:
+1. Sheet total punya dua kolom luas untuk 2023 dan 2024: "(real)" (90.755,13 dan 91.765,65 ha) dan tanpa keterangan (79.386,72 dan 80.703,83 ha). Selisih terbesar di Kalimantan Barat (8.781,45 vs 51,45 ha), Jawa Barat (5.350,25 vs 3.722,12), dan Jawa Tengah. Dashboard memakai "(real)". Apa beda keduanya?
+2. Jumlah produsen melonjak dari 41.564 (2022) ke 123.394 (2023), hampir tiga kali lipat. Ada perubahan definisi atau cakupan?
+3. Produksi produk olahan melonjak dari 4.795 ton (2022) ke 317.938 ton (2023); Lampung baru muncul dengan 75.033 ton dan Sulawesi Tengah 50.000 ton. Apakah satuannya ton?
+4. Baris total Beras (2023, 2024) dan Sayur-Buah (2024) masih lebih besar tepat sebesar angka tahun dari jumlah provinsi; rumus belum diperbaiki.
