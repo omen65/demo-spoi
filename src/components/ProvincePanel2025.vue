@@ -22,7 +22,7 @@ const fmt = (v: number | null | undefined): string => (v === null || v === undef
 </script>
 
 <template>
-  <section class="rounded-lg bg-white p-4 md:p-5" aria-live="polite">
+  <section class="surface p-4 md:p-5" aria-live="polite">
     <div class="flex items-start justify-between gap-3">
       <h2 class="text-base font-semibold md:text-lg">{{ t.title(province, year) }}</h2>
       <button

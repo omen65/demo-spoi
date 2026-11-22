@@ -2,6 +2,7 @@
 import type { Metric } from '@/data/types'
 
 export const metricLabel: Record<Metric, string> = {
+  produktivitas: 'Produktivitas',
   luas: 'Luas lahan',
   produksi: 'Produksi',
   petani: 'Petani',

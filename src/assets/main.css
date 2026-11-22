@@ -1,34 +1,44 @@
 @import 'tailwindcss';
 
 /*
- * Palet: hijau-teal tua untuk sidebar dan data, mint untuk lencana, kunyit hanya untuk sorotan,
- * tomat untuk tanda † (angka perlu konfirmasi). Seri chart dibedakan juga lewat bentuk/pola.
+ * Palet "pewarna alami": nila (indigo) untuk data dan aksi, kunyit untuk sorotan, secang untuk penurunan dan
+ * penanda, hijau hutan untuk hero dan peta. Nila dan kunyit aman untuk buta warna (biru dan kuning-oranye).
+ * Seri chart dibedakan juga lewat bentuk, pola, atau label.
  */
 @theme {
   --font-sans: 'Public Sans Variable', system-ui, -apple-system, 'Segoe UI', sans-serif;
-  --font-display: 'Public Sans Variable', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: 'Bricolage Grotesque Variable', 'Public Sans Variable', system-ui, -apple-system, sans-serif;
 
-  /* Latar netral hangat, permukaan putih */
-  --color-paper-50: #f7f6f3;
-  --color-paper-100: #efede8;
-  --color-paper-200: #e6e4de;
-  --color-paper-300: #d2d0c9;
+  /* Latar dingin tipis agar hero tanah yang hangat menonjol; permukaan putih */
+  --color-paper-50: #f0f1f5;
+  --color-paper-100: #e6e8ef;
+  --color-paper-200: #dadde7;
+  --color-paper-300: #c4c8d5;
 
-  --color-ink-900: #1b211e;
-  --color-ink-700: #3d4541;
-  --color-ink-600: #6a716c;
+  --color-ink-900: #13201a;
+  --color-ink-700: #35433b;
+  --color-ink-600: #5c6a61;
 
-  /* Hijau hutan tua untuk aksi, zamrud kalem untuk data */
-  --color-deep-900: #16402f;
-  --color-accent-700: #1b5b44;
-  --color-accent-600: #2a9d78;
+  /* Nila: aksi dan data */
+  --color-deep-900: #1b2362;
+  --color-accent-700: #2b3990;
+  --color-accent-600: #4656c4;
 
-  --color-mint-100: #e8f2ec;
-  --color-mint-700: #1b6b4a;
-  --color-gold-500: #16402f;
-  --color-gold-700: #16402f;
+  --color-mint-100: #e6e9f8;
+  --color-mint-700: #2b3990;
 
-  --color-flag: #b4382b;
+  /* Kunyit: sorotan */
+  --color-gold-500: #f0b429;
+  --color-gold-700: #a8690a;
+
+  /* Secang: penurunan dan penanda */
+  --color-flag: #b03a52;
+
+  /* Hutan tua: hero dan peta (hijau gelap ke kuning) */
+  --color-forest-900: #0e2418;
+  --color-forest-800: #163527;
+  --color-forest-700: #1f4a36;
+  --color-forest-300: #a8c4b2;
 }
 
 :root {
@@ -54,9 +64,9 @@ h1,
 h2,
 h3 {
   font-family: var(--font-display);
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  line-height: 1.25;
+  font-weight: 650;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
 }
 
 .tabular {
@@ -74,4 +84,36 @@ h3 {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* Permukaan kartu: berlapis, dengan bayangan bernuansa nila (bukan abu-abu datar) */
+.surface {
+  background: #fff;
+  border-radius: 1.25rem;
+  box-shadow:
+    0 0 0 1px rgb(19 32 26 / 0.04),
+    0 1px 2px rgb(19 32 26 / 0.05),
+    0 12px 28px -16px rgb(43 57 144 / 0.28);
+}
+
+/* Hero: lapisan (strata) dari gradien, tanpa gambar */
+.hero-forest {
+  background:
+    radial-gradient(120% 90% at 85% 0%, rgb(240 180 41 / 0.16), transparent 55%),
+    repeating-linear-gradient(180deg, rgb(255 255 255 / 0.035) 0 1px, transparent 1px 22px),
+    linear-gradient(165deg, var(--color-forest-700) 0%, var(--color-forest-900) 62%);
+}
+
+.reveal-map path {
+  transition: opacity 700ms ease;
+}
+
+/* Kartu angka: permukaan dengan tint nila tipis di sudut, supaya tidak rata putih */
+.surface-tint {
+  background: linear-gradient(155deg, #fff 52%, var(--color-mint-100) 100%);
+  border-radius: 1.25rem;
+  box-shadow:
+    0 0 0 1px rgb(19 32 26 / 0.04),
+    0 1px 2px rgb(19 32 26 / 0.05),
+    0 12px 28px -16px rgb(43 57 144 / 0.28);
 }

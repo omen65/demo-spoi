@@ -80,6 +80,7 @@ const columns = computed<TableColumn[]>(() => [
   { key: 'luas', label: t.table.area, numeric: true },
   { key: 'produksi', label: t.table.prod, numeric: true },
   { key: 'petani', label: t.table.people, numeric: true },
+  { key: 'produktivitas', label: t.table.yield, numeric: true },
   { key: 'operator', label: t.operatorSuffix, numeric: true },
   { key: 'change', label: t.table.change(metricName.value), numeric: true },
 ])
@@ -90,6 +91,7 @@ const tableRows = computed(() =>
     produksi: r.produksi ?? null,
     petani: r.petani ?? null,
     operator: r.operator ?? null,
+    produktivitas: r.produktivitas ?? null,
     change: r.change === null ? '–' : Number(r.change.toFixed(1)),
   })),
 )
@@ -118,13 +120,13 @@ const tableRows = computed(() =>
     </ChartCard>
 
     <section aria-labelledby="tanaman" class="space-y-2">
-      <h2 id="tanaman" class="text-base font-semibold">{{ t.listTitle }}</h2>
+      <h2 id="tanaman" class="font-display text-xl font-bold tracking-tight">{{ t.listTitle }}</h2>
       <CommodityTable2025 :rows="sortedTanaman" :sort-key="sortKey" :caption="t.listTitle" :metric-name="metricName" @sort="setSort" />
     </section>
 
     <section v-if="sortedProduk.length" aria-labelledby="produk-lain" class="space-y-2">
       <div class="flex flex-wrap items-baseline justify-between gap-2">
-        <h2 id="produk-lain" class="text-base font-semibold">{{ t.otherTitle }}</h2>
+        <h2 id="produk-lain" class="font-display text-xl font-bold tracking-tight">{{ t.otherTitle }}</h2>
         <p class="text-xs text-ink-600">{{ t.otherLead }}</p>
       </div>
       <CommodityTable2025 :rows="sortedProduk" :sort-key="null" :caption="t.otherTitle" :metric-name="metricName" @sort="setSort" />

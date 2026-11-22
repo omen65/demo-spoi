@@ -3,12 +3,13 @@ import { computed, ref } from 'vue'
 import ChartCard from '@/components/ChartCard.vue'
 import ChoiceGroup from '@/components/ChoiceGroup.vue'
 import CoverageBars from '@/components/CoverageBars.vue'
+import BarChart, { type BarItem } from '@/components/BarChart.vue'
 import GroupedBarChart from '@/components/GroupedBarChart.vue'
 import DeltaBars, { type DeltaItem } from '@/components/DeltaBars.vue'
 import DeltaPill from '@/components/DeltaPill.vue'
 import HeadlineCards, { type HeadlineItem } from '@/components/HeadlineCards.vue'
 import IndicatorMatrix from '@/components/IndicatorMatrix.vue'
-import PageHeader from '@/components/PageHeader.vue'
+import HomeHero from '@/components/HomeHero.vue'
 import type { TableColumn } from '@/components/DataTable.vue'
 import TrendChart from '@/components/TrendChart.vue'
 import { changePct, direction } from '@/composables/useDerived'
@@ -201,13 +202,23 @@ const pct = (a: number | null, b: number | null): number | null => (a !== null &
 const womenShare = (n: { perempuan: number | null; total: number | null }): number | null =>
   n.perempuan !== null && n.total ? (n.perempuan / n.total) * 100 : null
 const shareNow = womenShare(natNow)
-const sharePrev = womenShare(natPrev)
-const nationalCards = [
-  { id: 'luas', label: t.national.area.label, value: natNow.luas, unit: t.national.area.unit, delta: pct(natPrev.luas, natNow.luas) },
-  { id: 'produsen', label: t.national.producers.label, value: natNow.total, unit: t.national.producers.unit, delta: pct(natPrev.total, natNow.total) },
+const provinceArea: Record<string, number | null> = Object.fromEntries(provinces.provinces.map((p) => [p.name, p.luas[LATEST as '2024']]))
+const sum = (pick: (r: (typeof provinces.provinces)[number]) => number | null): number =>
+  provinces.provinces.reduce((acc, r) => acc + (pick(r) ?? 0), 0)
+const certRaw = [
+  { name: t.cert.names.selfDeclare, value: sum((r) => r.sertifikasi2024.selfDeclare) },
+  { name: t.cert.names.konversi, value: sum((r) => r.sertifikasi2024.konversi) },
+  { name: t.cert.names.pgs, value: sum((r) => r.sertifikasi2024.pgs) },
 ]
-const shareDelta = shareNow !== null && sharePrev !== null ? shareNow - sharePrev : null
-const menShareNow = shareNow === null ? null : 100 - shareNow
+const certTotal = certRaw.reduce((acc, r) => acc + r.value, 0)
+const certItems: BarItem[] = certRaw.map((r) => ({ name: r.name, value: Number(r.value.toFixed(2)) })).sort((a, b) => b.value - a.value)
+const certTitle = certItems[0] && certTotal ? t.cert.title(certItems[0].name, formatPercent((certItems[0].value / certTotal) * 100), LATEST) : ''
+const certColumns: TableColumn[] = [
+  { key: 'name', label: t.cert.columns.name },
+  { key: 'value', label: t.cert.columns.value, numeric: true },
+  { key: 'share', label: t.cert.columns.share, numeric: true },
+]
+const certRows = certItems.map((r) => ({ name: r.name, value: r.value, share: certTotal ? Number(((r.value / certTotal) * 100).toFixed(1)) : null }))
 const genderTitle = t.gender.title(shareNow === null ? '' : formatPercent(shareNow), formatNumber(natNow.total ?? 0), LATEST)
 const genderCategories = ['2023', '2024']
 const genderSeries = [
@@ -242,41 +253,23 @@ const matrixTable = matrixRows.map((r) => ({ no: r.no, name: r.name, status: t.m
 
 <template>
   <div class="space-y-6">
-    <PageHeader :title="t.title" :lead="t.intro(meta.dataYears.from, meta.dataYears.to)">
-      <ChoiceGroup v-model="metric" :legend="t.controls.metric" name="metrik-beranda-2025" :options="metricOptions" />
-    </PageHeader>
+    <HomeHero
+      :title="t.title"
+      :lead="t.intro(meta.dataYears.from, meta.dataYears.to)"
+      :year="LATEST"
+      :previous-year="PREVIOUS"
+      :area="natNow.luas ?? 0"
+      :area-delta="pct(natPrev.luas, natNow.luas)"
+      :producers="natNow.total ?? 0"
+      :producers-delta="pct(natPrev.total, natNow.total)"
+      :men="natNow.lakiLaki ?? 0"
+      :women="natNow.perempuan ?? 0"
+      :province-values="provinceArea"
+    />
 
-    <section :aria-label="t.national.aria(LATEST)" class="space-y-3">
-      <ul class="grid grid-cols-1 gap-px overflow-hidden rounded-lg bg-paper-200 sm:grid-cols-3">
-        <li v-for="k in nationalCards" :key="k.id" class="bg-white p-4 md:p-5">
-          <p class="text-[13px] font-medium text-ink-600">{{ k.label }}</p>
-          <p class="mt-3 text-[30px] font-semibold leading-none tracking-tight text-ink-900 tabular-nums md:text-[34px]">{{ k.value === null ? '–' : formatNumber(k.value) }}</p>
-          <p class="mt-1.5 text-xs text-ink-600">{{ k.unit }}, {{ LATEST }}</p>
-          <p class="mt-3 flex items-center gap-1.5 text-xs text-ink-600"><DeltaPill :pct="k.delta" /><span>{{ t.national.since(PREVIOUS) }}</span></p>
-        </li>
-        <li class="bg-white p-4 md:p-5">
-          <p class="text-[13px] font-medium text-ink-600">{{ t.national.gender.label }}, {{ LATEST }}</p>
-          <dl class="mt-3 grid grid-cols-2 gap-3">
-            <div>
-              <dt class="text-xs text-ink-600">{{ t.national.gender.men }}</dt>
-              <dd class="mt-1 text-[26px] font-semibold leading-none tracking-tight text-ink-900 tabular-nums">{{ menShareNow === null ? '–' : formatPercent(menShareNow) }}</dd>
-              <dd class="mt-1 text-xs text-ink-600">{{ t.national.gender.people(formatNumber(natNow.lakiLaki ?? 0)) }}</dd>
-            </div>
-            <div>
-              <dt class="text-xs text-ink-600">{{ t.national.gender.women }}</dt>
-              <dd class="mt-1 text-[26px] font-semibold leading-none tracking-tight text-ink-900 tabular-nums">{{ shareNow === null ? '–' : formatPercent(shareNow) }}</dd>
-              <dd class="mt-1 text-xs text-ink-600">{{ t.national.gender.people(formatNumber(natNow.perempuan ?? 0)) }}</dd>
-            </div>
-          </dl>
-          <p v-if="shareDelta !== null" class="mt-3 text-xs text-ink-600">
-            {{ t.national.gender.women }}
-            <span class="font-medium tabular-nums text-ink-900">{{ shareDelta >= 0 ? '+' : '−' }}{{ formatNumber(Number(Math.abs(shareDelta).toFixed(1))) }}</span>
-            {{ t.national.pointsSince(PREVIOUS) }}
-          </p>
-        </li>
-      </ul>
-      <p class="text-xs text-ink-600">{{ t.national.note }}</p>
-    </section>
+    <div class="flex flex-wrap items-end justify-between gap-3">
+      <ChoiceGroup v-model="metric" :legend="t.controls.metric" name="metrik-beranda-2025" :options="metricOptions" />
+    </div>
 
     <HeadlineCards :items="headline" :break-after-index="breakIndex" :label="t.headline.aria(LATEST)" />
 
@@ -385,6 +378,18 @@ const matrixTable = matrixRows.map((r) => ({ no: r.no, name: r.name, status: t.m
         :note="t.change.note"
       >
         <DeltaBars :items="deltaItems" :description="deltaTitle" />
+      </ChartCard>
+
+      <ChartCard
+        :title="certTitle"
+        unit="ha"
+        :source="provinces.sources.sertifikasi2024"
+        csv-name="spoi-2025-luas-menurut-sertifikasi-2024"
+        :columns="certColumns"
+        :rows="certRows"
+        :note="t.cert.note"
+      >
+        <BarChart :items="certItems" unit="ha" :description="t.cert.aria" />
       </ChartCard>
 
       <ChartCard

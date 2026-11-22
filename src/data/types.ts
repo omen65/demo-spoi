@@ -1,5 +1,5 @@
 export type YearKey = '2019' | '2020' | '2021' | '2022'
-export type Metric = 'luas' | 'produksi' | 'petani' | 'operator'
+export type Metric = 'luas' | 'produksi' | 'petani' | 'operator' | 'produktivitas'
 export type CommodityGroup = 'utama' | 'lainnya' | 'pasar'
 
 export interface SeriesData {

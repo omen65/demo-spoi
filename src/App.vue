@@ -3,7 +3,7 @@ import AppFooter from '@/components/AppFooter.vue'
 import AppNav from '@/components/AppNav.vue'
 import { ui } from '@/content/id'
 
-document.title = 'SPOI 2025 · AOI'
+document.title = 'SPOI 2025 · Aliansi Organis Indonesia'
 </script>
 
 <template>

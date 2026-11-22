@@ -4,7 +4,7 @@ import type { Commodity2025, Metric, YearKey2025 } from '@/data/types'
 import { flaggedYearsFor } from '@/content/flags-2025'
 import { OTHER_PRODUCTS_2025 } from '@/content/groups'
 
-export type RowMetric = 'luas' | 'produksi' | 'petani'
+export type RowMetric = 'luas' | 'produksi' | 'petani' | 'produktivitas'
 
 export interface CommodityRow2025 {
   commodity: Commodity2025
@@ -14,6 +14,7 @@ export interface CommodityRow2025 {
   produksi?: number | null
   petani?: number | null
   operator?: number | null
+  produktivitas?: number | null
   /** Perubahan metrik terpilih dari 2023 ke 2024 (%); null bila tidak terdefinisi */
   change: number | null
   /** Seri metrik terpilih untuk sparkline; kosong bila ada tahun yang kosong */
@@ -43,9 +44,10 @@ export function buildRows2025(commodities: Commodity2025[], year: YearKey2025, m
       produksi: get('produksi'),
       petani: get('petani'),
       operator: get('operator'),
+      produktivitas: get('produktivitas'),
       change: a !== undefined && a !== null && b !== undefined && b !== null ? changePct(a, b) : null,
       spark: values.every((v) => v !== null) ? (values as number[]) : [],
-      flags: { luas: flag('luas'), produksi: flag('produksi'), petani: flag('petani'), operator: flag('operator') },
+      flags: { luas: flag('luas'), produksi: flag('produksi'), petani: flag('petani'), operator: flag('operator'), produktivitas: flag('produktivitas') },
     }
   })
 }

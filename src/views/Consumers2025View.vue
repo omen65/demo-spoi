@@ -152,7 +152,7 @@ const sections = t.sections.map((s) => ({ ...s, cards: s.charts.flatMap((id) => 
 
     <section v-for="s in sections" :key="s.id" :aria-labelledby="`bagian-${s.id}`" class="space-y-3">
       <div>
-        <h2 :id="`bagian-${s.id}`" class="text-base font-semibold">{{ s.title }}</h2>
+        <h2 :id="`bagian-${s.id}`" class="font-display text-xl font-bold tracking-tight">{{ s.title }}</h2>
         <p class="text-xs text-ink-600">{{ s.lead }}</p>
       </div>
       <div class="gap-4 lg:columns-2 [&>*]:mb-4 [&>*]:break-inside-avoid">

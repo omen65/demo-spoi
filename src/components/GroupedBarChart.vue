@@ -29,17 +29,21 @@ const option = computed<EChartsOption>(() => {
   const muted = themeColor('--color-ink-600', '#4f5f5b')
   const line = themeColor('--color-paper-200', '#dbe2de')
   // Tiga seri dibedakan oleh luminans warna DAN pola isi, bukan warna saja
-  const accent = themeColor('--color-accent-600', '#2a9d78')
-  const deep = themeColor('--color-deep-900', '#16402f')
-  const stripes = { symbol: 'rect', color: 'rgba(22,64,47,0.5)', dashArrayX: [1, 0], dashArrayY: [2, 3], symbolSize: 1, rotation: Math.PI / 4 }
-  const dots = { symbol: 'circle', color: 'rgba(251,246,234,0.7)', dashArrayX: [1, 0], dashArrayY: [2, 4], symbolSize: 0.6 }
+  const accent = themeColor('--color-accent-600', '#4656c4')
+  const deep = themeColor('--color-deep-900', '#1b2362')
+  const gold = themeColor('--color-gold-500', '#f0b429')
+  const stripes = { symbol: 'rect', color: 'rgba(27,35,98,0.5)', dashArrayX: [1, 0], dashArrayY: [2, 3], symbolSize: 1, rotation: Math.PI / 4 }
+  const dots = { symbol: 'circle', color: 'rgba(255,255,255,0.7)', dashArrayX: [1, 0], dashArrayY: [2, 4], symbolSize: 0.6 }
   // Tiga seri: terang, sedang bergaris, gelap bertitik. Empat seri: tambah satu tingkat terang di awal.
   const four = props.series.length > 3
-  const fills = four ? ['#e1efe8', '#a9d6c0', accent, deep] : ['#cfe8dc', accent, deep]
-  const decals = four ? [undefined, stripes, dots, undefined] : [undefined, stripes, dots]
+  const two = props.series.length === 2
+  // Dua seri (mis. laki-laki dan perempuan): nila dan kunyit, dibedakan juga oleh pola garis pada seri kedua
+  const fills = two ? [accent, gold] : four ? ['#e2e5fa', '#a9b3f0', accent, deep] : ['#c9cff5', accent, deep]
+  const decals = two ? [undefined, stripes] : four ? [undefined, stripes, dots, undefined] : [undefined, stripes, dots]
   return {
     aria: { enabled: true, label: { description: props.description } },
-    animationDuration: 400,
+    animationDuration: 900,
+    animationEasing: 'cubicOut',
     legend: { top: 0, left: 0, itemWidth: 14, itemHeight: 8, itemGap: 18, textStyle: { color: muted, fontSize: 12 } },
     grid: { left: 4, right: 44, top: 32, bottom: 4, containLabel: true },
     tooltip: {
@@ -49,7 +53,7 @@ const option = computed<EChartsOption>(() => {
       borderWidth: 0,
       padding: [8, 12],
       textStyle: { color: ink, fontSize: 12.5 },
-      extraCssText: 'border-radius:8px;box-shadow:0 6px 20px -6px rgba(27,33,30,.28);',
+      extraCssText: 'border-radius:8px;box-shadow:0 10px 28px -10px rgba(43,57,144,.4);',
       formatter: (params: unknown) => {
         const list = params as { axisValueLabel: string; marker: string; seriesName: string; value: number }[]
         const head = list[0]?.axisValueLabel ?? ''

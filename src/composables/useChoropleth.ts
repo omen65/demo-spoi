@@ -1,6 +1,6 @@
-/** Kelas warna peta: kuantil dari nilai positif; nol dan "tidak ada data" punya kelas sendiri. */
-export const CLASS_COLORS = ['#e3f1ea', '#b5dcc8', '#78bd9d', '#3a9170', '#1b5b44'] as const
-export const ZERO_COLOR = '#ffffff'
+/** Kelas warna peta (latar hijau hutan gelap, hijau ke kuning, makin terang makin besar): kuantil dari nilai positif; nol dan "tidak ada data" punya kelas sendiri. */
+export const CLASS_COLORS = ['#2f8a5b', '#62ab52', '#a2c93b', '#e3dc3a', '#fff176'] as const
+export const ZERO_COLOR = '#163527'
 
 export interface ColorClass {
   color: string

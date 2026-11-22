@@ -24,7 +24,8 @@ import {
 import type { ProvinceMetric2025, YearKey2025 } from '@/data/types'
 import { ui2025 } from '@/content/id-2025'
 
-type WilayahMetric = 'luas' | 'produksi' | 'produsen' | 'lakiLaki' | 'perempuan' | 'porsi'
+type WilayahMetric = 'luas' | 'produksi' | 'produsen' | 'lakiLaki' | 'perempuan' | 'porsi' | 'selfDeclare' | 'konversi' | 'pgs'
+const CERT_METRICS: readonly WilayahMetric[] = ['selfDeclare', 'konversi', 'pgs']
 
 const t = ui2025.wilayah
 const route = useRoute()
@@ -59,11 +60,12 @@ const squash = (s: string): string => s.replace(/\s+/g, ' ').trim()
 
 // Metrik dan tahun yang tersedia bergantung pada pilihan komoditas
 const availableMetrics = computed<WilayahMetric[]>(() => {
-  if (isAll.value) return ['luas', 'produsen', 'lakiLaki', 'perempuan', 'porsi']
+  if (isAll.value) return ['luas', 'produsen', 'lakiLaki', 'perempuan', 'porsi', 'selfDeclare', 'konversi', 'pgs']
   const c = commodities.find((x) => x.id === commodityId.value)
   return (['luas', 'produksi', 'produsen'] as const).filter((m) => c?.metrics[m === 'produsen' ? 'petani' : m])
 })
-const availableYears = computed<YearKey2025[]>(() => (isAll.value ? ['2023', '2024'] : [...YEARS_2025]))
+// Jenis sertifikasi hanya tersedia untuk 2024
+const availableYears = computed<YearKey2025[]>(() => (CERT_METRICS.includes(metric.value) ? ['2024'] : isAll.value ? ['2023', '2024'] : [...YEARS_2025]))
 watch(
   [availableMetrics, availableYears],
   () => {
@@ -86,6 +88,7 @@ const values = computed<Record<string, number | null>>(() => {
   return Object.fromEntries(
     provinces.provinces.map((p) => {
       const prod = p.produsen[y]
+      const cert = p.sertifikasi2024
       const share = prod.total && prod.perempuan !== null ? Number(((prod.perempuan / prod.total) * 100).toFixed(1)) : null
       const v =
         metric.value === 'luas'
@@ -96,16 +99,24 @@ const values = computed<Record<string, number | null>>(() => {
               ? prod.lakiLaki
               : metric.value === 'perempuan'
                 ? prod.perempuan
-                : share
+                : metric.value === 'selfDeclare'
+                  ? cert.selfDeclare
+                  : metric.value === 'konversi'
+                    ? cert.konversi
+                    : metric.value === 'pgs'
+                      ? cert.pgs
+                      : share
       return [p.name, v]
     }),
   )
 })
 const source = computed(() =>
   isAll.value
-    ? metric.value === 'luas'
-      ? provinces.sources.luas
-      : provinces.sources.produsen
+    ? CERT_METRICS.includes(metric.value)
+      ? provinces.sources.sertifikasi2024
+      : metric.value === 'luas'
+        ? provinces.sources.luas
+        : provinces.sources.produsen
     : getProvinceSource2025(commodityId.value, metric.value as ProvinceMetric2025),
 )
 const classification = computed(() => classify(Object.values(values.value)))
@@ -201,9 +212,9 @@ watch(
         </ChartCard>
       </div>
 
-      <section class="flex flex-col rounded-lg bg-white lg:col-span-4" aria-labelledby="peringkat">
+      <section class="flex flex-col surface lg:col-span-4" aria-labelledby="peringkat">
         <div class="px-4 pt-4 md:px-5">
-          <h2 id="peringkat" class="text-[15px] font-semibold">{{ t.rankingTitle(year) }}</h2>
+          <h2 id="peringkat" class="font-display text-lg font-bold tracking-tight">{{ t.rankingTitle(year) }}</h2>
           <p class="mt-0.5 text-xs text-ink-600">{{ t.rankingLead }} ({{ formatNumber(ranking.length) }} provinsi)</p>
         </div>
         <div class="mt-2 max-h-[380px] flex-1 overflow-y-auto px-2 pb-3 lg:max-h-[440px]">

@@ -22,12 +22,12 @@ defineProps<{ items: HeadlineItem[]; breakAfterIndex: number; label: string }>()
 </script>
 
 <template>
-  <ul class="grid grid-cols-1 gap-px overflow-hidden rounded-lg bg-paper-200 sm:grid-cols-3" :aria-label="label">
-    <li v-for="k in items" :key="k.id" class="bg-white p-4 md:p-5">
+  <ul class="grid grid-cols-1 gap-3 sm:grid-cols-3" :aria-label="label">
+    <li v-for="k in items" :key="k.id" class="surface-tint p-4 md:p-5">
       <p class="text-[13px] font-medium text-ink-600">{{ k.label }}</p>
       <div class="mt-3 flex items-end justify-between gap-3">
         <div class="min-w-0">
-          <p class="text-[30px] font-semibold leading-none tracking-tight text-ink-900 tabular-nums md:text-[34px]">
+          <p class="font-display text-[32px] font-bold leading-none tracking-tight text-ink-900 tabular-nums md:text-[38px]">
             {{ formatNumber(k.value) }}<span v-if="k.flagged" class="ml-0.5 text-base text-flag" :title="k.flagTitle" :aria-label="k.flagTitle">†</span>
           </p>
           <p class="mt-1.5 text-xs text-ink-600">{{ k.unit }}, <span class="font-medium text-ink-900">{{ k.name }}</span></p>

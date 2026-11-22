@@ -68,22 +68,22 @@ function goTo(id: string): void {
       </nav>
 
       <div class="max-w-3xl space-y-3">
-        <section :id="s.source.id" :aria-labelledby="`h-${s.source.id}`" class="scroll-mt-20 space-y-2 rounded-lg bg-white p-5">
-          <h2 :id="`h-${s.source.id}`" class="text-base font-semibold">{{ s.source.title }}</h2>
+        <section :id="s.source.id" :aria-labelledby="`h-${s.source.id}`" class="scroll-mt-20 space-y-2 surface p-5">
+          <h2 :id="`h-${s.source.id}`" class="font-display text-xl font-bold tracking-tight">{{ s.source.title }}</h2>
           <p class="text-sm leading-relaxed">{{ t.source.lead(meta.title, meta.publisher, meta.dataYears.from, meta.dataYears.to) }}</p>
           <p class="text-sm leading-relaxed text-ink-600">{{ t.source.published(meta.published) }}</p>
         </section>
 
-        <section :id="s.method.id" :aria-labelledby="`h-${s.method.id}`" class="scroll-mt-20 space-y-2 rounded-lg bg-white p-5">
-          <h2 :id="`h-${s.method.id}`" class="text-base font-semibold">{{ s.method.title }}</h2>
+        <section :id="s.method.id" :aria-labelledby="`h-${s.method.id}`" class="scroll-mt-20 space-y-2 surface p-5">
+          <h2 :id="`h-${s.method.id}`" class="font-display text-xl font-bold tracking-tight">{{ s.method.title }}</h2>
           <p class="text-sm leading-relaxed">{{ t.method.sources }}</p>
           <p class="text-sm leading-relaxed">{{ t.method.collection }}</p>
           <p class="text-sm leading-relaxed">{{ t.method.processing }}</p>
           <p class="text-sm leading-relaxed">{{ t.method.dashboard }}</p>
         </section>
 
-        <section :id="s.definitions.id" :aria-labelledby="`h-${s.definitions.id}`" class="scroll-mt-20 rounded-lg bg-white p-5">
-          <h2 :id="`h-${s.definitions.id}`" class="text-base font-semibold">{{ s.definitions.title }}</h2>
+        <section :id="s.definitions.id" :aria-labelledby="`h-${s.definitions.id}`" class="scroll-mt-20 surface p-5">
+          <h2 :id="`h-${s.definitions.id}`" class="font-display text-xl font-bold tracking-tight">{{ s.definitions.title }}</h2>
           <dl class="mt-2 divide-y divide-paper-200">
             <div v-for="d in t.definitions.items" :key="d.term" class="grid gap-1 py-2.5 sm:grid-cols-[11rem_1fr] sm:gap-4">
               <dt class="text-sm font-semibold text-ink-900">{{ d.term }}</dt>
@@ -93,8 +93,8 @@ function goTo(id: string): void {
         </section>
 
         <section :id="s.limits.id" :aria-labelledby="`h-${s.limits.id}`" class="scroll-mt-20 space-y-3">
-          <div class="rounded-lg bg-white p-5">
-            <h2 :id="`h-${s.limits.id}`" class="text-base font-semibold">{{ s.limits.title }}</h2>
+          <div class="surface p-5">
+            <h2 :id="`h-${s.limits.id}`" class="font-display text-xl font-bold tracking-tight">{{ s.limits.title }}</h2>
             <p class="mt-1 text-sm text-ink-600">{{ t.limits.lead }}</p>
             <ul class="mt-2 list-disc space-y-1.5 pl-5 text-sm leading-relaxed">
               <li v-for="l in t.limits.items" :key="l">{{ l }}</li>
@@ -120,8 +120,8 @@ function goTo(id: string): void {
           </ChartCard>
         </section>
 
-        <section :id="s.notes.id" :aria-labelledby="`h-${s.notes.id}`" class="scroll-mt-20 rounded-lg bg-white p-5">
-          <h2 :id="`h-${s.notes.id}`" class="text-base font-semibold">{{ s.notes.title }}</h2>
+        <section :id="s.notes.id" :aria-labelledby="`h-${s.notes.id}`" class="scroll-mt-20 surface p-5">
+          <h2 :id="`h-${s.notes.id}`" class="font-display text-xl font-bold tracking-tight">{{ s.notes.title }}</h2>
           <p class="mt-1 text-sm text-ink-600">{{ t.notes.lead }}</p>
 
           <h3 class="mt-4 text-sm font-semibold">{{ t.notes.breakTitle }}</h3>
@@ -134,8 +134,8 @@ function goTo(id: string): void {
 
         </section>
 
-        <section :id="s.demo.id" :aria-labelledby="`h-${s.demo.id}`" class="scroll-mt-20 space-y-2 rounded-lg bg-white p-5">
-          <h2 :id="`h-${s.demo.id}`" class="text-base font-semibold">{{ s.demo.title }}</h2>
+        <section :id="s.demo.id" :aria-labelledby="`h-${s.demo.id}`" class="scroll-mt-20 space-y-2 surface p-5">
+          <h2 :id="`h-${s.demo.id}`" class="font-display text-xl font-bold tracking-tight">{{ s.demo.title }}</h2>
           <p class="text-sm leading-relaxed">{{ t.demo.text }}</p>
           <h3 class="pt-2 text-sm font-semibold">{{ t.credit.title }}</h3>
           <p class="text-sm leading-relaxed text-ink-700">{{ t.credit.text }}</p>

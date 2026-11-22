@@ -36,20 +36,20 @@ function goTo(id: string): void {
 
     <section :aria-labelledby="t.sections.pgs.id" class="scroll-mt-20 space-y-3">
       <div>
-        <h2 :id="t.sections.pgs.id" class="text-base font-semibold">{{ t.sections.pgs.title }}</h2>
+        <h2 :id="t.sections.pgs.id" class="font-display text-xl font-bold tracking-tight">{{ t.sections.pgs.title }}</h2>
         <p class="text-xs text-ink-600">{{ t.sections.pgs.lead }}</p>
       </div>
-      <p class="rounded-lg bg-white p-4 text-sm leading-relaxed text-ink-700">{{ t.pgs.total(formatNumber(farmers.value)) }}</p>
+      <p class="surface p-4 text-sm leading-relaxed text-ink-700">{{ t.pgs.total(formatNumber(farmers.value)) }}</p>
       <div class="grid grid-cols-1 gap-3 md:grid-cols-2">
-        <article v-for="s in pgs.systems" :key="s.id" class="rounded-lg bg-white p-4 md:p-5">
-          <h3 class="text-[15px] font-semibold">
+        <article v-for="s in pgs.systems" :key="s.id" class="surface-tint p-4 md:p-5">
+          <h3 class="font-display text-lg font-bold tracking-tight">
             {{ s.name }}
           </h3>
           <p class="mt-1 text-[13px] leading-relaxed text-ink-600">{{ s.summary }}</p>
           <dl class="mt-3 grid grid-cols-2 gap-3" :aria-label="t.pgs.figuresAria(s.name)">
             <div v-for="f in s.figures" :key="f.key">
               <dt class="text-xs font-semibold text-ink-600">{{ f.label }}</dt>
-              <dd class="text-2xl font-semibold tracking-tight tabular-nums text-ink-900">
+              <dd class="font-display text-[30px] font-bold leading-none tracking-tight tabular-nums text-accent-700">
                 {{ formatNumber(f.value) }}
                 <span class="block text-sm font-medium text-ink-600">{{ f.unit }}</span>
               </dd>
@@ -63,11 +63,11 @@ function goTo(id: string): void {
 
     <section :aria-labelledby="t.sections.communities.id" class="scroll-mt-20 space-y-3">
       <div>
-        <h2 :id="t.sections.communities.id" class="text-base font-semibold">{{ t.sections.communities.title }}</h2>
+        <h2 :id="t.sections.communities.id" class="font-display text-xl font-bold tracking-tight">{{ t.sections.communities.title }}</h2>
         <p class="text-xs text-ink-600">{{ t.sections.communities.lead }}</p>
       </div>
       <div class="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3">
-        <article v-for="c in communities.rows" :key="c.name" class="rounded-lg bg-white p-4">
+        <article v-for="c in communities.rows" :key="c.name" class="surface p-4">
           <h3 class="text-[15px] font-semibold leading-snug">{{ c.name }}</h3>
           <dl class="mt-2 space-y-2 text-[13px] leading-relaxed">
             <div>
@@ -87,10 +87,10 @@ function goTo(id: string): void {
 
     <section :aria-labelledby="t.sections.policy.id" class="scroll-mt-20 space-y-3">
       <div>
-        <h2 :id="t.sections.policy.id" class="text-base font-semibold">{{ t.sections.policy.title }}</h2>
+        <h2 :id="t.sections.policy.id" class="font-display text-xl font-bold tracking-tight">{{ t.sections.policy.title }}</h2>
         <p class="text-xs text-ink-600">{{ t.sections.policy.lead }}</p>
       </div>
-      <ol class="rounded-lg bg-white p-4 md:p-5" :aria-label="t.policy.aria">
+      <ol class="surface p-4 md:p-5" :aria-label="t.policy.aria">
         <li v-for="(p, i) in policy.rows" :key="p.period" class="relative grid grid-cols-1 gap-x-6 gap-y-1 pb-5 pl-5 last:pb-0 md:grid-cols-[9rem_1fr]">
           <span class="absolute left-0 top-1.5 h-2 w-2 rounded-full bg-deep-900" aria-hidden="true" />
           <span v-if="i < policy.rows.length - 1" class="absolute bottom-0 left-[3px] top-4 w-px bg-paper-200" aria-hidden="true" />

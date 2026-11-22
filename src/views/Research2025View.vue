@@ -60,8 +60,8 @@ const garuda = snaps.map((y) => ({ year: y, value: r.garudaTotalApprox[y] ?? nul
       </div>
 
       <div class="space-y-3 lg:col-span-4">
-        <section class="rounded-lg bg-white p-4" aria-labelledby="total-riset">
-          <h2 id="total-riset" class="text-[15px] font-semibold">{{ t.totalsTitle }}</h2>
+        <section class="surface p-4" aria-labelledby="total-riset">
+          <h2 id="total-riset" class="font-display text-lg font-bold tracking-tight">{{ t.totalsTitle }}</h2>
           <dl class="mt-3 divide-y divide-paper-200">
             <div v-for="x in totals" :key="x.year" class="flex items-center justify-between gap-3 py-2.5">
               <dt class="text-[13px] text-ink-600">{{ x.year }}</dt>
@@ -78,15 +78,15 @@ const garuda = snaps.map((y) => ({ year: y, value: r.garudaTotalApprox[y] ?? nul
           <p class="mt-1 text-xs text-ink-600">{{ t.totalsNote }}</p>
         </section>
 
-        <aside class="rounded-lg bg-white p-4" aria-labelledby="cara-baca-2025">
-          <h2 id="cara-baca-2025" class="text-[15px] font-semibold">{{ t.noteTitle }}</h2>
+        <aside class="surface p-4" aria-labelledby="cara-baca-2025">
+          <h2 id="cara-baca-2025" class="font-display text-lg font-bold tracking-tight">{{ t.noteTitle }}</h2>
           <ul class="mt-2 list-disc space-y-1.5 pl-4 text-[13px] leading-relaxed text-ink-700">
             <li>{{ t.noteSnapshots }}</li>
           </ul>
         </aside>
 
-        <section class="rounded-lg bg-white p-4" aria-labelledby="garuda">
-          <h2 id="garuda" class="text-[15px] font-semibold">{{ t.garudaTitle }}</h2>
+        <section class="surface p-4" aria-labelledby="garuda">
+          <h2 id="garuda" class="font-display text-lg font-bold tracking-tight">{{ t.garudaTitle }}</h2>
           <dl class="mt-2 divide-y divide-paper-100 text-[13px]">
             <div v-for="g in garuda" :key="g.year" class="flex justify-between py-1.5">
               <dt class="text-ink-600">{{ g.year }}</dt>

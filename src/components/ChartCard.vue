@@ -28,7 +28,7 @@ function exportCsv(): void {
 </script>
 
 <template>
-  <figure class="flex h-full flex-col rounded-lg bg-white p-4 md:p-5">
+  <figure class="flex h-full flex-col surface p-4 md:p-5">
     <figcaption class="flex flex-wrap items-start justify-between gap-x-4 gap-y-2">
       <div class="min-w-0 flex-1 basis-44">
         <h3 class="text-sm font-semibold leading-snug text-ink-900">{{ title }}</h3>

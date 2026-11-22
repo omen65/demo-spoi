@@ -48,7 +48,7 @@ function styleFor(feature: GeoJSON.Feature | undefined): L.PathOptions {
   return {
     fillColor: fill,
     fillOpacity: 1,
-    color: isSel ? '#16402f' : '#ffffff',
+    color: isSel ? '#ffffff' : '#0e2418',
     weight: isSel ? 2.5 : 0.8,
     lineJoin: 'round',
   }
@@ -75,11 +75,11 @@ function addHatchPattern(): void {
   const bg = document.createElementNS(ns, 'rect')
   bg.setAttribute('width', '6')
   bg.setAttribute('height', '6')
-  bg.setAttribute('fill', '#ffffff')
+  bg.setAttribute('fill', '#163527')
   const line = document.createElementNS(ns, 'rect')
   line.setAttribute('width', '2')
   line.setAttribute('height', '6')
-  line.setAttribute('fill', '#bcc4be')
+  line.setAttribute('fill', '#2f6148')
   pattern.append(bg, line)
   defs.append(pattern)
   svg.prepend(defs)
@@ -104,7 +104,7 @@ onMounted(() => {
       l.on('mouseover', () => {
         const name = spoiName(feature)
         if (name && name === props.selected) return
-        ;(l as L.Path).setStyle({ color: '#16402f', weight: 2 })
+        ;(l as L.Path).setStyle({ color: '#ffffff', weight: 2 })
         ;(l as L.Path).bringToFront()
       })
       l.on('mouseout', () => layer?.resetStyle(l as L.Path))
@@ -148,7 +148,7 @@ onBeforeUnmount(() => {
 
 <style>
 .province-map.leaflet-container {
-  background: var(--color-paper-100);
+  background: var(--color-forest-900);
   font-family: inherit;
 }
 .province-map .leaflet-tooltip {

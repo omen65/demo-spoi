@@ -25,7 +25,7 @@ const t = ui.regions
       <li v-if="showNoData" class="flex items-center gap-2">
         <span
           class="h-3.5 w-3.5 shrink-0 rounded-full ring-1 ring-inset ring-ink-900/25"
-          style="background: repeating-linear-gradient(45deg, #fff 0 2px, #bcc4be 2px 4px)"
+          style="background: repeating-linear-gradient(45deg, #163527 0 2px, #2f6148 2px 4px)"
           aria-hidden="true"
         />
         <span class="text-ink-700">{{ t.legendNoData }}</span>

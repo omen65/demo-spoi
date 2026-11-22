@@ -35,7 +35,7 @@ const PREVIOUS = PREVIOUS_YEAR_2025
 
 const commodity = computed(() => getCommodity2025(String(route.params.id)))
 
-const METRICS: Metric[] = ['luas', 'produksi', 'petani', 'operator']
+const METRICS: Metric[] = ['luas', 'produksi', 'petani', 'operator', 'produktivitas']
 const present = computed(() => (commodity.value ? METRICS.filter((m) => getSeries2025(commodity.value!, m)) : []))
 
 // --- Ringkasan tahun terakhir ---
@@ -160,10 +160,10 @@ const neighbours = computed(() => {
     <PageHeader :title="commodity.name" :lead="t.lead(LATEST)" :back="{ to: '/2025/komoditas', label: t.back }" />
 
     <section :aria-label="t.summary(LATEST)">
-      <dl class="grid grid-cols-1 divide-y divide-paper-100 overflow-hidden rounded-lg bg-white sm:divide-x sm:divide-y-0" :class="summaryCols">
-        <div v-for="s in summary" :key="s.key" class="p-4 md:p-5">
+      <dl class="grid grid-cols-1 gap-3" :class="summaryCols">
+        <div v-for="s in summary" :key="s.key" class="surface-tint p-4 md:p-5">
           <dt class="text-[13px] font-medium text-ink-600">{{ s.label }}</dt>
-          <dd class="mt-1 text-2xl font-semibold tracking-tight tabular-nums text-ink-900">
+          <dd class="font-display mt-1 text-[32px] font-bold leading-none tracking-tight tabular-nums text-ink-900">
             <template v-if="s.value !== null">
               {{ formatNumber(s.value) }}
               <span v-if="s.flagged" class="text-flag" :title="ui2025.chart.flagLegend" :aria-label="ui2025.chart.flagLegend">†</span>
@@ -191,7 +191,7 @@ const neighbours = computed(() => {
     </aside>
 
     <section class="space-y-2">
-      <div class="grid grid-cols-1 gap-3 lg:grid-cols-3">
+      <div class="grid grid-cols-1 gap-3" :class="trends.length > 3 ? 'lg:grid-cols-2' : 'lg:grid-cols-3'">
         <ChartCard
           v-for="tr in trends"
           :key="tr.metric"

@@ -64,6 +64,37 @@ const METRIC_MAP: readonly (readonly [Metric, ProvinceMetric2025])[] = [
   ['petani', 'produsen'],
 ]
 
+/** Produktivitas hanya dihitung untuk 2023-2024: seri 2019-2022 punya produksi yang tidak sejalan dengan luasnya (mis. aren 60 ton/ha). */
+const PRODUCTIVITY_YEARS: readonly YearKey2025[] = ['2023', '2024']
+
+/** Produktivitas nasional (ton/ha) = jumlah produksi / jumlah luas, hanya dari provinsi yang punya keduanya. */
+function productivity(c: CommodityProvinces2025): SeriesData2025 | undefined {
+  const values = Object.fromEntries(YEARS_2025.map((y) => [y, null])) as Record<YearKey2025, number | null>
+  let any = false
+  for (const y of PRODUCTIVITY_YEARS) {
+    let luas = 0
+    let produksi = 0
+    for (const [prov, byYear] of Object.entries(c.metrics.luas.byProvince)) {
+      const l = byYear[y]
+      const p = c.metrics.produksi.byProvince[prov]?.[y]
+      if (l && p) {
+        luas += l
+        produksi += p
+      }
+    }
+    if (luas > 0) {
+      values[y] = Number((produksi / luas).toFixed(3))
+      any = true
+    }
+  }
+  if (!any) return undefined
+  return {
+    unit: 'ton/ha',
+    values,
+    source: `Dihitung dari produksi dan luas lahan (${c.metrics.luas.source.split(', kolom')[0]})`,
+  }
+}
+
 function toCommodity(c: CommodityProvinces2025): Commodity2025 {
   const metrics: Partial<Record<Metric, SeriesData2025>> = {}
   for (const [metric, key] of METRIC_MAP) {
@@ -72,6 +103,8 @@ function toCommodity(c: CommodityProvinces2025): Commodity2025 {
     if (Object.values(m.national).every((v) => v === null)) continue
     metrics[metric] = { unit: m.unit, values: m.national, source: m.source, ...(c.note ? { note: c.note } : {}) }
   }
+  const yield_ = productivity(c)
+  if (yield_) metrics.produktivitas = yield_
   return { id: c.id, name: c.name, metrics }
 }
 

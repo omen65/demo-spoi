@@ -7,7 +7,7 @@ import { BREAK_INDEX_2025, type CommodityRow2025 } from '@/composables/useCommod
 import { formatNumber } from '@/composables/useFormat'
 import { ui2025 } from '@/content/id-2025'
 
-export type SortKey2025 = 'luas' | 'produksi' | 'people' | 'change'
+export type SortKey2025 = 'luas' | 'produksi' | 'people' | 'produktivitas' | 'change'
 
 const props = defineProps<{
   rows: CommodityRow2025[]
@@ -22,6 +22,7 @@ const columns = computed<{ key: SortKey2025; label: string }[]>(() => [
   { key: 'luas', label: t.table.area },
   { key: 'produksi', label: t.table.prod },
   { key: 'people', label: t.table.people },
+  { key: 'produktivitas', label: t.table.yield },
   { key: 'change', label: t.table.change(props.metricName) },
 ])
 
@@ -32,8 +33,8 @@ const flagged = (r: CommodityRow2025): boolean => Object.values(r.flags).some(Bo
 </script>
 
 <template>
-  <div class="relative overflow-x-auto rounded-lg bg-white p-2 md:p-3">
-    <table class="w-full min-w-[46rem] border-collapse text-[13px]">
+  <div class="relative overflow-x-auto surface p-2 md:p-3">
+    <table class="w-full min-w-[54rem] border-collapse text-[13px]">
       <caption class="sr-only">{{ caption }}</caption>
       <thead class="text-ink-600">
         <tr>
@@ -64,6 +65,7 @@ const flagged = (r: CommodityRow2025): boolean => Object.values(r.flags).some(Bo
           <td class="px-2.5 py-2 text-right tabular-nums">
             {{ cell(r.petani ?? r.operator) }}<span v-if="r.petani === undefined && r.operator !== undefined" class="ml-1 text-[11px] text-ink-600">{{ t.operatorSuffix }}</span>
           </td>
+          <td class="px-2.5 py-2 text-right tabular-nums">{{ cell(r.produktivitas) }}</td>
           <td class="px-3 py-2 text-right">
             <DeltaPill v-if="r.change !== null" :pct="r.change" />
             <span v-else class="text-ink-600">–</span>

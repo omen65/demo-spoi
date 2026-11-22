@@ -32,7 +32,7 @@ const option = computed<EChartsOption>(() => {
   const ink = themeColor('--color-ink-900', '#1b211e')
   const muted = themeColor('--color-ink-600', '#6a716c')
   const grid = themeColor('--color-paper-100', '#efede8')
-  const line = themeColor('--color-accent-600', '#2a9d78')
+  const line = themeColor('--color-accent-600', '#4656c4')
   const flagColor = themeColor('--color-flag', '#b4382b')
   const flagged = new Set(props.flaggedYears ?? [])
   const max = Math.max(...props.values.map((v) => v ?? 0), 0)

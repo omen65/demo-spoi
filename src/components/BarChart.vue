@@ -30,11 +30,14 @@ const option = computed<EChartsOption>(() => {
   const muted = themeColor('--color-ink-600', '#4f5f5b')
   const line = themeColor('--color-paper-200', '#dbe2de')
   const track = themeColor('--color-paper-100', '#e9eeeb')
-  const fill = themeColor('--color-accent-600', '#2a9d78')
-  const edge = themeColor('--color-deep-900', '#16402f')
+  const fill = themeColor('--color-accent-600', '#4656c4')
+  const edge = themeColor('--color-deep-900', '#1b2362')
+  const gradient = { type: 'linear' as const, x: 0, y: 0, x2: 1, y2: 0, colorStops: [{ offset: 0, color: '#8d99ea' }, { offset: 1, color: fill }] }
   return {
     aria: { enabled: true, label: { description: props.description } },
-    animationDuration: 400,
+    animationDuration: 900,
+    animationEasing: 'cubicOut',
+    animationDelay: (i: number) => i * 45,
     grid: { left: 4, right: 12, top: 4, bottom: 4, containLabel: true },
     tooltip: {
       trigger: 'item',
@@ -42,7 +45,7 @@ const option = computed<EChartsOption>(() => {
       borderWidth: 0,
       padding: [8, 12],
       textStyle: { color: ink, fontSize: 12.5 },
-      extraCssText: 'border-radius:8px;box-shadow:0 6px 20px -6px rgba(27,33,30,.28);',
+      extraCssText: 'border-radius:8px;box-shadow:0 10px 28px -10px rgba(43,57,144,.4);',
       formatter: (params: unknown) => {
         const p = params as { name: string; value: number }
         return `<strong>${p.name.replace(FLAG_MARK, '')}</strong><br/>${formatNumber(p.value)} ${props.unit}`
@@ -70,9 +73,9 @@ const option = computed<EChartsOption>(() => {
     series: [
       {
         type: 'bar',
-        barMaxWidth: 10,
+        barMaxWidth: 12,
         showBackground: true,
-        backgroundStyle: { color: track, borderRadius: 5, opacity: 0.8 },
+        backgroundStyle: { color: track, borderRadius: 6, opacity: 0.7 },
         data: props.items.map((i) => ({
           name: i.flagged ? i.name + FLAG_MARK : i.name,
           value: i.value,
@@ -85,7 +88,7 @@ const option = computed<EChartsOption>(() => {
                 borderType: 'dashed',
                 decal: { symbol: 'rect', color: 'rgba(255,255,255,0.55)', dashArrayX: [1, 0], dashArrayY: [2, 3], symbolSize: 1 },
               }
-            : { color: fill, borderRadius: 5 },
+            : { color: gradient, borderRadius: 6 },
         })),
       },
     ],
