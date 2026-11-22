@@ -1,5 +1,5 @@
 import { changePct } from '@/composables/useDerived'
-import { BREAK_AFTER_2025, LATEST_YEAR_2025, PREVIOUS_YEAR_2025, YEARS_2025, getSeries2025 } from '@/data/api'
+import { BREAK_AFTER_2025, LATEST_YEAR_2025, TREND_START_2025, YEARS_2025, getSeries2025 } from '@/data/api'
 import type { Commodity2025, Metric, YearKey2025 } from '@/data/types'
 import { flaggedYearsFor } from '@/content/flags-2025'
 import { OTHER_PRODUCTS_2025 } from '@/content/groups'
@@ -15,7 +15,7 @@ export interface CommodityRow2025 {
   petani?: number | null
   operator?: number | null
   produktivitas?: number | null
-  /** Perubahan metrik terpilih dari 2023 ke 2024 (%); null bila tidak terdefinisi */
+  /** Perubahan metrik terpilih dari 2020 ke 2024 (%); null bila tidak terdefinisi */
   change: number | null
   /** Seri metrik terpilih untuk sparkline; kosong bila ada tahun yang kosong */
   spark: number[]
@@ -34,7 +34,7 @@ export function buildRows2025(commodities: Commodity2025[], year: YearKey2025, m
       return !!s && flaggedYearsFor(c.id, m, s.values, years).includes(year)
     }
     const sel = getSeries2025(c, metric)
-    const a = sel?.values[PREVIOUS_YEAR_2025]
+    const a = sel?.values[TREND_START_2025]
     const b = sel?.values[LATEST_YEAR_2025]
     const values = sel ? years.map((y) => sel.values[y]) : []
     return {

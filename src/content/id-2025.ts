@@ -43,7 +43,7 @@ export const ui2025 = {
     sourcePrefix: 'Sumber:',
     flagLegend: '',
     breakLabel: 'Patahan data',
-    breakNote: 'Garis putus-putus memisahkan data 2019-2022 dan 2023-2024, yang dikumpulkan dengan cakupan berbeda; kedua periode tidak dibandingkan langsung.',
+    breakNote: 'Garis putus-putus menandai pergantian periode pendataan, dari 2020-2022 ke 2023-2024. Perubahan persen dihitung dari 2020 ke 2024.',
   },
   home: {
     title: 'Pertanian organik Indonesia 2025',
@@ -65,7 +65,7 @@ export const ui2025 = {
           ? `${noun} ${name} organik relatif tetap dari ${from} ke ${to}`
           : `${noun} ${name} organik ${dir} ${pct} dari ${from} ke ${to}`,
       titleNoPct: (noun: string, name: string, year: string, value: string) => `${noun} ${name} organik pada ${year}: ${value}`,
-      aria: (noun: string, name: string) => `Grafik garis ${noun.toLowerCase()} ${name} organik per tahun, 2019 sampai 2024`,
+      aria: (noun: string, name: string) => `Grafik garis ${noun.toLowerCase()} ${name} organik per tahun, 2020 sampai 2024`,
       columns: { year: 'Tahun', value: 'Nilai' },
       nouns: { luas: 'Luas lahan', produksi: 'Produksi', petani: 'Jumlah produsen', operator: 'Jumlah operator', produktivitas: 'Produktivitas' },
     },
@@ -75,14 +75,14 @@ export const ui2025 = {
       aria: (name: string) => `Tampilkan tren ${name}`,
       groups: { tanaman: 'Tanaman', produkLain: 'Produk lain' },
       groupNote: 'Produk lain dipisah karena satuannya sangat berbeda dari tanaman.',
-      columns: { rank: 'Peringkat', group: 'Kelompok', name: 'Komoditas', value: 'Nilai', change: 'Perubahan 2023-2024 (%)' },
+      columns: { rank: 'Peringkat', group: 'Kelompok', name: 'Komoditas', value: 'Nilai', change: 'Perubahan 2020-2024 (%)' },
       noValue: 'Tidak ada data',
     },
     change: {
       title: (name: string, dir: 'naik' | 'turun', pct: string, metric: string, from: string, to: string) =>
         `${name} ${dir} paling tajam: ${metric.toLowerCase()} ${dir} ${pct} dari ${from} ke ${to}`,
-      titleNone: 'Perubahan 2023 ke 2024 per komoditas',
-      note: 'Hanya kelompok tanaman. Perubahan dihitung dari 2023 ke 2024; periode sebelumnya tidak dihitung karena ada perubahan tajam antara 2022 dan 2023.',
+      titleNone: 'Perubahan 2020 ke 2024 per komoditas',
+      note: 'Hanya kelompok tanaman dengan data sejak 2020. Perubahan dihitung dari 2020 ke 2024; data 2020-2022 dan 2023-2024 berasal dari dua periode pendataan.',
       columns: { name: 'Komoditas', pct: 'Perubahan (%)' },
     },
     coverage: {
@@ -104,7 +104,7 @@ export const ui2025 = {
       columns: { no: 'No', name: 'Indikator', status: 'Status', note: 'Keterangan' },
       source: 'SPOI 2025',
       rows: [
-        { no: 1, name: 'Luas lahan organik', status: 'ada', note: 'Total nasional dan 38 provinsi untuk 2023-2024; per komoditas 2019-2024. Provinsi tanpa data ditandai di peta.' },
+        { no: 1, name: 'Luas lahan organik', status: 'ada', note: 'Total nasional dan 38 provinsi untuk 2023-2024; per komoditas 2020-2024. Provinsi tanpa data ditandai di peta.' },
         { no: 2, name: 'Persentase luas lahan dan produktivitas', status: 'sebagian', note: 'Produktivitas (ton/ha) per komoditas tersedia untuk 2023-2024. Persentase terhadap lahan pertanian sedang disiapkan.' },
         { no: 3, name: 'Penjualan retail organik', status: 'belum', note: 'Sedang disiapkan; data retail dalam proses pengumpulan.' },
         { no: 4, name: 'Produsen organik', status: 'ada', note: 'Total produsen dan produsen menurut gender per provinsi (2023-2024), serta produsen per komoditas.' },
@@ -125,7 +125,7 @@ export const ui2025 = {
       people: 'orang',
       since: (year: string) => `sejak ${year}`,
       sparkAria: (what: string, from: string, to: string) => `Tren ${what.toLowerCase()} dari ${from} sampai ${to}, dengan pergantian periode pendataan antara 2022 dan 2023`,
-      trendNote: 'Garis putus-putus menandai pergantian periode pendataan, dari 2019-2022 ke 2023-2024. Perubahan dihitung dari 2019 ke 2024.',
+      trendNote: 'Garis putus-putus menandai pergantian periode pendataan, dari 2020-2022 ke 2023-2024. Perubahan dihitung dari 2020 ke 2024.',
       gender: 'Produsen menurut jenis kelamin',
       men: 'Laki-laki',
       women: 'Perempuan',
@@ -164,7 +164,7 @@ export const ui2025 = {
     title: 'Komoditas',
     lead: (n: number) => `Bandingkan ${n} komoditas menurut luas lahan, produksi, dan jumlah produsen. Pilih tahun dan metrik.`,
     controls: { year: 'Tahun', metric: 'Metrik pada grafik' },
-    periodNote: 'Ada perubahan tajam antara 2022 dan 2023; angka dari kedua periode tidak dibandingkan langsung.',
+    periodNote: 'Perubahan persen dihitung dari 2020 ke 2024. Data 2020-2022 dan 2023-2024 berasal dari dua periode pendataan.',
     metricNames: { luas: 'Luas lahan', produksi: 'Produksi', petani: 'Produsen', produktivitas: 'Produktivitas' },
     units: { luas: 'ha', produksi: 'ton', petani: 'orang', produktivitas: 'ton/ha' },
     chartPhrase: {
@@ -190,15 +190,15 @@ export const ui2025 = {
       prod: 'Produksi (ton)',
       people: 'Produsen (orang)',
       yield: 'Produktivitas (ton/ha)',
-      change: (metric: string) => `Perubahan ${metric.toLowerCase()} 2023-2024 (%)`,
+      change: (metric: string) => `Perubahan ${metric.toLowerCase()} 2020-2024 (%)`,
       trend: (metric: string) => `Tren ${metric.toLowerCase()}`,
     },
-    sparkAria: (metric: string, name: string) => `Tren ${metric.toLowerCase()} ${name}, 2019 sampai 2024, dengan perubahan tajam antara 2022 dan 2023`,
+    sparkAria: (metric: string, name: string) => `Tren ${metric.toLowerCase()} ${name}, 2020 sampai 2024, dengan pergantian periode pendataan antara 2022 dan 2023`,
   },
   detail: {
     back: 'Komoditas',
     notFoundTitle: 'Komoditas tidak ditemukan',
-    lead: (year: string) => `Ringkasan ${year} dan tren 2019-2024`,
+    lead: (year: string) => `Ringkasan ${year} dan tren 2020-2024`,
     summary: (year: string) => `Ringkasan ${year}`,
     summaryNames: { luas: 'Luas lahan', produksi: 'Produksi', petani: 'Produsen', operator: 'Operator', produktivitas: 'Produktivitas' },
     units: { luas: 'ha', produksi: 'ton', petani: 'orang', operator: 'operator', produktivitas: 'ton/ha' },
@@ -408,7 +408,7 @@ export const ui2025 = {
       processing:
         'Pengolahan: verifikasi dan validasi internal untuk mengurangi duplikasi, pengelompokan menurut wilayah, komoditas, dan jenis pelaku, lalu tabulasi dan agregasi. Analisisnya deskriptif, tanpa inferensi statistik.',
       dashboard:
-        'Dashboard menampilkan data agregat per komoditas dan provinsi. Total nasional dihitung dari jumlah 38 provinsi. Angka turunan hanya perubahan persen 2023 ke 2024, porsi menurut jenis kelamin, serta persentase dari jumlah responden atau wilayah.',
+        'Dashboard menampilkan data agregat per komoditas dan provinsi. Total nasional dihitung dari jumlah 38 provinsi. Angka turunan: perubahan persen dari 2020 ke 2024 (tren lima tahun), porsi menurut jenis kelamin, serta persentase dari jumlah responden atau wilayah.',
     },
     definitions: {
       items: [
@@ -420,7 +420,7 @@ export const ui2025 = {
         { term: 'Sertifikasi', text: 'Luas menurut jenis sertifikasi (masa konversi, PGS, self declare) hanya mencakup sebagian kecil dari total luas; sisanya tidak dirinci jenisnya.' },
         { term: 'Kelengkapan data', text: 'Status pelaporan kabupaten/kota dan lembaga: lengkap, ada tetapi tidak lengkap, atau tidak ada data.' },
         { term: 'Responden survei', text: '235 responden konsumen pangan organik. Hasilnya bukan sensus dan tidak mewakili seluruh konsumen Indonesia.' },
-        { term: 'Perubahan tajam 2022-2023', text: 'Hampir semua seri komoditas berubah tajam di antara dua tahun itu. Perubahan persen tidak dihitung melewatinya.' },
+        { term: 'Tren lima tahun', text: 'Perubahan persen dihitung dari 2020 ke 2024. Komoditas yang datanya baru ada sejak 2023 (Mete, Minyak Atsiri, Palawija, Sayur-Buah-Biofarmaka) tidak punya perubahan persen. Data 2020-2022 dan 2023-2024 berasal dari dua periode pendataan; garis putus-putus pada grafik menandai pergantiannya.' },
       ],
     },
     limits: {
@@ -439,9 +439,9 @@ export const ui2025 = {
     },
     notes: {
       lead: 'Hal yang perlu diperhatikan saat membaca angka SPOI 2025.',
-      breakTitle: 'Perubahan tajam antara 2022 dan 2023',
+      breakTitle: 'Dua periode pendataan',
       breakText:
-        'Data 2019-2022 dan 2023-2024 dikumpulkan dengan cakupan yang berbeda, sehingga angkanya tidak dibandingkan langsung. Pada grafik, garis putus-putus memisahkan kedua periode.',
+        'Data 2020-2022 dan 2023-2024 berasal dari dua periode pendataan, sehingga sebagian seri berubah tajam di antara 2022 dan 2023, misalnya jumlah produsen dari 41.564 ke 123.394 orang. Pada grafik, garis putus-putus menandai pergantiannya.',
       itemsTitle: 'Catatan per komoditas',
       items: [
         'Kelapa dipisah menjadi Kelapa (Gula) dan Kelapa (Dehusked); keduanya tidak dijumlahkan.',
@@ -452,7 +452,7 @@ export const ui2025 = {
       ],
     },
     demo: {
-      text: 'Dashboard ini menampilkan statistik pertanian organik Indonesia dari SPOI 2025 secara interaktif. Hanya edisi SPOI 2025 yang ditampilkan; data 2019-2022 di dalamnya sama dengan edisi 2023. Data pasar (retail, ekspor-impor) belum tersedia.',
+      text: 'Dashboard ini menampilkan statistik pertanian organik Indonesia dari SPOI 2025 secara interaktif. Hanya edisi SPOI 2025 yang ditampilkan; data 2020-2022 di dalamnya sama dengan edisi 2023. Data pasar (retail, ekspor-impor) belum tersedia.',
     },
     credit: {
       title: 'Kredit',

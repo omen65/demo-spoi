@@ -14,7 +14,7 @@ const props = defineProps<{
   title: string
   lead: string
   year: string
-  /** Tahun awal deret tren (2019) dan indeks tahun terakhir sebelum pergantian periode pendataan */
+  /** Tahun awal deret tren (2020) dan indeks tahun terakhir sebelum pergantian periode pendataan */
   trendStart: string
   breakAfterIndex: number
   area: number

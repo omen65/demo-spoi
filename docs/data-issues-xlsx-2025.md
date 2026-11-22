@@ -38,3 +38,8 @@ Pertanyaan untuk AOI:
 2. Jumlah produsen melonjak dari 41.564 (2022) ke 123.394 (2023), hampir tiga kali lipat. Ada perubahan definisi atau cakupan?
 3. Produksi produk olahan melonjak dari 4.795 ton (2022) ke 317.938 ton (2023); Lampung baru muncul dengan 75.033 ton dan Sulawesi Tengah 50.000 ton. Apakah satuannya ton?
 4. Baris total Beras (2023, 2024) dan Sayur-Buah (2024) masih lebih besar tepat sebesar angka tahun dari jumlah provinsi; rumus belum diperbaiki.
+
+## Arahan AOI berikutnya (2026-11-22)
+
+- Data 2019 tidak dimasukkan; tren mulai 2020. `scripts/extract_xlsx_2025.py` tetap membaca dan memvalidasi 2019, tetapi tidak menuliskannya ke JSON.
+- Perubahan persen di dashboard (hero, kartu "terbesar", peringkat, detail komoditas) dihitung dari 2020 ke 2024. Hero: luas +40,9% (65.108,13 ke 91.765,65 ha), produsen +243,8% (36.192 ke 124.418).

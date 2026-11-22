@@ -43,10 +43,12 @@ const provinces = provincesRaw as unknown as ProvincesData2025
 const meta2025 = meta2025Raw as unknown as Meta2025
 const coverage2025 = coverage2025Raw as unknown as CoverageData
 
-export const YEARS_2025: readonly YearKey2025[] = ['2019', '2020', '2021', '2022', '2023', '2024']
+export const YEARS_2025: readonly YearKey2025[] = ['2020', '2021', '2022', '2023', '2024']
 export const LATEST_YEAR_2025: YearKey2025 = '2024'
 export const PREVIOUS_YEAR_2025: YearKey2025 = '2023'
-/** Tahun terakhir sebelum patahan data (pendataan 2023-2024 berbeda cakupannya dari 2019-2022). */
+/** Awal tren lima tahun yang dipakai untuk perubahan persen (2020 ke 2024). */
+export const TREND_START_2025: YearKey2025 = '2020'
+/** Tahun terakhir sebelum patahan data (pendataan 2023-2024 berbeda cakupannya dari 2020-2022). */
 export const BREAK_AFTER_2025: YearKey2025 = '2022'
 
 export function getMeta2025(): Meta2025 {
@@ -64,7 +66,7 @@ const METRIC_MAP: readonly (readonly [Metric, ProvinceMetric2025])[] = [
   ['petani', 'produsen'],
 ]
 
-/** Produktivitas hanya dihitung untuk 2023-2024: seri 2019-2022 punya produksi yang tidak sejalan dengan luasnya (mis. aren 60 ton/ha). */
+/** Produktivitas hanya dihitung untuk 2023-2024: seri 2020-2022 punya produksi yang tidak sejalan dengan luasnya (mis. aren 34 ton/ha). */
 const PRODUCTIVITY_YEARS: readonly YearKey2025[] = ['2023', '2024']
 
 /** Produktivitas nasional (ton/ha) = jumlah produksi / jumlah luas, hanya dari provinsi yang punya keduanya. */
@@ -181,7 +183,7 @@ export function getProvinces2025(): ProvincesData2025 {
   return provinces
 }
 
-/** Deret nasional 2019-2024: total luas lahan organik dan total produsen (jumlah 38 provinsi). */
+/** Deret nasional 2020-2024: total luas lahan organik dan total produsen (jumlah 38 provinsi). */
 export function getNationalSeries2025(): ProvincesData2025['nationalSeries'] {
   return provinces.nationalSeries
 }

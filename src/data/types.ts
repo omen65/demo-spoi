@@ -96,7 +96,7 @@ export interface ResearchData {
 // SPOI 2025 (Draft V13). Berdiri sendiri: tidak dipakai bersama tipe 2023.
 // ---------------------------------------------------------------------------
 
-export type YearKey2025 = '2019' | '2020' | '2021' | '2022' | '2023' | '2024'
+export type YearKey2025 = '2020' | '2021' | '2022' | '2023' | '2024'
 
 export interface SeriesData2025 {
   unit: string
@@ -167,7 +167,7 @@ export interface ProvincesData2025 {
   note: string
   sources: { luas: string; produsen: string; sertifikasi2024: string }
   national: Record<'2023' | '2024', { luas: number | null } & GenderCount2025>
-  /** Deret nasional 2019-2024. luas = kolom "(real)" untuk 2023-2024; luasAlt = kolom tanpa keterangan di sheet AOI. */
+  /** Deret nasional 2020-2024. luas = kolom "(real)" untuk 2023-2024; luasAlt = kolom tanpa keterangan di sheet AOI. */
   nationalSeries: Record<'luas' | 'luasAlt' | 'produsen', Record<YearKey2025, number | null>>
   provinces: ProvinceRow2025[]
 }

@@ -13,7 +13,7 @@ import { formatNumber, formatPercent } from '@/composables/useFormat'
 import {
   BREAK_AFTER_2025,
   LATEST_YEAR_2025,
-  PREVIOUS_YEAR_2025,
+  TREND_START_2025,
   YEARS_2025,
   getCommodities2025,
   getCommodity2025,
@@ -31,7 +31,7 @@ const home = ui2025.home
 const route = useRoute()
 const YEARS = [...YEARS_2025]
 const LATEST = LATEST_YEAR_2025
-const PREVIOUS = PREVIOUS_YEAR_2025
+const PREVIOUS = TREND_START_2025
 
 const commodity = computed(() => getCommodity2025(String(route.params.id)))
 

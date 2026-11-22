@@ -19,6 +19,7 @@ import {
   BREAK_AFTER_2025,
   LATEST_YEAR_2025,
   PREVIOUS_YEAR_2025,
+  TREND_START_2025,
   YEARS_2025,
   getCommodities2025,
   getCoverage2025,
@@ -40,6 +41,7 @@ const coverage = getCoverage2025().kabupatenKota
 const YEARS = [...YEARS_2025]
 const LATEST = LATEST_YEAR_2025
 const PREVIOUS = PREVIOUS_YEAR_2025
+const TREND_START = TREND_START_2025
 const breakIndex = YEARS.indexOf(BREAK_AFTER_2025)
 const commodities = getCommodities2025()
 
@@ -69,7 +71,7 @@ function rowsFor(m: HomeMetric): Row[] {
       const s = getSeries2025(c, m)
       if (!s) return []
       const value = s.values[LATEST]
-      const previous = s.values[PREVIOUS]
+      const previous = s.values[TREND_START]
       return [
         {
           id: c.id,
@@ -93,7 +95,7 @@ const tanamanRows = computed(() => rows.value.filter((r) => r.group === 'tanaman
 const produkRows = computed(() => rows.value.filter((r) => r.group === 'produkLain'))
 const picked = computed(() => rows.value.find((r) => r.id === pickId.value) ?? rows.value[0])
 const maxValue = computed(() => Math.max(...tanamanRows.value.map((r) => r.value ?? 0), 1))
-const isFlagged = (r: Row): boolean => r.flaggedYears.includes(LATEST) || r.flaggedYears.includes(PREVIOUS)
+const isFlagged = (r: Row): boolean => r.flaggedYears.includes(LATEST) || r.flaggedYears.includes(TREND_START)
 
 // --- Tiga angka utama: komoditas tanaman terbesar per metrik ---
 const headline = computed<HeadlineItem[]>(() =>
@@ -111,7 +113,7 @@ const headline = computed<HeadlineItem[]>(() =>
         value: top.value,
         unit: t.metricUnits[m],
         pct: top.pct,
-        since: t.headline.since(PREVIOUS),
+        since: t.headline.since(TREND_START),
         values: spark,
         sparkLabel: t.headline.sparkAria(name, top.name, YEARS[0] ?? '', LATEST, formatNumber(first ?? 0), formatNumber(top.value)),
         flagged: isFlagged(top),
@@ -128,7 +130,7 @@ const trendTitle = computed(() => {
   const noun = t.trend.nouns[metric.value]
   const name = r.name.toLowerCase()
   const dir = direction(r.pct)
-  if (r.pct !== null && dir !== null) return t.trend.title(noun, name, dir, formatPercent(r.pct), PREVIOUS, LATEST)
+  if (r.pct !== null && dir !== null) return t.trend.title(noun, name, dir, formatPercent(r.pct), TREND_START, LATEST)
   const lastIdx = r.values.reduce<number>((acc, v, i) => (v !== null ? i : acc), -1)
   const lastValue = lastIdx >= 0 ? r.values[lastIdx] : null
   return lastValue !== null && lastValue !== undefined
@@ -172,7 +174,7 @@ const deltaTitle = computed(() => {
   const bottom = deltaItems.value[deltaItems.value.length - 1]
   if (!top || !bottom) return t.change.titleNone
   const lead = Math.abs(top.pct) >= Math.abs(bottom.pct) ? top : bottom
-  return t.change.title(lead.name, lead.pct >= 0 ? 'naik' : 'turun', formatPercent(lead.pct), metricName.value, PREVIOUS, LATEST)
+  return t.change.title(lead.name, lead.pct >= 0 ? 'naik' : 'turun', formatPercent(lead.pct), metricName.value, TREND_START, LATEST)
 })
 const deltaColumns: TableColumn[] = [
   { key: 'name', label: t.change.columns.name },

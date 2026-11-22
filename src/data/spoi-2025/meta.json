@@ -5,10 +5,10 @@
   "publisher": "Bappenas dan Aliansi Organis Indonesia",
   "published": "2025",
   "dataYears": {
-    "from": 2019,
+    "from": 2020,
     "to": 2024
   },
-  "collectionNote": "Seri 2019-2022 identik dengan SPOI 2023; 2023-2024 adalah pendataan baru dengan cakupan berbeda, jadi angka sebelum dan sesudah 2022 tidak langsung sebanding.",
+  "collectionNote": "Seri 2020-2022 identik dengan SPOI 2023; 2023-2024 adalah pendataan baru dengan cakupan berbeda.",
   "externalSource": "Progres Rekap Per Provinsi SPOI 2025 & Policy Study.xlsx (AOI)",
   "sourceFile": "source/spoi-2025-rekap-provinsi.xlsx; Statistik Pertanian Organik Indonesia Draft V13 (1).docx (konsumen, ekosistem, riset)",
   "coverage": {

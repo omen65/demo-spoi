@@ -15,6 +15,8 @@ Aturan (keputusan Feri dan jawaban AOI, 2026-11-22):
   - Sheet Horti: luas dan produsen berupa total gabungan; produksi per kategori. Sayur+buah+biofarmaka dan Palawija
     hanya ada 2023-2024; Kacang (Nuts) dan Umbi (Roots) 2019-2024.
 
+Catatan: 2019 dibaca dan divalidasi tetapi tidak ditulis ke keluaran (arahan AOI: tren mulai 2020).
+
 Jalankan: .venv/bin/python scripts/extract_xlsx_2025.py
 """
 from __future__ import annotations
@@ -359,16 +361,26 @@ def build_provinces(wb: openpyxl.Workbook) -> dict:
     }
 
 
+def strip_year(node: object, year: str = "2019") -> object:
+    """Buang tahun yang tidak dipakai dashboard (AOI: data 2019 tidak dimasukkan) dari seluruh keluaran."""
+    if isinstance(node, dict):
+        return {k: strip_year(v, year) for k, v in node.items() if k != year}
+    if isinstance(node, list):
+        return [strip_year(v, year) for v in node]
+    return node
+
+
 def main() -> int:
     wb = openpyxl.load_workbook(XLSX, data_only=True)
     prov = build_provinces(wb)
     com = build_commodities(wb) + build_horti(wb) + build_processed(wb)
     OUT.mkdir(parents=True, exist_ok=True)
+    prov = strip_year(prov)  # type: ignore[assignment]
     (OUT / "provinces-2025.json").write_text(json.dumps(prov, ensure_ascii=False, indent=1) + "\n")
     (OUT / "commodity-provinces.json").write_text(json.dumps({
-        "edition": EDITION, "years": YEARS,
+        "edition": EDITION, "years": [y for y in YEARS if y != 2019],
         "note": "Nilai null = tidak ada yang melapor. 2019-2022 identik dengan SPOI 2023 kecuali yang tercantum di laporan validasi.",
-        "commodities": com}, ensure_ascii=False, indent=1) + "\n")
+        "commodities": strip_year(com)}, ensure_ascii=False, indent=1) + "\n")
     print(f"Ditulis: {OUT/'provinces-2025.json'}, {OUT/'commodity-provinces.json'}")
     print(f"Laporan validasi ({len(report)}):")
     for line in report:
